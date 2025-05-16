@@ -7,7 +7,7 @@ import json
 
 chunk_id = 1
 
-filename = 'initial_cleanedup_guideline.html'
+filename = 'initial_cleanedup_guideline_without_tabs.html'
 # if there's no input from command line, use the default filename
 if len(sys.argv) > 1:
     filename = sys.argv[1]
@@ -69,7 +69,7 @@ for p in soup.find_all("p"):
     
     #get the text with <href> links and other tags
     # text = p.get_text(strip=True)
-    text = p.decode_contents().replace('\n', '')
+    text = p.decode_contents().replace('\n', ' ')
     # print(f"text: {text}\n\n")
     
     # mark Type of the text
@@ -89,12 +89,12 @@ for p in soup.find_all("p"):
         sec_id = p.find_parent("figure", id=True).get("id")
     
     chunk = {
-        "text": text,
+        "text": "From section: "+ headings + str(chunk_id) + "\n"+ text,
         "metadata": {
-            "section": sec_id,
+            "section": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11351064/#" + sec_id,
             "type": type,
             "chunk_index": chunk_id,
-            "headings": headings,
+            "headings": headings.replace('\n', ' '),
             "referenced_tables": '',
         }
     }

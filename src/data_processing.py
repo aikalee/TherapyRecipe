@@ -89,7 +89,7 @@ for p in soup.find_all("p"):
         sec_id = p.find_parent("figure", id=True).get("id")
     
     chunk = {
-        "text": "From section: "+ headings + " > paragraph id: " + str(chunk_id) + "\n"+ text,
+        "text": "From section: "+ headings.replace('\n', ' ') + " > paragraph id: " + str(chunk_id) + "\n"+ text,
         "metadata": {
             "section": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11351064/#" + sec_id,
             "type": type,

@@ -171,5 +171,5 @@ def tables_to_json(url="../data/CANMAT_guideline.html"):
 
 doc = tables_to_json()
 
-with open("../processed/tables.json", "w") as f:
+with open("../data/processed/tables.json", "w") as f:
     json.dump(doc, f)

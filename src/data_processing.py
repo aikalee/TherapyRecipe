@@ -70,7 +70,7 @@ import json
 
 chunk_id = 1
 
-filename = "../data/source.html"
+filename = "../data/raw/source.html"
 # if there's no input from command line, use the default filename
 # if len(sys.argv) > 1:
     # filename = sys.argv[1]

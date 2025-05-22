@@ -149,7 +149,7 @@ def to_chunk(text_block, section_url, referee_id, headings):
     return d
 
 
-def tables_to_json(url="../data/CANMAT_guideline.html"):
+def tables_to_json(url="../data/raw/CANMAT_guidelines.html"):
 
     doc = []
 
@@ -172,4 +172,4 @@ def tables_to_json(url="../data/CANMAT_guideline.html"):
 doc = tables_to_json()
 
 with open("../data/processed/tables.json", "w") as f:
-    json.dump(doc, f)
+    json.dump(doc, f, indent=4)

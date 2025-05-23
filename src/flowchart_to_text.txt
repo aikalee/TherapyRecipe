@@ -1,0 +1,46 @@
+**Start**
+
+Assess factors that can interfere with treatment response:
+    - Psychiatric and nonpsychiatric comorbidities
+    - Adherence to treatment
+    - Other biological and psychological factors which may interfere with response
+    - Pharmacokinetic factors (consider pharmacogenetic testing)
+
+-> **Optimize Dose**
+    If another therapeutic dose, or partial response to well-tolerated lower doses within the therapeutic range.
+
+-> **Consider Adding Psychological Treatments**
+    Consider psychotherapy earlier rather than later in treatment
+
+-> **Switch or Adjunctive Medication**
+    Consider advantages and drawbacks for each strategy.
+
+    -> **Switch to Another Antidepressant**
+        Especially if there are intolerance issues with the initial antidepressant.
+        -> **First Line:**
+            Consider an antidepressant with a mechanism of action that is distinct from previous one.
+            Consider an antidepressant with evidence of superior efficacy (Table 3.5).
+        -> **Second Line:**
+            Consider a second- or third-line antidepressant.
+
+    -> **Add an Adjunctive Medication**
+        Especially if there is a partial response to initial antidepressant and it is well tolerated.
+        -> **First Line:**
+            Aripiprazole, brexpiprazole.
+            - Bupropion, N e-sketamine/lv
+            - Ketamine, cariprazine, lithium, mittazapine, modafinil, olanzapine, quetiapine-XL, risperidone, triiodothyronine.
+        -> **Second Line:**
+            Other antidepressants, stimulants, TCAs, monoamine oxidase inhibitors, lamotrigine, pramipexole, zprasidone.
+        -> **Third Line:**
+            Adjunctive transcranial direct current stimulation for MDD
+            Vagus nerve stimulation for DTD
+
+-> **Consider Adding Neuromodulation Treatments for TRD**
+    These are generally considered after one of the switch of adjunctive medication options.
+    -> **First Line:**
+        Electroconvulsive therapy for severe MDE
+        Transcranial magnetic stimulation for TRD
+    -> **Second Line:**
+        Electroconvulsive therapy for DTD
+
+**End**

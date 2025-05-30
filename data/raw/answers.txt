@@ -1,0 +1,33 @@
+Supervised exercise (low to moderate intensity, 30-40 mins at a time, 3-4 weeks, minimum of 9 weeks)
+Light therapy (10,000 lux white light for 30 min daily)
+Duloxetine
+Bupropion
+Cognitive behavioural therapy, interpersonal therapy, and behavioural activation
+St. John's Wort
+Psychotherapy because of fewer side effects, although psychotherapy and pharmacotherapy are equally effective
+Optimize the dose
+If available, consider referral to psychotherapy for CBT, IPT, or behavioural activation
+Since there is tolerability issues and no response, consider switching to an antidepressant of a different class such as an SNRI
+Start them on adjunctive aripiprazole or brexpiprazole
+ECT
+Paroxetine and Venlafaxine
+Bupropion, fluoxetine, mirtazapine, vortioxetine
+A minimum of 6 to 12 months 
+Suggest adding psychotherapy such as CBT to be sequentially added once the acute phase of depression is over. 
+ECG to check for QTc
+Sertraline
+Desvenlafaxine
+Venlafaxine-XR
+The latest update on the Clinical Guidelines for Management of Major Depressive Disorder in Adults is the 2023 update published in 2024
+This application helps users understand the 2023 Update on Clinical Guidelines for Management of Major Depressive Disorder in Adults
+The guidelines are based on an editorial group of 43 clinicans who conducted a comprehensive review of the literature including systematic reviews, meta-analyses. When these were not available, randomized controlled trials were identified instead. 
+This application uses the CANMAT 2023 guidelines, which are based on an editorial group of 43 clinicans who conducted a comprehensive review of the literature including systematic reviews, meta-analyses. When these were not available, randomized controlled trials were identified instead. 
+Level 1 evidence corresponds to high-quality meta-analysis with narrow confidencei intervals and/or 2 or more RCTs. Level 2 evidence is lower-quality meta-analysis, which Level 3 is a small-sample RCT or nonrandomized controlled prospective study, or high quality retrospective study. Level 4 are expert opinions/consensus
+There are numerous risk factors for major depressive disorder. These include family history, history of adverse childhood expereinces, comorbid medical ilnesses, comorbid substance use. There are also social and enviromental risk factors, such as stressful life events, job strain, income inequlity, bulling, sedentary life style, and working night shifts. 
+Yes, when possible, combining psychological treatments with pharmacotherapy is more effective than either alone for acute treatment, and reduces the risk of recurrence. 
+While paroxetine is a first-line antidepressant, its risk of constipation is somewhat high, around 14%.  First line agents with less change of constipation include  escitalopram, sertraline, desvenlafaxine, vortioxetine, vilazodone and bupropion. 
+This application is currently using the 2023 update of the CANMAT guidelines, published in 2024. At the time of its publication, digital health applications for direct-use by pateints had limited evidence. Applications should be assede for whether their techniques are evidence-based and evaluated on real-world populations. Other important factors include the privacy and security of the tool, the potential for providing harmful or inaccurate advice, and whether the patient may experience any barriers
+The guidelines recommend the use of measurement-based care, which involves the routine use of validated outcome scales which are reviewed the pateints, and are used alongside clinical assesement to support collaborative decision-making. Examples of validated scales include patient-rated scales like the Patient Health Questionnaire (PHQ-9), and clinican-rated scalces such as the Hamilton DEpression Rating Scale (HAM-D). 
+We recommend that antidepressents be maintained for 6 to 12 months after a patient achieves remission unless a patient has risk factors for the recurrence of depressive factors, in which case treatment should be continued for 2 years or more. These risk factors include residual symptoms, chronic depressive episodes, medical comorbidities, greater number of previous episodes, poor social support, or persistent stressful life events.
+Assuming the dose is well tolerated, a first step could be to optimize the escitalopram dose to 20 mg. 
+Antidepressants and other medications can usually be continued during ECT treatment. A meta-analysis found that concurrent use of antidepressants during a course of ECT improved outcomes, but this was low-quality evidence based on older trials. Some concomitant medications may interfere with ECT efficacy (e.g., benzodiazepines and anticonvulsant medications) or worsen cognitive side effects (lithium and cannabis), and should be discontinued or held before ECT.

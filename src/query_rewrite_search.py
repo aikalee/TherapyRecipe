@@ -115,7 +115,7 @@ def construct_prompt(query, original_query_results, new_queries, new_queries_res
 
     ### User Query
     {query}
-    ### Original Query Results
+    ### clinical guidelines details
     {json.dumps(original_query_results, indent=2)}
     """
     
@@ -124,7 +124,7 @@ def construct_prompt(query, original_query_results, new_queries, new_queries_res
             prompt += f"""
             ### Rewritten Query {i+1}
             {new_queries[i]}
-            ### Results
+            ### clinical guidelines details
             {json.dumps(new_result, indent=2)}
             """
     

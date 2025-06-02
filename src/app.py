@@ -1,44 +1,59 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-import sqlite3
-from sentence_transformers import SentenceTransformer
-import numpy as np
+import streamlit as st
+from Rag import launch_depression_assistant, depression_assistant
 
-app = FastAPI()
+# --- Sidebar ---
+st.sidebar.title("Settings")
+model_options = [
+    "all-MiniLM-L6-v2",
+    "paraphrase-MiniLM-L6-v2",
+    "sentence-transformers/all-mpnet-base-v2",
+    "intfloat/multilingual-e5-base",
+    "BAAI/bge-small-en-v1.5"
+]
+embedder_name = st.sidebar.selectbox(
+    "Select embedder model",
+    model_options,
+    index=0
+)
 
-embedder_name = 'all-MiniLM-L6-v2'
-embedder = SentenceTransformer(embedder_name)
+# --- Track launch state and embedder ---
+if "launched" not in st.session_state:
+    st.session_state.launched = False
+if "assistant_launched" not in st.session_state:
+    st.session_state.assistant_launched = False
 
-class UserQuery(BaseModel):
-    question: str
+# --- Launch button ---
+if not st.session_state.launched:
+    st.title("Depression Assistant")
+    st.write("This is a simple depression assistant bot. You can ask questions related to depression and get responses based on clinical guidelines.")
+    st.write("The embedder model is chosen from the sidebar.")
+
+    if st.button("Launch Assistant"):
+        st.session_state.launched = True
+        st.rerun()
+
+# --- After launch ---
+if st.session_state.launched:
+    if not st.session_state.assistant_launched:
+        launch_depression_assistant(embedder_name=embedder_name)
+        st.session_state.assistant_launched = True
+
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+    # React to user input
+    if prompt := st.chat_input("What is up?"):
+        # Display user message
+        st.chat_message("user").markdown(prompt)
+        st.session_state.messages.append({"role": "user", "content": prompt})
 
 
-# load data from json file and load embeddings from npy file
-def load_data():
-    # Load documents from a JSON file
-    import json
-    with open('data/guideline_db.json', 'r', encoding='utf-8') as f:
-        documents = json.load(f)
-    # Load embeddings from a numpy file
-    embeddings = np.load(embedder_name + ".npy")
-    return documents, embeddings
-
-documents, doc_embeddings = load_data()
-
-
-
-@app.post("/ask")
-async def answer_question(query: UserQuery):
-    # 1. convert user query to embedding
-    query_embedding = embedder.encode([query.question])[0]
-    
-    # 2. do similarity search
-    scores = np.dot(doc_embeddings, query_embedding)
-    
-    # 3. get the top 3 relevant documents's index and context
-    top_indices = np.argsort(scores)[-3:][::-1]
-    top_contexts = [documents[i]['text'] for i in top_indices]
-    top_index = top_indices[0]
-    
-    return {"answer": top_contexts, "source_id": top_index}
-    
+        response = depression_assistant(prompt)
+        st.chat_message("assistant").markdown(response)
+        st.session_state.messages.append({"role": "assistant", "content": response})

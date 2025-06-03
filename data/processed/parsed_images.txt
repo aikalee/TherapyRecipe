@@ -1,0 +1,655 @@
+Table A. CANMAT Criteria for Level of Evidence.
+
+Row 0 - Level of evidence [a]: Level 1, Symbol: Full green-filled circle, Criteria: High-quality meta-analysis with narrow confidence intervals and/or 2 or more RCTs with adequate sample size [b], preferably placebo-controlled.
+
+Row 1 - Level of evidence [a]: Level 2, Symbol: 3/4 green-filled circle, Criteria: Lower-quality meta-analysis with wide confidence intervals and/or 1 or more RCTs with adequate sample size.
+
+Row 2 - Level of evidence [a]: Level 3, Symbol: 1/2 green-filled circle, Criteria: Small-sample [b] RCTs or nonrandomized, controlled prospective studies or high-quality retrospective studies.
+
+Row 3 - Level of evidence [a]: Level 4, Symbol: 1/4 green-filled circle, Criteria: Expert opinion/consensus.
+
+Note. RCT = randomized controlled trial.
+
+[a] Note that Levels 1 and 2 evidence refer specifically to treatment studies in which randomized comparisons are available. Recommendations involving epidemiological data or risk factors primarily arise from observational studies, which are regarded as Level 3 evidence. Higher order recommendations (e.g., principles of care) often reflect judgment of the strength of evidence from various data sources and therefore are primarily Level 3 or Level 4 evidence.
+
+[b] Adequate sample size defined as ≥30 participants per randomized condition; small-sample defined as <30 participants per randomized condition.
+
+------
+
+Table 1.2. Recommendations[*] for Screening and Assessment
+
+Summary recommendations for screening and assessment
+
+* Carry a high index of suspicion for MDD in individuals with exposure to static nonmodifiable risk factors and dynamic, potentially modifiable risk factors (Level 4).
+* Screen for depression using a validated scale (e.g., PHQ-2 followed by the PHQ-9) in individuals with risk factors for depression, when there are supports and resources in place to follow up with full diagnostic assessment and treatment (Level 2).
+* Conduct a comprehensive diagnostic assessment that addresses biological, psychological, and social factors while recognizing ethnocultural diversity, within a longitudinal life-course framework (Level 4).
+* For equity-deserving groups in particular, use screening, culturally competent care, collaborative care, and digital health interventions to improve access to and quality of mental health care (Level 4).
+
+[*]Recommendations for principles of care are generally based on Level 3 and Level 4 evidence. 
+Note. MDD = major depressive disorder; PHQ = Patient Health Questionnaire.
+
+------
+
+Figure 1.1. Priciples of clinical assessment and management of major depressive disorder.
+
+The image presents a flowchart illustrating the principles of clinical management. The flowchart is structured in a circular pattern, with each step building upon the previous one to form a cohesive process.
+
+**Step 1: Conduct a thorough assessment**
+
+**Step 2: Obtain collateral information**
+
+**Step 3: Formulate a diagnosis and differential diagnosis**
+
+**Step 4: Support education and self-management**
+
+**Step 5: Establish a therapeutic alliance**
+
+**Step 6: Construct a comprehensive safety and management plan**
+
+**Step 7: Deliver evidence-based treatments**
+
+**Step 8: Use measurement-based care to monitor outcomes**
+
+**Step 9: Conduct a thorough assessment (again)**
+
+The first step is to conduct a thorough assessment of biological, psychological, and social factors, using collateral information when available, to formulate a diagnosis and differential diagnosis. Other management principles are discussed in subsequent questions (Q.2, Q.3, Q.5). Recommendations for principles of care are generally based on Level 3 and Level 4 evidence.
+
+------
+
+Table 2.4. Summary Recommendations for Lifestyle Interventions.
+
+
+**First Line of Treatment**
+	
+	*   Supervised exercise (low to moderate intensity, for 30 to 40 min at a time, 3 to 4 times a week, for a minimum of 9 weeks) for MDE of mild severity
+			*   **Level of evidence:** Level 1
+
+	*   Light therapy (10,000 lux white light for 30 min daily) for MDEs with seasonal (winte) pattern.	
+			*   **Level of evidence:** Level 1
+
+**Second Line of Treatment**
+	
+	*   Light therapy for mild severity nonseasonal MDE.
+		*   **Level of evidence:** Level 2
+
+	*   Adjunctive exercise for moderate severity MDE.
+		*   **Level of evidence:** Level 2
+
+	*   Adjunctive light therapy for moderate severity nonseasonal MDE.
+		*   **Level of evidence:** Level 2
+
+	*   Adjunctive sleep hygiene and CBT-I.	
+		*   **Level of evidence:** Level 3
+
+**Third Line of Treatment**
+		
+	*   Adjunctive healthy diet (varied diet with high content of fruit, vegetables, and fibre, and low	content of saturated fat and carbohydrates).
+		*   **Level of evidence:** Level 3
+
+	*   Adjunctive Mediterranean diet.
+		*   **Level of evidence:** Level 3
+
+	*   Adjunctive sleep deprivation (wake therapy).
+		*   **Level of evidence:** Level 3	
+
+**Insufficient evidence**	
+	*   Probiotics.	
+		*   **Level if evidence:** n/a	
+
+Note. MDE = major depressive episode; CBT-I = cognitive-behavioural therapy for insomnia.	
+
+------
+
+Table 3.7. Summary Recommendations for (CAM) Treatments.
+
+**First Line of Treatment**
+
+	*   St. John's wort for MDE of mild severity.	
+		*   **Level of evidence:** Level 1
+
+**Second Line of Treatment**	
+	
+	*   Acupuncture for mild severity MDE.
+		*   **Level of evidence:** Level 2
+			
+	*   St John's wort for moderate severity MDE.
+		*   **Level of evidence:** Level 2
+		
+	*   Adjunctive acupuncture for moderate severity MDE.	
+		*   **Level of evidence:** Level 2
+		
+	*   Adjunctive L-methyl folate for mild-moderate severity MDE.
+		*   **Level of evidence:** Level 2
+
+**Third Line of Treatment**
+	
+	*  	Adjunctive SAM-e for mild to moderate severity MDE.	
+		*   **Level of evidence:** Level 2
+
+	*   DHEA for mild severity MDE		
+		*   **Level of evidence:** Level 3
+
+	*   Omega-3 fatty acids for mild severity MDE	
+		*   **Level of evidence:** Level 3
+
+	*   Saffron, lavender, or roseroot for mild severity MDE.	
+		*	**Level of evidence:** Level 3
+
+Note. CAM = complementary and alternative medicine; MDE = major depressive episode: SAM-e = S-adenosyl-L-methionine: DHEA =	
+dehydroepiandrosterone. These recommendations are organized according to the degree of severity of MDE. To date, no CAM treatment has reached the leve	
+of evidence that would make it comparable to a first-line psychotherapy or pharmacotherapy treatment for moderate to severe depression.	
+
+------
+
+Table 3.1. Summary Recommendations for Selecting the Initial Treatment. [1]
+
+The table presents a summary of recommendations for initial treatment selection based on the severity of Major Depressive Episode (MDE) and the level of evidence supporting each recommendation. The table is divided into four sections, each representing a different level of evidence: Level 1, Level 2, Level 3, and Level 4.
+
+**Mild with low safety risk.**
+
+	* Psychotherapy and pharmacotherapy demonstrate similar benefits.
+	* Psychotherapy (if readily accessible) is preferred because of fewer risks.
+	* Exercise, certain CAM treatments, or guided DHIIs may be considered as monotherapy, especially if preferred by patients.
+
+**Moderate, with low-moderate safety risk.**
+
+	* Initial choice is between pharmacotherapy and psychotherapy.
+	* Pharmacotherapy is slightly more efficacious in reducing depressed mood, guilt, suicidal thoughts, anxiety, and somatic symptoms during acute treatment.
+	* Structured psychotherapy, specifically CBT, is slightly more efficacious in the medium-term (6–12 months).
+	* Combination of pharmacotherapy and psychotherapy may be considered.
+	* Exercise, certain CAM treatments and/or DHIIs may be considered as adjuncts to psychotherapy and/or pharmacotherapy, especially if preferred by patients.
+
+**Severe, with moderate to high safety risk.**
+
+	* For severe MDE without psychotic symptoms, use a combination of pharmacotherapy and psychotherapy.
+	* For severe MDE with psychotic symptoms, use a combination of antidepressant and antipsychotic medication.
+	* For very severe and/or life-threatening situations, consider electroconvulsive therapy.
+
+Note. MDE = major depressive episode; CAM = complementary and alternative medicine; DHI = digital health intervention; CBT = cognitive-behavioural therapy. 
+These recommendations are based on the severity of the illness (see conventions) and safety risk (see Q.2.c), but other factors should be considered, including treatment response in previous episodes, patient preference, and treatment availability.
+There is stronger evidence for the efficacy and safety of pharmacotherapy and psychotherapy compared to exercise (Q.2.f), complementary and alternative medicine treatments (Q.3.m), and digital health interventions (Q.4.d).
+[1] The level of evidence refers to the choice of treatment, not to the treatments themselves.
+
+------
+
+Table 3.2. Summary Recommendations for Psychological Treatments.
+
+The table presents a comprehensive overview of psychological treatments, categorized into three lines of treatment, each with its corresponding psychological treatment and level of evidence. The table is structured to facilitate easy comparison and analysis of the various treatments.
+
+**Line fo Treatment**
+
+	*   **First Line of Treatment**
+		*   Cognitive-behavioral therapy (CBT)
+		*   Interpersonal therapy (IPT)
+		*   Behavioral activation (BA)
+		
+	*   **Second Line of Treatment**
+		*   Cognitive behavioral analysis system of psychotherapy (CBASP)
+		*   Mindfulness-based cognitive therapy (MBCT)
+		*   Problem-solving therapy (PST)
+		*   Short-term psychodynamic psychotherapy (STPP)
+		*   Transdiagnostic psychological treatment of emotional disorders[*]
+		
+	*   **Third Line of Treatment**
+		*   Acceptance & commitment therapy (ACT)
+		*   Long-term psychodynamic psychotherapy (PDT)
+		*   Metacognitive therapy (MCT)[*]
+		*   Motivational interviewing (MI)
+
+**Level of Evidence**
+
+	*   Level 1: Cognitive-behavioral therapy (CBT), Interpersonal therapy (IPT), Behavioral activation (BA)
+	*   Level 2: Cognitive behavioral analysis system of psychotherapy (CBASP), Mindfulness-based cognitive therapy (MBCT), Problem-solving therapy (PST), Short-term psychodynamic psychotherapy (STPP), Transdiagnostic psychological treatment of emotional disorders [*]
+	*   Level 3: Acceptance & commitment therapy (ACT), Long-term psychodynamic psychotherapy (PDT), Metacognitive therapy (MCT) [*]
+	*   Level 4: Motivational interviewing (MI)
+
+
+Note. By convention, the order of recommendations within each line of treatment is listed first by level of evidence, then by alphabetical order.
+[*] Starred items indicate changes since the CANMAT 2016 guidelines, based on updated evidence.
+
+------
+
+Table 3.3. Summary Recommendations for Antidepressants.
+
+The table presents a comprehensive overview of various antidepressant medications, categorized by their line of treatment. The table is divided into four columns: "Line of treatment," "Antidepressant," "Daily dose" [1], "Mechanism", and "Level of evidence". The "Line of treatment" column is further subdivided into three categories: "First line," "Second line," and "Third line."
+
+**First Line of Treatment**
+
+*   Citalopram: 20-40 mg, SSRI, Level 1
+*   Escitalopram: 10-20 mg, SSRI, Level 1
+*   Fluoxetine: 20-60 mg, SSRI, Level 1
+*   Paroxetine: 20-50 mg, SSRI, Level 1
+*   Sertraline: 50-200 mg, SSRI, Level 1
+*   Desvenlafaxine: 50-100 mg, SNRI, Level 1
+*   Duloxetine: 60-120 mg, SNRI, Level 1
+*   Levomilnacipran [*]: 40-120 mg, SNRI, Level 1
+*   Venlafaxine-XR: 75-225 mg, SNRI, Level 1
+*   Bupropion: 150-450 mg, NDRI, Level 1
+*   Mirtazapine: 30-60 mg, α2 antagonist; 5-HT2 antagonist, Level 1
+*   Vilazodone [*]: 20-40 mg, SRI; 5-HT1A agonist, Level 1
+*   Vortioxetine: 10-20 mg, SRI; 5-HT1A, 5-HT1B agonist; 5-HT1D, 5-HT3A, 5-HT7 antagonist, Level 1
+*   Agomelatine [#]: 25-50 mg, MT1, MT2 agonist; 5-HT2 antagonist, Level 1
+*   Mianserin [#]: 30-90 mg, α2 antagonist; 5-HT2 antagonist, Level 1
+*   Milnacipran [#]: 50-200 mg, SNRI, Level 1
+
+**Second Line of Treatment**
+
+*   Amitriptyline: 75-300 mg, TCA, Level 1
+*   Clomipramine: 150-300 mg, TCA, Level 1
+*   Desipramine: 100-300 mg, TCA, Level 1
+*   Doxepin: 75-300 mg, TCA, Level 1
+*   Imipramine: 75-300 mg, TCA, Level 1
+*   Nortriptyline: 75-150 mg, TCA, Level 1
+*   Protriptyline: 30-60 mg, TCA, Level 1
+*   Trimipramine: 75-300 mg, TCA, Level 1
+*   Moclobemide: 150-450 mg, RIMA, Level 1
+*   Trazodone: 150-400 mg, SRI; 5-HT2 antagonist, Level 1
+*   Quetiapine: 150-300 mg, DA, 5-HT, α1 & α2 antagonist; NRI, Level 1
+*   Dextromethorphan-bupropion [*] [#]: 45mg/105mg-90mg/210mg, NMDA antagonist; NDRI, sigma-1 agonist, Level 2
+*   Nefazodone [#]: 300-600 mg, SRI, 5-HT2 antagonist, Level 1
+*   Selegiline transdermal [#]: 6-12 mg, MAO-B inhibitor, Level 2
+
+**Third Line of Treatment**
+
+*   Phenelzine: 45-90 mg, MAO inhibitor, Level 1
+*   Tranylcypromine: 30-60 mg, MAO inhibitor, Level 1
+*   Reboxetine [#]: 8-12 mg, NRI, Level 1
+
+[#] Not available in Canada
+[1] Dose ranges are takem from product monographs; in clinical care, doses below and above the range may be used.
+[2] Daily doses above 300 mg should be given in divided doses.
+[3] Daily doses of 600 mg are commonly used, but at these higher doses, the MAOI drug and dietary restrictions should be followed.
+
+Note. 5-HT = 5-hypdroxytryptamine receptor; α1 = alpha-1 adrenergic receptor; α2 = alpha-2 adrenergic receptor; DA = dopamine; MT = melatonin receptor; MAO = monoamine oxidase; NDRI = norepinephrine-dopamine reuptake inhibitor; NMDA = N-methyl-D-aspartate receptor; RIMA = reversible inhibitor of monoamine oxidase A; SNRI = serotonin-norepinephrine reuptake inhibitor; SRI = serotonin reuptake inhibitor; SSRI = selective serotonin reuptake inhibitor; TCA = tricyclic antidepressant.
+By convention, the order of recommendations within each line of treatment is listed first by availability in Canada, then by class, and then by alphabetical order.
+[*] Starred items indicated changes since CANMAT 2016 guidelines, based on updated evidence.
+
+The table provides a detailed overview of the various antidepressant medications, including their daily dose ranges, mechanisms of action, and levels of evidence. The medications are categorized by their line of treatment, with the first line consisting of SSRIs and SNRIs, the second line including TCAs and other medications, and the third line comprising MAO inhibitors and NRI. The table also includes notes on the common dosages and dietary restrictions for each medication. Overall, the table provides a comprehensive resource for healthcare professionals and individuals seeking information on antidepressant medications.
+
+------
+
+Table 3.4. Frequency of Adverse Effects of First-Line Antidepressants. 
+
+The table presents data on the the frequencies of side effects of various medications in percentages, including their therapeutic doses and the minimum dose required to elicit these effects. The table is divided into 3 sections, each representing a distinct group of medications: SSRIs (Selective Serotonin Reuptake Inhibitors), SNRIs (Serotonin-Norepinephrine Reuptake Inhibitors), and others.
+
+*   **SSRIs (Selective Serotonin Reuptake Inhibitors)**
+    *   Citalopram: nausea (21), vomiting (4), diarrhea (8), dry mouth (19), somnolence (17), nervousness (4), anxiety (3), agitation (2), fatigue (5), sweating (11), tremor (8), and anorexia (4).
+    *   Escitalopram: nausea (15), constipation (4), diarrhea (8), dry mouth (7), headache (2), dizziness (6), somnolence (4), nervousness (2), anxiety (2), insomnia (8), fatigue (5), sweating (3), tremor (2), anorexia (2), and iner. appetite (2).
+    *   Fluoxetine: nausea (21), dry mouth (10), somnolence (13), nervousness (14), anxiety (12), insomnia (16), sweating (8), asthenia (9), tremor (10), and anorexia (11).
+    *   Fluvoxamine: constipation (18), diarrhea (6), dry mouth (26), headache (22), dizziness (15), somnolence (26), nervousness (2), anxiety (2), agitation (16), insomnia (14), sweating (11), asthenia (5), tremor (11), and anorexia (15).
+    *   Paroxetine: nausea (26), vomiting (2), constipation (14), diarrhea (12), dry mouth (18), headache (18), dizziness (13), somnolence (23), nervousness (5), anxiety (5), agitation (2), insomnia (13), sweating (11), asthenia (15), tremor (8), anorexia (6), and iner. appetite (1).
+    *   Sertraline: nausea (26), vomiting (4), constipation (8), diarrhea (18), dry mouth (16), headache (20), dizziness (12), somnolence (13), nervousness (3), anxiety (3), agitation (6), insomnia (16), fatigue (11), sweating (8), tremor (11), anorexia (3), and iner. appetite (1).
+
+*   **SNRIs (Serotonin-Norepinephrine Reuptake Inhibitors)**
+    *   Desvenlafaxine [1]: nausea (22), vomiting (3), constipation (9), diarrhea (11), dry mouth (11), headache (20), dizziness (13), somnolence (4), nervousness (<1), anxiety (3), agitation (0), insomnia (9), fatigue (7), sweating (10), tremor (2), anorexia (5), and iner. appetite (2).
+    *   Duloxetine: nausea (20), vomiting (5), constipation (11), diarrhea (8), dry mouth (15), dizziness (9), somnolence (7), anxiety (3), insomnia (11), fatigue (8), sweating (6), tremor (3), and anorexia (8).
+    *   Levomilnacipran: nausea (17), vomiting (5), constipation (9), dry mouth (10), headache (17), dizziness (8), anxiety (2), insomnia (6), sweating (9), and anorexia (3).
+    *   Milnacipran [2]: nausea (37), vomiting (7), constipation (16), dry mouth (5), headache (18), dizziness (10), anxiety (4), insomnia (12), sweating (9), tremor (2), and anorexia (2).
+    *   Venlafaxine-IR: vomiting (6), constipation (15), diarrhea (8), dry mouth (22), headache (25), dizziness (19), somnolence (23), nervousness (13), anxiety (6), agitation (2), insomnia (18), sweating (12), asthenia (12), tremor (5), and anorexia (11).
+    *   Venlafaxine-XR: nausea (31), vomiting (4), constipation (8), diarrhea (8), dry mouth (12), headache (26), dizziness (20), somnolence (17), nervousness (10), anxiety (2), agitation (3), insomnia (17), sweating (14), asthenia (8), tremor (5), and anorexia (8).
+
+*   **Others**
+    *   Agomelatine: nausea (≤9), vomiting (≤9), constipation (≤9), diarrhea (≤9), headache (≥10), dizziness (≤9), somnolence (≤9), anxiety (≤9), agitation (<1), insomnia (≤9), fatigue (≤9), sweating (<1), anorexia (<1), and iner. appetite (<9).
+    *   Bupropion SR [3]: nausea (11), constipation (≥10), diarrhea (4), dry mouth (≥10), headache (≥10), dizziness (7), somnolence (3), nervousness (5), anxiety (5), insomnia (≥10), sweating (2), asthenia (2), and tremor (3).
+    *   Bupropion XL: nausea (15), vomiting (2), constipation (10), dry mouth (19), dizziness (8), anxiety (5), insomnia (10), sweating (2), tremor (4), and anorexia (5).
+    *   Mirtazapine: constipation (13), dry mouth (25), dizziness (7), asthenia (8), tremor (2), and iner. appetite (17).
+    *   Vilazodone [4]: nausea (24), vomiting (5), diarrhea (29), dry mouth (7), headache (14), dizziness (8), somnolence (5), insomnia (6), fatigue (3), and iner. appetite (3).
+    *   Vortioxetine [5]: nausea (23), vomiting (4), constipation (4), diarrhea (5), dry mouth (6), dizziness (5), somnolence (3), insomnia (3), fatigue (3), sweating (2), and anorexia (1).
+
+
+Note. When data from multiple dose were reported separately, the data from the minimum therapeutic dose was used (indicated by footnotes). 
+Percentage rates taken from product monographs (based on clinical trial data and not placebo adjusted).
+Not included are the side effects shown in Table 3.5 (sedation, weight gain, and sexual dysfunction).
+[1] Data from 50 mg dose; [2] data from 50 mg dose; [3] dat from 100-150mg dose; [4] data from 40 mg dose; [5] data from 10 mg dose.
+
+The table provides a comprehensive overview of the side effects of various medications, including their therapeutic doses and the minimum dose required to elicit these effects. The data is presented in a clear and organized manner, making it easy to compare and contrast the side effects of different medications. 
+
+------
+
+Table 3.5.
+
+The table presents a comprehensive comparison of various antidepressants across different aspects, which are grouped into two categories:
+
+1. efficacy and drug-specific issues (including efficacy, acceptability [1], drug interactions, and 
+2. discontinuation) and tolerability issues (including sedation, weight gain, sexual dysfunction, and other tolerability issues[2]).
+
+The data is organized into rows representing individual antidepressants and columns representing specific performance aspects.
+
+*   **SSRIs**
+    *   Citalopram: More favourable in acceptability, drug interactions (QTc [3]), sedation, less favourable in sexual dysfunction, neutral in efficacy, discontinuation, weight gain, other tolerability issues.
+    *   Escitalopram: More favorable in efficacy, acceptability, drug interactions, sedation, weight gain, other tolerability, less favorable in sexual dysfunction, neutral in discontinuation.
+    *   Fluoxetine: More favorable in acceptability, discontinuation, sedation, weight gian, other tolerability issues, less favorable in drug interactions, sexual dysfunction, neutral in efficacy.
+    *   Fluvoxamine: More favorable in sedation, weight gain, less favorable in drug interactions, secual dysfunction, neutral in efficacy, acceptability, discontinuation, other tolerability issues.
+    *   Paroxetine: More favorable in efficacy, less favorable in drug interactions, discontinuation, weight gain, sexual dysfunction, neutral in acceptability, sedation, other tolerability issues.
+    *   Sertraline: More favorable in efficacy, acceptability, sedation, other tolerability issues, neutral in drug interactions, discontinuation, sedation, weight gain, sexual dysfunction.
+*   **SNRIs**
+    *   Desvenlafaxine: More favorable in drug interactions, sedation, weight gain, sexual dysfunction, and other tolerability issues, neutral in efficacy, acceptability, discontinuation.
+    *   Duloxetine: More favorable in sedation, less favorable in sexual dysfunction, neutral in efficacy, acceptability, drug interactions, discontinuation, weight gain, other tolerability issues.
+    *   Levomilnacipran: More favorable in drug interactions, sedation, weight gain, neutral in efficacy, acceptability, discontinuation, sexual dysfunction, and other tolerability issues.
+    *   Venlafaxine-XR: More favorable in efficacy, sedation, less favorable in discontinuation, sexual dysfunction, other tolerability issues, neutral in acceptability, drug interactions, weight gain.
+*   **Others**
+    *   Bupropion: More favorable in efficacy, discontinuation, sedation, weight gain, sexual dysfunction, other tolerability issues,  neutral in acceptability, drug interactions.
+    *   Mirtazapine: More favorable in efficacy, acceptability, drug interactions, discontinuation, sexual dysfunction, less favorable in sedation, weight gain.
+    *   Vilazodone: More favorable in drug interactions, sedation, weight gain, sexual dysfunction, other tolerability issues, neutral in efficacy, acceptability, discontinuation.
+    *   Vortioxetine: More favorable in efficacy, acceptability, drug interactions, discontinuation, sedation, weight gain, sexual dysfunction, neutral other tolerability issues.
+*   **Not available in Canada**
+    *   Agomelatine: More favorable in efficacy, acceptability, drug interactions (LFTs [4]), discontinuation, weight gain, sexual dysfunction, other tolerability issues, neutral in sedation.
+    *   Mianserin: More favorable in drug interactions, other issue tolerability issues, less favorable in sedation, neutral in efficacy, acceptability, discontinuation, weight gain, sexual dysfunction.
+    *   Milnacipran: More favorable in drug interactions, sedation, neutral in efficacy, acceptability, discontinuation, weight gain, sexual dysfunction, other tolerability issues.
+
+Note. These comparative favourability ratings are based on a variety of data sources, including meta-analyses and RCTs, supplemented with expert consensus. 
+	Note that ratings show those agents that have more favourable profiles (in green squares) and those with less favourable profiles (in red squares).
+	These are not absolute ratings; an agent can be impeded for other clinical reasons despite having a rating as less favourable in a particular characteristic.
+	Clear squares indicate neutral ratings and do not imply intermediate favourability.
+[1] Efficacy refers to response rates in meta-analyses; Acceptability refers to all-cause discontinuation rates in meta-analyses; Drug Interactions include clinically significant interactions (see Q3.1); Discontinuation refers to potential for discontinuation effects (see Q6.4); 
+[2] Other Tolerability refers to side effects other than sedation, weight gain, and sexual dysfunction; 
+[3] QTc, indicates recommended monitoring for prolongation of QTc interval; 
+[4] LFTs, indicates recommended monitoring of liver function tests (see Q3.1).
+
+------
+
+Table 3.6. Summary Medication Recommendations for DSM-5-TR Episode Specifiers and Symptom Dimensions.
+
+**DSM-5-TR episode specifiers**
+
+    **Anxious distress, Atypical fetaures, Melancholic features**
+    * **First line of treatment**: Any first-line antidepressant from Table 3.3 (Level 1 of evidence)
+    * **Second line of treatment**: Any second-line antidepressant from Table 3.3 (Level 1 of evidence)
+
+    **Mixed features**
+    * **First line of treatment**: Any first-line antidepressant from Table 3.3 [*] (Level 1 of evidence)
+    * **Second line of treatment**: Lurasidone [**] (Level 2 of evidence)
+
+    **Psychotic features**
+    * **First line of treatment**: Any first-line antidepressant from Table 3.3 + atypical antipsychotic (Level 1 of evidence)
+
+    **Catatonic features**
+    * **First line of treatment**: Benzodiazepine and any first-line antidepressant from Table 3.3 (Level 2 of evidence)
+
+**Symptom dimensions**
+
+    **Cognitive dysfunction**
+    * **First line of treatment**: Vortioxetine (Level 1 of evidence)
+    * **Second line of treatment**: Bupropion (Level 2 of evidence), Duloxetine (Level 2 of evidence), SSRIs [**] (Level 2 of evidence)
+    
+    **Sleep disturbance**
+    * **First line of treatment**: Agomelatine [+] (Level 1 of evidence)
+    * **Second line of treatment**: Mirtazapine (Level 2 of evidence), Quetiapine-XR (Level 2 of evidence), Trazodone (Level 2 of evidence)
+
+    **Somantic symptoms**
+    * **First line of treatment**: Duloxetine (pain) (Level 1 of evidence), Bupropion (fatigue) (Level 1 of evidence)
+    * **Second line of treatment**: Duloxetine [**] (fatigue) (Level 2 of evidence), Other SNRIs (pain) (Level 2 of evidence), SSRIs [**] (Level 2 of evidence)
+
+Note. SSRI = selective serotonin reuptake inhibitor; SNRI = serotonin-norepinephrine reuptake inhibitor.
+[*] When initiating medications, monitor for activating side effects (e.g., agitation, increase in suicidal ideation) and potential swich to (hypo)mania.
+[**] Comparisons only with placebo.
+[+] Not available in Canada
+
+------
+
+Table 4.3. Summary Recommendations for DHIs
+
+The table presents guidelines for the use of digital health interventions (DHIs) in managing major depressive episode (MDE). The table is divided into four rows, each representing a different level of evidence for the use of DHIs. The columns are labeled "Line of treatment" and "Level of evidence."
+
+**First Line of Treatment**
+
+	*   Adjunctive use of guided iCBT DHIs for MDE of mild–moderate severity.
+		*   **Level of evidence**: Level 1
+
+	*   Guided iCBT DHIs for mild severity MDE.
+		*   **Level of evidence**: Level 2
+
+**Second Line of Treatment**
+
+	*   Adjunctive use of self-directed DHIs for mild–moderate severity MDE, when supported with guidance by clinicians.
+		*   **Level of evidence**: Level 3
+
+	*   Adjunctive use of guided iBA DHIs for mild–moderate severity MDE.
+		*   **Level of evidence**: Level 3
+
+**Third Line of Treatment**
+
+	*   Self-directed DHIs for mild severity MDE when no other clinical interventions are available.		
+		*   **Level of evidence**: Level 3
+
+**Insufficient evidence**
+	*   Chatbots and conversational agents.
+		*   **Level of evidence**: n/a
+
+Note. DHI = digital health intervention; iBA = internet behavioural activation; iCBT = internet cognitive-behavioural therapy; MDE = major depressive episode; MDD = major depressive disorder. DHIs must be carefully evaluated for both risks and benefits prior to clinical application (see Q.4.b). The strength of evidence for DHIs is not as strong as for first-line pharmacotherapy or psychotherapy treatments for MDD.
+
+
+------
+
+Table 5.1. Summary Recommendations for Monitoring Treatment. [*]
+
+**Summary recommendations for monitoring:**
+
+	* Use validated rating scles for measurement-based care
+		* **Level of evidence**: Level 2
+
+	* Obtain laboratory and imaging tests only when clinically indicated.
+		* **Level of evidence**: Level 4
+
+	* Monitor weight, glucose, and lioid profiles at baseine and every 6 nmonths when prescribing medications asscoiated with weight gain.
+		* **Level of evidence**: Level 2
+
+[*] Recommendations for principles of care generally have Level 3 or Level 4 evidence.
+
+------
+
+Table 6.1. Summary Recommendations for Maintenance Antidepressant Treatment.
+
+The table presents a summary of recommendations for the treatment of depression, categorized into four levels of evidence. The first line of treatment is divided into two columns: "Line of treatment" and "Level of evidence." The "Line of treatment" column lists the recommendations, while the "Level of evidence" column indicates the level of evidence supporting each recommendation.
+
+The first line of treatment includes the following recommendations:
+
+*   For patients who have achieved symptom remission, using maintenance pharmacotherapy and/or psychotherapy can prevent recurrence.
+	*   **Level of evidence**: Level 1
+
+*   All patients treated with antidepressants should continue medication treatment for a minimum of 6 to 12 months after achieving symptomatic remission.
+	*   **Level of evidence**: Level 1
+
+*   Patients with risk factors for recurrence (see Table 6.2) should continue antidepressant treatment for 2 years or more.
+	*   **Level of evidence**: Level 3
+
+*   Patients with recurrent and severe MDEs should use sequential treatment (adding psychotherapy after stabilizing on medications) to prevent recurrence.
+	*   **Level of evidence**: Level 1
+
+*   When a decision is made to stop the antidepressant, it should be tapered gradually, whenever possible, for several weeks or months with more time between dose reductions near the end of the taper.
+	*   **Level of evidence**: Level 3
+
+*   For patients treated with medication for less than 4 weeks, the antidepressant can be tapered and discontinued quickly, over 2 weeks or less.
+	*   **Level of evidence**: Level 3
+
+*   Psychological treatments can be added before or during antidepressant discontinuation to help patients stop the antidepressant.
+	*   **Level of evidence**: Level 2
+
+Note. MDE = major disorder episode
+
+------
+
+Figure 7.1. Algorithm for sequential treatment after suboptimal response to initial antidepressant medication.
+
+**Start**
+
+Assess factors that can interfere with treatment response:
+    - Psychiatric and nonpsychiatric comorbidities
+    - Adherence to treatment
+    - Other biological and psychological factors which may interfere with response
+    - Pharmacokinetic factors (consider pharmacogenetic testing)
+
+-> **Optimize Dose**
+    If another therapeutic dose, or partial response to well-tolerated lower doses within the therapeutic range.
+
+-> **Consider Adding Psychological Treatments**
+    Consider psychotherapy earlier rather than later in treatment
+
+-> **Switch or Adjunctive Medication**
+    Consider advantages and drawbacks for each strategy.
+
+    -> **Switch to Another Antidepressant**
+        Especially if there are intolerance issues with the initial antidepressant.
+        -> **First Line:**
+            Consider an antidepressant with a mechanism of action that is distinct from previous one.
+            Consider an antidepressant with evidence of superior efficacy (Table 3.5).
+        -> **Second Line:**
+            Consider a second- or third-line antidepressant.
+
+    -> **Add an Adjunctive Medication**
+        Especially if there is a partial response to initial antidepressant and it is well tolerated.
+        -> **First Line:**
+            Aripiprazole, brexpiprazole.
+            - Bupropion, N e-sketamine/lv
+            - Ketamine, cariprazine, lithium, mittazapine, modafinil, olanzapine, quetiapine-XL, risperidone, triiodothyronine.
+        -> **Second Line:**
+            Other antidepressants, stimulants, TCAs, monoamine oxidase inhibitors, lamotrigine, pramipexole, zprasidone.
+        -> **Third Line:**
+            Adjunctive transcranial direct current stimulation for MDD
+            Vagus nerve stimulation for DTD
+
+-> **Consider Adding Neuromodulation Treatments for TRD**
+    These are generally considered after one of the switch of adjunctive medication options.
+    -> **First Line:**
+        Electroconvulsive therapy for severe MDE
+        Transcranial magnetic stimulation for TRD
+    -> **Second Line:**
+        Electroconvulsive therapy for DTD
+
+**End**
+
+Note. This algorithm refers primarily to medication treatments. Psychological treatments (see Table 3.2) should also be considered when patients have suboptimal responses to an initial medication. Neuromodulation treatments (see Table 8.3) are generally considered after a switch or adjunctive medication strategy has failed (i.e., for treatment-resistant depression). DTD = difficult-to-treat depression; MDD = major depressive disorder; TCA = tricyclic antidepressant; IN = intranasal; IV = intravenous; TRD = treatment-resistant depression; XR = extended release.
+
+------
+
+Table 7.2. Summary Recommendations for Adjunctive Medications for (DTD).
+
+The table presents a comprehensive overview of various antidepressant medications, categorized by their line of treatment. The table is divided into four columns: "Line of treatment," "Adjunctive agent," "Target dose" [1], "Mechanism", and "Level of evidence". The "Line of treatment" column is further subdivided into five categories: "First line", "Second line", "Third line", "Investigational", and "Not recommended".
+
+*   **First Line of Treatment**
+    *   Aripiprazole: 2–10 mg, Level 1
+    *   Brexpiprazole*: 0.5–2 mg, Level 1
+
+*   **Second Line of Treatment**
+    *   Bupropion: 150–450 mg, Level 1
+    *   Intranasal esketamine*: 56–84 mg intranasally, Level 1
+    *   IV racemic ketamine*: 0.5–1.0 mg/kg IV, Level 1
+    *   Olanzapine: 2.5–10 mg, Level 1
+    *   Quetiapine-XR*: 150–300 mg, Level 1
+    *   Risperidone*: 1–3 mg, Level 1
+    *   Lithium: 600–1200 mg (therapeutic serum level: 0.5–0.8 mmol/L), Level 1
+    *   Cariprazine*: 1.5–3 mg, Level 2
+    *   Mirtazapine/Manserin: 30–60 mg/30–90 mg, Level 2
+    *   Modafinil: 100–400 mg, Level 2
+    *   Triiodothyronine: 25–50 mcg, Level 2
+
+*   **Third Line of Treatment**
+    *   Other antidepressants, including tricyclic antidepressants: Varies with the medication, Level 3
+    *   Stimulants: Varies with the medication, Level 3
+    *   Lamotrigine*: 100–300 mg, Level 3
+    *   Non-IV racemic ketamine*: Varies with the medication, Level 3
+    *   Pramipexole*: 1–2 mg twice daily, Level 3
+    *   Ziprasidone: 20–80 mg twice daily, Level 3
+
+*   **Investigational**
+    *   Psychedelic-assisted psychotherapy*: Moderate to high doses accompanied by psychotherapy, Level 3
+
+*   **Not recommended**
+    *   Cannabis*: (insufficient evidence for efficacy; risk of harms), n/a
+
+Note. DTD = difficult-to-treat depression; IV = intravenous; XR = extended release; n/a = not applicable. By convention, treatments are listed within each line of treatment by level of evidence, then alphabetically.
+[1] Dose ranges are taken from product monographs; in clinical care, doses below and above the range may be used.
+[*] Starred items indicate changes since the 2016 guidelines, based on updated evidence.
+
+------
+
+Table 8.1. Recommendations for Electroconvulsive Therapy (ECT) Protocols.
+
+The table presents a concise overview of the ECT protocol, organized into three columns: "Line of treatment," "ECT protocol," and "Level of evidence." The first column lists the treatment lines, while the second column outlines the corresponding ECT protocols. The third column indicates the level of evidence supporting each protocol.
+
+**First Line of Treatment:**
+
+	*   **ECT protocol:** Brief Pulse, bifrontal (at 1.5 times seizure threshold)
+		*   **Level of evidence:** Leve1 1
+		
+	*   **ECT protocol:** Brief Pulse, right unilateral (at 6 times seizure threshold)
+		*   **Level of evidence:** Level 1
+
+**Second Line of Treatment:**
+
+	*   **ECT protocol:** Brief Pulse, bitemporal (at 1.5 times seizure threshold)
+		*   **Level of evidence:** Leve1 1
+	
+	*   **ECT protocol:** Ultrabrief Pulse, bifrontal (at 1.5 times seizure threshold)
+		*   **Level of evidence:** Leve1 1
+
+Note. By convention, treatments are listed within each line of treatment by level of evidence, then alphabetically.
+
+------
+
+Table 8.2. Summary Recommendations for Repetitive Transcranial Stimulation (rTMS) Protocols.
+
+**First Line of Treatment**
+
+	*   **Transcranial magnetic stimulation protocal:** iTBS to left DLPFC
+		*   **Level of evidence:** Leve1 1
+		
+	*   **Transcranial magnetic stimulation protocal:** High-frequency rTMS to left DLPFC
+		*   **Level of evidence:** Leve1 1
+		
+	*   **Transcranial magnetic stimulation protocal:** Low-frequency rTMS to right DLPFC
+		*   **Level of evidence:** Leve1 2
+
+**Second Line of Treatment**
+
+	*   **Transcranial magnetic stimulation protocal:** Sequential Bilateral rTMS to DLPFC (right low frequency then left high frequency).
+		*   **Level of evidence:** Leve1 1
+		
+	*   **Transcranial magnetic stimulation protocal:** Accelerated iTBS to left DLPFC.
+		*   **Level of evidence:** Leve1 3
+		
+	*   **Transcranial magnetic stimulation protocal:** Sequential bilateral TBS to DLPFC (right continuus TBS then left intermittent TBS).
+		*   **Level of evidence:** Leve1 3
+
+Note. rTMS = repetitive transcranial stimulatio; iTBS = intermittent theta burst stimulation; DLPFC = dorsolateral prefrontaal cortex; TBS = theta burst stimulation.
+By convention, treatments are listed within each line of treatment by level of evidence, then alphabetically.
+
+------
+
+Table 8.3. Summary Recommendations for Neuromodulation Treatments.
+
+The table presents a comprehensive overview of the efficacy of various treatments for depression, categorized by level of evidence and treatment line. The table is divided into four columns: "Line of treatment," "Neuromodulation treatment," "Acute efficacy," and "Maintenance efficacy." Each row represents a specific treatment line, with corresponding neuromodulation treatments listed in the second column.
+
+**First Line**
+
+	*   **Neuromodulation treatment:** ECT for severe MDE [*]
+		*   **Level of evidence:** Level 1 in Acute efficacy, Level 1 in Maintenance efficacy
+	
+	*   **Neuromodulation treatment:** rTMS for TRD
+		*   **Level of evidence:** Level 1 in Acute efficacy, Level 3 in Maintenance efficacy
+
+**Second Line**
+
+	*   **Neuromodulation treatment:** ECT for DTD
+		*   **Level of evidence:** Level 1 in Acute efficacy, Level 3 in Maintenance efficacy
+
+**Third Line**
+
+	*   **Neuromodulation treatment:** Adjunctive use of tDCS for mild-moderate MDE
+		*   **Level of evidence:** Level 2 in Acute efficacy, Level 3 in Maintenance efficacy
+	
+	*	**Neuromodulation treatment:** VNS for DTD
+		*   **Level of evidence:** Level 3 in Acute efficacy, Level 3 in Maintenance efficacy
+
+**Investigational**
+
+	*   **Neuromodulation treatment:** DBS for DTD
+		*   **Level of evidence:** Level 2 in Acute efficacy, Unknown in Maintenance efficacy
+	*   **Neuromodulation treatment:** MST for DTD
+		*   **Level of evidence:** Level 2 in Acute efficacy, Unknown in Maintenance efficacy
+
+Note. ECT = electroconvulsive therapy; MDE = major depressive episode; rTMS = repetitive transcranial magnatic stimulation; TRD = transcranial direct current stimulation; VNS = vagus newve stimulation; DBS = deep brain stimulation; MST = magnetic seizure therapy
+[*] With severe pyschotic or catatonic features, severe suicidal ideation, or deteriorating physical condition.
+
+
+

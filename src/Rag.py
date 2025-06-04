@@ -108,7 +108,7 @@ def save_faiss_index(embedder_name, index):
 
 # ---------------------------------
 
-def faiss_search(query, embedder, db, index, k=3):
+def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
     query_embedding = embedder.encode([query], convert_to_numpy=True)
     distances, indices = index.search(query_embedding, k)
     results = []
@@ -131,11 +131,12 @@ def faiss_search(query, embedder, db, index, k=3):
 
     # add the referenced tables in the db to the results if their referee_id is in table_to_add
     i = 0
-    for chunk in db:
+    for chunk in referenced_tables_db:
         if chunk.metadata.referee_id in table_to_add:
             results.append({
                 "text": chunk.text,
                 "section": chunk.metadata.section,
+                "chunk_id": chunk.metadata.chunk_index,
             })
             i += 1
         if i == len(table_to_add):
@@ -168,12 +169,10 @@ def call_llm(llm_client, prompt):
 
 
 def construct_prompt(query, faiss_results):
-    system_prompt = (
-        "Your name is Depression Assistant, a helpful and friendly recipe assistant. "
-        "Summarize the clinical guidelines provided in the context and then tried to answer the user query. "
-        "If the query or guideline provided is not related to depression, please say 'I am not sure about that'. Don't make up things. "
-
-    )
+    # reads system prompt from a file
+    with open("system_prompt.txt", "r") as f:
+        system_prompt = f.read().strip()
+        print(f"Using system prompt: {system_prompt}")
 
     prompt = f"""
 ### System Prompt
@@ -185,7 +184,7 @@ def construct_prompt(query, faiss_results):
 ### Clinical Guidelines Context
     """
     for result in faiss_results:
-        prompt += f"- reference: {result['section']}\n- This paragraph is from section{result['text']}\n"
+        prompt += f"- reference: {result['section']}\n- This paragraph is from section: {result['text']}\n"
 
     return prompt
 
@@ -195,9 +194,10 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
     """
     Launch the depression assistant with the loaded database and embeddings.
     """
-    global db, embedder, index, llm_client
+    global db, referenced_tables_db,  embedder, index, llm_client
     
-    db = load_json_to_db("data/processed/guideline_db_with_table.json")
+    db = load_json_to_db("data/processed/guideline_db.json")
+    referenced_tables_db = load_json_to_db("data/processed/referenced_tables_db.json")
     embedder = SentenceTransformer(embedder_name)
     print(f"Using embedder: {embedder_name}")
     
@@ -226,7 +226,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
 def depression_assistant(query):    
     t1 = time.perf_counter()
 
-    results = faiss_search(query, embedder, db, index, k=3)
+    results = faiss_search(query, embedder, db, index, referenced_table_db, k=3, r)
     t2 = time.perf_counter()
     print(f"[Time] FAISS search done in {t2 - t1:.2f} seconds.")
 
@@ -239,7 +239,7 @@ def depression_assistant(query):
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
 
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
-    return response
+    return response, search
 
 def load_queries_and_answers(query_file, answers_file):
     """

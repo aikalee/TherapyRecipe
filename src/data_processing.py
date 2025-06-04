@@ -136,8 +136,7 @@ def prepend_headings_to_text(guideline):
     """give chunk_id to each chunk in the guideline and prepend headings to text"""
     for i in range(len(guideline)):
         guideline[i]['metadata']['chunk_id'] = i
-            # "text": "From section: "+ headings + " > paragraph id: " + str(chunk_id) + "\n"+ text,
-        guideline[i]['text'] = "From section: " + guideline[i]['metadata']['headings'] + " > paragraph id: " + str(i) + "\n" + guideline[i]['text']
+        guideline[i]['text'] = guideline[i]['metadata']['headings'] + " > paragraph id: " + str(i) + "\n" + guideline[i]['text']
         
     # return guideline
 
@@ -291,15 +290,18 @@ def main():
     # ----------------------- write to json ------------------------
     combined = output + tables
     merge_boxes(combined)
-    # combined = prepend_headings_to_text(combined)
     prepend_headings_to_text(combined)
     append_definition(combined)
     
     
-    with open("data/guideline_db.json", "w", encoding="utf-8") as f:
+    with open("data/processed/guideline_db.json", "w", encoding="utf-8") as f:
         json.dump(combined, f, ensure_ascii=False, indent=4)
         print(f"guideline_db.json file created with {len(combined)} chunks.")
     
+    referenced_table_chunks = [chunk for chunk in combined if chunk['metadata']['type'] != 'paragraph']
+    with open("data/processed/referenced_table_chunks.json", "w", encoding="utf-8") as f:
+        json.dump(referenced_table_chunks, f, ensure_ascii=False, indent=4)
+        
         
 if __name__ == "__main__":
     main()

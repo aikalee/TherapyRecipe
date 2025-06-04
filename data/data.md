@@ -13,6 +13,9 @@
     - html table
         - send it to chat gpt also? parse it to csv/markdown format so it's easier for llm to understand
 
+    - I also manually merge caption under the figure
+    - some paragraphs in the Box is separated in different chunks. I think it would be better to merge them into one chunk. The longest of them is arond 250 words(around 350 tokens)
+
 5. Abbreviation substitution. Detect all the abbreviation in the text and replace them with full definition.
 
 # As we explore the data, design schema of the json structure database

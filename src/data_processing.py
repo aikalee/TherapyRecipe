@@ -1,5 +1,5 @@
 import re
-
+import json
 abbr_map = {
     "ACT":   "Acceptance and commitment therapy",
     "ADHD":  "Attention-deficit hyperactivity disorder",
@@ -61,6 +61,22 @@ def append_definition(match: re.Match) -> str:
     definition = abbr_map.get(abbr, "")
     return f"{abbr} ({definition})"
 
+def find_graph_by_id(graphs, graph_id):
+    """
+    Find a graph by its ID in the graphs dictionary.
+    """
+    graph_id = graph_id.lower().replace(".", " ").strip().replace(" ", "_")
+    print(f"Formatted graph ID: {graph_id}")
+    for graph in graphs:
+        if graph['metadata']['referee_id'] == graph_id:
+            return graph['text']
+        
+    return None
+        
+with open("data/processed/graphs.json", "r", encoding="utf-8") as f:
+    graphs = json.load(f)
+    
+
 from bs4 import BeautifulSoup, Tag, NavigableString
 
 import sys
@@ -70,7 +86,7 @@ import json
 
 chunk_id = 1
 
-filename = "../data/raw/source.html"
+filename = "data/raw/source.html"
 # if there's no input from command line, use the default filename
 # if len(sys.argv) > 1:
     # filename = sys.argv[1]
@@ -156,6 +172,8 @@ for p in soup.find_all("p"):
     # get the closest heading
     heading = p.find_previous_sibling(lambda tag: bool(re.match(r'^h[2-6]$', tag.name)))
     headings = heading.get_text(strip=True) if heading else 'No heading' 
+    smallest_heading = headings
+    
     if 'fig' in sec_id:
         referenced_tables.add(headings)
     #while parent still has parents
@@ -168,8 +186,6 @@ for p in soup.find_all("p"):
 
     headings = headings.strip().replace('\n', ' ')
     
-
-
 
     #-----------------------get the text---------------------
     text = p.get_text(separator=' ', strip=True) # get only text
@@ -184,16 +200,32 @@ for p in soup.find_all("p"):
             type = 'table image '
         else: 
             continue
-        img_link = p.find('img').get('src')
+        # img_link = p.find('img').get('src')
         # print("img_link: ", img_link)
-        text = str(img_link)
+        # text = str(img_link)
+        ##################################
+        try:
+            print(f"Finding graph by ID: {smallest_heading}")
+            text = find_graph_by_id(graphs, smallest_heading)
+        except Exception as e:
+            print(f"Error finding graph by ID: {e}")
+            continue
+        ##################################
 
         # I only have 2 here with parent = <figure>, most of img's parent are <section id = 'table...'>
     elif p.get('class') and 'img-box' in p.get('class'):
         type = 'figure image'
-        img_link = p.find('img').get('src')
+        ##################################
+        try:
+            print(f"Finding graph by ID: {smallest_heading}")
+            text = find_graph_by_id(graphs, smallest_heading)
+        except Exception as e:
+            print(f"Error finding graph by ID: {e}")
+            continue
+        ##################################
+        # img_link = p.find('img').get('src')
         # print("img_link: ", img_link)
-        text = str(img_link)
+        # text = str(img_link)
         # sec_id = p.find_parent("figure", id=True).get("id")
     elif 'box' in sec_id: 
         type = 'box'
@@ -232,9 +264,16 @@ for p in soup.find_all("p"):
     chunk_id += 1
     
     
-print("count of levels: ", countlevel1, countlevel2, countlevel3, countlevel4)
-    
+# print("count of levels: ", countlevel1, countlevel2, countlevel3, countlevel4)
+    import json
+
+
+with open('data/processed/tables.json', 'r', encoding='utf-8') as f2:
+    tables = json.load(f2)
+
+combined = output + tables
+
 # ----------------------- write to json ------------------------
-with open("../data/guideline_db.json", "w", encoding="utf-8") as f:
-    json.dump(output, f, ensure_ascii=False, indent=4)
-    print(f"output.json file created with {len(output)} chunks.")
+with open("data/guideline_db.json", "w", encoding="utf-8") as f:
+    json.dump(combined, f, ensure_ascii=False, indent=4)
+    print(f"guideline_db.json file created with {len(combined)} chunks.")

@@ -3,12 +3,20 @@ from Rag import launch_depression_assistant, depression_assistant
 
 # --- Sidebar ---
 st.sidebar.title("Settings")
+
+# you can add the embedder model to tried out more
+# but it has to be from sentence-transformers library,
+# if not, need to adapt the code to load the embedder model
 model_options = [
     "all-MiniLM-L6-v2",
     "paraphrase-MiniLM-L6-v2",
     "sentence-transformers/all-mpnet-base-v2",
     "intfloat/multilingual-e5-base",
-    "BAAI/bge-small-en-v1.5"
+    "BAAI/bge-small-en-v1.5",
+    "BAAI/bge-large-en-v1.5",
+    "BAAI/bge-base-en-v1.5",
+    "abhinand/MedEmbed-large-v0.1"
+    
 ]
 embedder_name = st.sidebar.selectbox(
     "Select embedder model",
@@ -46,14 +54,17 @@ if st.session_state.launched:
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+            
+    
 
     # React to user input
     if prompt := st.chat_input("What is up?"):
+        results, response = depression_assistant(prompt)
+        # Divide the web page into two parts: left for results, right for response
+        
         # Display user message
         st.chat_message("user").markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-
-        response = depression_assistant(prompt)
         st.chat_message("assistant").markdown(response)
         st.session_state.messages.append({"role": "assistant", "content": response})

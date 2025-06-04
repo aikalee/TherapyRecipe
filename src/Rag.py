@@ -17,7 +17,7 @@ from together import Together
 class Metadata(BaseModel):
     section: str
     type: str
-    chunk_index: Optional[int]= None
+    chunk_id: Optional[int]= None
     headings: str
     referee_id: Optional[str] = None
     referenced_tables: Optional[List[str]] = None
@@ -119,6 +119,7 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
             results.append({
                 "text": db[indices[0][i]].text,
                 "section": db[indices[0][i]].metadata.section,
+                "chunk_id": db[indices[0][i]].metadata.chunk_id,
             })
         # if this chunk has a referee_id, it is a table already, we don't need to add it again later
         if db[indices[0][i]].metadata.referee_id:
@@ -136,7 +137,7 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
             results.append({
                 "text": chunk.text,
                 "section": chunk.metadata.section,
-                "chunk_id": chunk.metadata.chunk_index,
+                "chunk_id": chunk.metadata.chunk_id,
             })
             i += 1
         if i == len(table_to_add):
@@ -151,10 +152,10 @@ def load_together_llm_client(api_key):
     
     return Together(api_key=os.getenv('TOGETHER_API_KEY', api_key))
 
-def call_llm(llm_client, prompt):
+def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
 
     response = llm_client.chat.completions.create(
-        model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free", #don't change the model!
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -170,9 +171,8 @@ def call_llm(llm_client, prompt):
 
 def construct_prompt(query, faiss_results):
     # reads system prompt from a file
-    with open("system_prompt.txt", "r") as f:
+    with open("src/system_prompt.txt", "r") as f:
         system_prompt = f.read().strip()
-        print(f"Using system prompt: {system_prompt}")
 
     prompt = f"""
 ### System Prompt
@@ -197,7 +197,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
     global db, referenced_tables_db,  embedder, index, llm_client
     
     db = load_json_to_db("data/processed/guideline_db.json")
-    referenced_tables_db = load_json_to_db("data/processed/referenced_tables_db.json")
+    referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
     embedder = SentenceTransformer(embedder_name)
     print(f"Using embedder: {embedder_name}")
     
@@ -226,9 +226,13 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
 def depression_assistant(query):    
     t1 = time.perf_counter()
 
-    results = faiss_search(query, embedder, db, index, referenced_table_db, k=3, r)
+    results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
     t2 = time.perf_counter()
     print(f"[Time] FAISS search done in {t2 - t1:.2f} seconds.")
+    
+    #rerank the results to restore context logic order
+    # don't think it works well so commenting it out for now
+    # results = sorted(results, key=lambda x: x['chunk_id'] if 'chunk_id' in x else 0)
 
     prompt = construct_prompt(query, results)
     t3 = time.perf_counter()
@@ -239,7 +243,7 @@ def depression_assistant(query):
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
 
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
-    return response, search
+    return results, response
 
 def load_queries_and_answers(query_file, answers_file):
     """
@@ -254,6 +258,7 @@ def load_queries_and_answers(query_file, answers_file):
     return queries, answers
 
 def main():
+    # if we want to use a different embedder, change this variable
     embedder_name = "all-MiniLM-L6-v2"
     launch_depression_assistant(embedder_name)
     
@@ -261,13 +266,17 @@ def main():
 
     with open(f"{embedder_name.replace("/", "_")}_llama3.3_70B.md", "w") as f:
         for i, query in enumerate(queries):
-            response = depression_assistant(query)
+            result, response = depression_assistant(query)
             # write the response to a md file
             f.write(f"## Query {i+1}\n")
             f.write(f"{query.strip()}\n\n")
             f.write("#### Answer\n")
             f.write(f"{answers[i].strip()}\n\n")
-            f.write(f"#### {embedder_name} Embedder and LLama3.3 70B Response\n")
+            f.write("#### Retrieved Results\n")
+            for res in result:
+                f.write(f"\n\n- Section: {res['section']}\n")
+                f.write(f"  Text: {res['text']}\n")
+            f.write(f"#### Response by {embedder_name} Embedder and LLama3.3 70B\n")
             f.write(response.strip())
             f.write("\n\n---\n\n")
             break

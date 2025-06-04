@@ -57,6 +57,26 @@ abbr_map = {
     "WHO":   "World Health Organization",
     }
 
+# append definition to abbreviation
+
+def append_definition(guideline):
+    pattern = re.compile(r'\b([A-Z]{2,})\b')
+
+    def replacer(match):
+        abbr = match.group(1)
+        if abbr in abbr_map:
+            return f"{abbr} ({abbr_map[abbr]})"
+        return abbr
+
+    for i in range(len(guideline)):
+        if guideline[i]['metadata']['referee_id'] == 'table_c':
+            continue
+        text = guideline[i]['text']
+        text = pattern.sub(replacer, text)
+        guideline[i]['text'] = text
+
+    return guideline
+
 def find_graph_by_id(graphs, graph_id):
     """
     Find a graph by its ID in the graphs dictionary.
@@ -89,7 +109,27 @@ def parse_title(soup):
     }
     return chunk
 
-# def merge_boxes(guideline):
+def merge_boxes(guideline):
+    # if the item in the guideline is a box, merge it with the previous box. and remove the current box.
+    # If there's no previous box, continue to the next item.
+    previous_box = None
+    for item in guideline[:]:
+        if item['metadata']['type'] == 'box':
+            if previous_box is None:
+                previous_box = item
+            else:
+                    # if current chunk's referee_id is the same as previous box's referee_id, merge them
+                    if item['metadata']['referee_id'] == previous_box['metadata']['referee_id']:
+                        # merge the current box with the previous one
+                        previous_box['text'] += "\n" + item['text']
+                        previous_box['metadata']['referenced_tables'].extend(item['metadata']['referenced_tables'])
+                        #remove the current item from the guideline
+                        guideline.remove(item)
+        else:
+            if previous_box is not None:
+                # if the previous box is not None, reset it to None
+                previous_box = None
+
     
 
 def prepend_headings_to_text(guideline):
@@ -99,20 +139,6 @@ def prepend_headings_to_text(guideline):
             # "text": "From section: "+ headings + " > paragraph id: " + str(chunk_id) + "\n"+ text,
         guideline[i]['text'] = "From section: " + guideline[i]['metadata']['headings'] + " > paragraph id: " + str(i) + "\n" + guideline[i]['text']
         
-    # return guideline
-
-# append definition to abbreviation
-# def append_definition(match: re.Match) -> str:
-def append_definition(guideline):
-    for i in range(len(guideline)):
-        text = guideline[i]['text']
-        # find all abbreviations in the text
-        matches = re.findall(r'\b([A-Z]{2,})\b', text)
-        for abbr in matches:
-            definition = abbr_map.get(abbr, "")
-            if definition:
-                text = text.replace(abbr, f"{abbr} ({definition})")
-        guideline[i]['text'] = text
     # return guideline
 
 
@@ -264,7 +290,7 @@ def main():
 
     # ----------------------- write to json ------------------------
     combined = output + tables
-    
+    merge_boxes(combined)
     # combined = prepend_headings_to_text(combined)
     prepend_headings_to_text(combined)
     append_definition(combined)

@@ -16,7 +16,6 @@ model_options = [
     "BAAI/bge-large-en-v1.5",
     "BAAI/bge-base-en-v1.5",
     "abhinand/MedEmbed-large-v0.1"
-    
 ]
 embedder_name = st.sidebar.selectbox(
     "Select embedder model",

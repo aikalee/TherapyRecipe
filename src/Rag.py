@@ -39,7 +39,8 @@ def make_embeddings(embedder_name,db):
     """
     Make embeddings for the given database of chunks.
     """
-    embedder = SentenceTransformer(embedder_name)
+    embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
+    # Use 'cpu' Because MPS keeps OOM
 
     texts = [chunk.text for chunk in db]
     embeddings = embedder.encode(texts, convert_to_numpy=True)
@@ -205,7 +206,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
     
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
-    embedder = SentenceTransformer(embedder_name)
+    embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
     print(f"Using embedder: {embedder_name}")
     
     # if embeddings already exist, load them, else make new embeddings
@@ -268,7 +269,15 @@ def load_queries_and_answers(query_file, answers_file):
 
 def main():
     # if we want to use a different embedder, change this variable
-    embedder_name = "all-MiniLM-L6-v2"
+    # embedder_name = "all-MiniLM-L6-v2"
+    embedder_name = "jinaai/jina-embeddings-v3"
+    # embedder_name = "abhinand/MedEmbed-large-v0.1"
+    # embedder_name = "BAAI/bge-base-en-v1.5",
+    # embedder_name = "BAAI/bge-large-en-v1.5"
+    # embedder_name = "BAAI/bge-small-en-v1.5"
+    # embedder_name = "intfloat/multilingual-e5-base"
+    # embedder_name = "sentence-transformers/all-mpnet-base-v2"
+    
     time0 = time.perf_counter()
     launch_depression_assistant(embedder_name)
     print(f"[Time] Launching Depression Assistant took {time.perf_counter() - time0:.2f} seconds.")
@@ -290,7 +299,6 @@ def main():
 
         for i, query in enumerate(queries):
             result, response = depression_assistant(query)
-
 
             f1.write(f"## Query {i+1}\n")
             f1.write(f"{query.strip()}\n\n")

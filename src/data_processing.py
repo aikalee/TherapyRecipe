@@ -136,7 +136,7 @@ def prepend_headings_to_text(guideline):
     """give chunk_id to each chunk in the guideline and prepend headings to text"""
     for i in range(len(guideline)):
         guideline[i]['metadata']['chunk_id'] = i
-        guideline[i]['text'] = guideline[i]['metadata']['headings'] + " > paragraph id: " + str(i) + "\n" + guideline[i]['text']
+        guideline[i]['text'] = guideline[i]['metadata']['headings'] + " > paragraph id: " + str(i) + "\n\n" + guideline[i]['text']
         
     # return guideline
 
@@ -171,7 +171,7 @@ def parse_main_article(soup, graphs, output):
                 
             text_node = NavigableString(replacement_text)
             img.replace_with(text_node)
-            referenced_tables.add('Table A')
+            referenced_tables.add('table_a')
 
 
             
@@ -246,7 +246,8 @@ def parse_main_article(soup, graphs, output):
             for link in all_links:
                 href = link.get('href')
                 if href.startswith('#'):
-                    referenced_tables.add(link.get_text(strip=True))
+                    table_id = link.get_text(strip=True).lower().replace(".", " ").strip().replace(" ", "_")
+                    referenced_tables.add(table_id)
         
                 
         #----------------------- formate the chunks ------------------------

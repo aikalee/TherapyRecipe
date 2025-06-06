@@ -186,8 +186,7 @@ def load_together_llm_client():
 
     if "TOGETHER_API_KEY" in st.secrets:
         api_key = st.secrets["TOGETHER_API_KEY"]
-    
-    if not api_key:
+    else:
         api_key = os.getenv("TOGETHER_API_KEY")
     
     return Together(api_key=api_key)

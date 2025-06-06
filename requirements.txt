@@ -1,7 +1,10 @@
 streamlit
+torch
 faiss-cpu
-python-dotenv
 numpy
 pydantic
+python-dotenv
+transformers
 sentence-transformers
+openai
 together

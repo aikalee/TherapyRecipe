@@ -3,6 +3,7 @@ import time
 import torch
 import faiss
 import os
+import streamlit as st
 from dotenv import load_dotenv
 
 import numpy as np
@@ -182,8 +183,14 @@ def load_together_llm_client():
     Load the Together LLM client with the provided API key.
     """
     load_dotenv()  # Load environment variables from .env file
+
+    if "TOGETHER_API_KEY" in st.secrets:
+        api_key = st.secrets["TOGETHER_API_KEY"]
     
-    return Together(api_key=os.getenv('TOGETHER_API_KEY'))
+    if not api_key:
+        api_key = os.getenv("TOGETHER_API_KEY")
+    
+    return Together(api_key=api_key)
 
 def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
 

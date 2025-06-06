@@ -235,7 +235,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_cli
         print(f"[Warning] Failed to load embedder '{embedder_name}': {e1}")
         print("[Info] Retrying with trust_remote_code=True and device='cpu'...")
         try:
-            return SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
+            embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
         except Exception as e2:
             print(f"[Error] Failed again with trust_remote_code=True: {e2}")
             raise RuntimeError(f"Failed to load embedder '{embedder_name}' with both strategies.") from e2
@@ -361,7 +361,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
+    main()
     # ----------------------------------------
     # embedder_name = "Qwen/Qwen3-Embedding-0.6B"
     # embedder = TransformerEmbedder(model_name=embedder_name, device='cpu')
@@ -374,12 +374,12 @@ if __name__ == "__main__":
     #     embeddings = make_embeddings(embedder,embedder_name, db)
     #     save_embeddings(embedder_name, db)
     # ----------------------------------------
-    embedder_name = "all-MiniLM-L6-v2"
+    # embedder_name = "all-MiniLM-L6-v2"
     
-    launch_depression_assistant(embedder_name)
+    # launch_depression_assistant(embedder_name)
     
-    queries, answers = load_queries_and_answers("data/raw/queries.txt", "data/raw/answers.txt")
+    # queries, answers = load_queries_and_answers("data/raw/queries.txt", "data/raw/answers.txt")
 
-    for i, query in enumerate(queries):
-        print(depression_assistant(query))
-        break
+    # for i, query in enumerate(queries):
+    #     print(depression_assistant(query))
+    #     break

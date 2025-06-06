@@ -11,8 +11,8 @@ st.sidebar.title("Settings")
 # but it has to be from sentence-transformers library,
 # if not, need to adapt the code to load the embedder model
 model_options = [
-    "jinaai/jina-embeddings-v3",
     "all-MiniLM-L6-v2",
+    "jinaai/jina-embeddings-v3",
     "paraphrase-MiniLM-L6-v2",
     "sentence-transformers/all-mpnet-base-v2",
     "intfloat/multilingual-e5-base",

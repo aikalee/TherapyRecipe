@@ -1,5 +1,5 @@
 import streamlit as st
-from Rag import launch_depression_assistant, depression_assistant
+from Rag import launch_depression_assistant, depression_assistant, streaming_depression_assistant
 
 # --- Sidebar ---
 st.sidebar.title("Settings")
@@ -58,12 +58,21 @@ if st.session_state.launched:
 
     # React to user input
     if prompt := st.chat_input("What is up?"):
-        results, response = depression_assistant(prompt)
-        # Divide the web page into two parts: left for results, right for response
+        # results, response = depression_assistant(prompt)
         
         # Display user message
         st.chat_message("user").markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-        st.chat_message("assistant").markdown(response)
-        st.session_state.messages.append({"role": "assistant", "content": response})
+        # st.chat_message("assistant").markdown(response)
+        # st.session_state.messages.append({"role": "assistant", "content": response})
+
+        placeholder = st.chat_message("assistant").empty()
+        collected_text = ""
+
+        for chunk in streaming_depression_assistant(prompt):
+            collected_text += chunk
+            placeholder.markdown(collected_text)
+
+       
+        st.session_state.messages.append({"role": "assistant", "content": collected_text})

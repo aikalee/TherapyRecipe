@@ -158,7 +158,7 @@ def load_together_llm_client(api_key):
     """
     load_dotenv()  # Load environment variables from .env file
     
-    return Together(api_key=os.getenv('TOGETHER_API_KEY', api_key))
+    return Together(api_key=api_key)
 
 def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
 
@@ -171,10 +171,29 @@ def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-
             }
         ],
         max_tokens=500,
-        temperature=0.05
+        temperature=0.05,
     )
     return response.choices[0].message.content
 
+def call_llm_with_stream(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
+
+    stream = llm_client.chat.completions.create(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        max_tokens=500,
+        temperature=0.05,
+        stream=True,
+    )
+
+    for chunk in stream:
+        if chunk.choices and chunk.choices[0].delta.content:
+            content = chunk.choices[0].delta.content
+            yield content
 
 
 def construct_prompt(query, faiss_results):
@@ -202,7 +221,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
     """
     Launch the depression assistant with the loaded database and embeddings.
     """
-    global db, referenced_tables_db,  embedder, index, llm_client
+    global db, referenced_tables_db, embedder, index, llm_client
     
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
@@ -227,7 +246,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
         save_faiss_index(embedder_name, index)
         print(f"FAISS index for {embedder_name} built and saved.")
     
-    llm_client = load_together_llm_client(api_key='4f6e44b7689d6592b2b5b57ad3940ac9f488d14c22802e8bcdf641b06e98cbbe')
+    llm_client = load_together_llm_client(api_key=os.getenv('TOGETHER_API_KEY'))
     print("---------Depression Assistant is ready to use!--------------\n\n")
     
 
@@ -253,6 +272,16 @@ def depression_assistant(query):
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
     return results, response
 
+def streaming_depression_assistant(query):
+
+    results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
+    prompt = construct_prompt(query, results)
+    stream = call_llm_with_stream(llm_client, prompt)
+
+    for chunk in stream:
+        if chunk:
+            yield chunk
+
 def load_queries_and_answers(query_file, answers_file):
     """
     Load queries and answers from the provided files.
@@ -264,8 +293,6 @@ def load_queries_and_answers(query_file, answers_file):
         answers = f.readlines()
     
     return queries, answers
-
-
 
 def main():
     # if we want to use a different embedder, change this variable

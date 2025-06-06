@@ -9,7 +9,6 @@ import numpy as np
 from pydantic import BaseModel
 from typing import Optional, List, Union
 from sentence_transformers import SentenceTransformer
-
 from together import Together
 
 
@@ -32,15 +31,39 @@ def load_json_to_db(file_path):
         db_raw = json.load(f)
     db = [Chunk(**chunk) for chunk in db_raw]
     return db
+class TransformerEmbedder:
+    def __init__(self, model_name, device=None):
+        self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        self.model = AutoModel.from_pretrained(model_name, trust_remote_code=True).to(self.device)
+        self.model.eval()
+
+    def mean_pooling(self, model_output, attention_mask):
+        token_embeddings = model_output.last_hidden_state  # (batch_size, seq_len, hidden)
+        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+        return (token_embeddings * input_mask_expanded).sum(1) / input_mask_expanded.sum(1)
+
+    def encode(self, texts, batch_size=8):
+        if isinstance(texts, str):
+            texts = [texts]
+
+        all_embeddings = []
+        for i in range(0, len(texts), batch_size):
+            batch = texts[i:i + batch_size]
+            encoded = self.tokenizer(batch, padding=True, truncation=True, return_tensors="pt").to(self.device)
+            with torch.no_grad():
+                output = self.model(**encoded)
+            embeddings = self.mean_pooling(output, encoded['attention_mask'])
+            all_embeddings.append(embeddings.cpu())
+
+        return torch.cat(all_embeddings, dim=0).numpy()
 
 
 #------Embedding and FAISS Indexing Functions------
-def make_embeddings(embedder_name,db):    
+def make_embeddings(embedder, embedder_name,db):    
     """
     Make embeddings for the given database of chunks.
     """
-    embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
-    # Use 'cpu' Because MPS keeps OOM
 
     texts = [chunk.text for chunk in db]
     embeddings = embedder.encode(texts, convert_to_numpy=True)
@@ -152,13 +175,13 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
             break
     return results
 
-def load_together_llm_client(api_key):
+def load_together_llm_client():
     """
     Load the Together LLM client with the provided API key.
     """
     load_dotenv()  # Load environment variables from .env file
     
-    return Together(api_key=os.getenv('TOGETHER_API_KEY', api_key))
+    return Together(api_key=os.getenv('TOGETHER_API_KEY'))
 
 def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
 
@@ -198,7 +221,7 @@ def construct_prompt(query, faiss_results):
 
     
 
-def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
+def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_client=None):
     """
     Launch the depression assistant with the loaded database and embeddings.
     """
@@ -206,7 +229,18 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
     
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
-    embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
+    try:
+        embedder = SentenceTransformer(embedder_name)
+    except Exception as e1:
+        print(f"[Warning] Failed to load embedder '{embedder_name}': {e1}")
+        print("[Info] Retrying with trust_remote_code=True and device='cpu'...")
+        try:
+            return SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
+        except Exception as e2:
+            print(f"[Error] Failed again with trust_remote_code=True: {e2}")
+            raise RuntimeError(f"Failed to load embedder '{embedder_name}' with both strategies.") from e2
+        
+        
     print(f"Using embedder: {embedder_name}")
     
     # if embeddings already exist, load them, else make new embeddings
@@ -215,7 +249,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
         print(f"Embeddings for {embedder_name} already exist. Loading them...")
     except FileNotFoundError:
         print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
-        embeddings = make_embeddings(embedder_name, db)
+        embeddings = make_embeddings(embedder,embedder_name, db)
         save_embeddings(embedder_name, db)
     
     try:
@@ -226,8 +260,12 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2"):
         index = build_faiss_index(embeddings)
         save_faiss_index(embedder_name, index)
         print(f"FAISS index for {embedder_name} built and saved.")
-    
-    llm_client = load_together_llm_client(api_key='4f6e44b7689d6592b2b5b57ad3940ac9f488d14c22802e8bcdf641b06e98cbbe')
+    if designated_client is None:
+        print("No LLM client provided. Loading Together LLM client...")
+        llm_client = load_together_llm_client()
+    else:
+        print("Using provided LLM client.")
+        llm_client = designated_client
     print("---------Depression Assistant is ready to use!--------------\n\n")
     
 
@@ -323,14 +361,25 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-    # embedder_name = "all-MiniLM-L6-v2"
+    # main()
+    # ----------------------------------------
+    # embedder_name = "Qwen/Qwen3-Embedding-0.6B"
+    # embedder = TransformerEmbedder(model_name=embedder_name, device='cpu')
+    # db = load_json_to_db("data/processed/guideline_db.json")
+    # try:
+    #     embeddings = load_embeddings(embedder_name)
+    #     print(f"Embeddings for {embedder_name} already exist. Loading them...")
+    # except FileNotFoundError:
+    #     print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
+    #     embeddings = make_embeddings(embedder,embedder_name, db)
+    #     save_embeddings(embedder_name, db)
+    # ----------------------------------------
+    embedder_name = "all-MiniLM-L6-v2"
     
-    # launch_depression_assistant(embedder_name)
+    launch_depression_assistant(embedder_name)
     
-    # queries, answers = load_queries_and_answers("data/raw/queries.txt", "data/raw/answers.txt")
+    queries, answers = load_queries_and_answers("data/raw/queries.txt", "data/raw/answers.txt")
 
-    # for i, query in enumerate(queries):
-    #     faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
-    #     if i == 10:
-    #         break
+    for i, query in enumerate(queries):
+        print(depression_assistant(query))
+        break

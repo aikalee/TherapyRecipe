@@ -208,27 +208,6 @@ def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-
     else:
         return response.choices[0].message.content
 
-def call_llm_with_stream(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
-
-    stream = llm_client.chat.completions.create(
-        model=model,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-        max_tokens=500,
-        temperature=0.05,
-        stream=True,
-    )
-
-    for chunk in stream:
-        if chunk.choices and chunk.choices[0].delta.content:
-            content = chunk.choices[0].delta.content
-            yield content
-
-
 def construct_prompt(query, faiss_results):
     # reads system prompt from a file
     with open("src/system_prompt.txt", "r") as f:
@@ -327,16 +306,6 @@ def depression_assistant(query, stream_flag=False):
                 yield chunk
     else:
         return results, response
-
-def streaming_depression_assistant(query):
-
-    results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
-    prompt = construct_prompt(query, results)
-    stream = call_llm_with_stream(llm_client, prompt)
-
-    for chunk in stream:
-        if chunk:
-            yield chunk
 
 def load_queries_and_answers(query_file, answers_file):
     """

@@ -3,7 +3,6 @@ import time
 import torch
 import faiss
 import os
-import streamlit as st
 from dotenv import load_dotenv
 
 import numpy as np
@@ -183,15 +182,10 @@ def load_together_llm_client():
     Load the Together LLM client with the provided API key.
     """
     load_dotenv()  # Load environment variables from .env file
-
-    if "TOGETHER_API_KEY" in st.secrets:
-        api_key = st.secrets["TOGETHER_API_KEY"]
-    else:
-        api_key = os.getenv("TOGETHER_API_KEY")
     
-    return Together(api_key=api_key)
+    return Together(api_key=os.getenv("TOGETHER_API_KEY"))
 
-def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
+def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free", stream_flag=False):
 
     response = llm_client.chat.completions.create(
         model=model,
@@ -203,8 +197,16 @@ def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-
         ],
         max_tokens=500,
         temperature=0.05,
+        stream=stream_flag,
     )
-    return response.choices[0].message.content
+
+    if stream_flag:
+        for chunk in response:
+            if chunk.choices and chunk.choices[0].delta.content:
+                content = chunk.choices[0].delta.content
+                yield content
+    else:
+        return response.choices[0].message.content
 
 def call_llm_with_stream(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
 
@@ -296,7 +298,7 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_cli
     print("---------Depression Assistant is ready to use!--------------\n\n")
     
 
-def depression_assistant(query):    
+def depression_assistant(query, stream_flag=False):    
     t1 = time.perf_counter()
 
     results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
@@ -311,12 +313,20 @@ def depression_assistant(query):
     t3 = time.perf_counter()
     print(f"[Time] Prompt construction took {t3 - t2:.2f} seconds.")
 
-    response = call_llm(llm_client, prompt)
+    
+    response = call_llm(llm_client, prompt, stream_flag)
+
     t4 = time.perf_counter()
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
 
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
-    return results, response
+
+    if stream_flag:
+        for chunk in response:
+            if chunk:
+                yield chunk
+    else:
+        return results, response
 
 def streaming_depression_assistant(query):
 

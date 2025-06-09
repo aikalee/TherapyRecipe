@@ -1,5 +1,5 @@
 import streamlit as st
-from Rag import launch_depression_assistant, depression_assistant, streaming_depression_assistant
+from Rag import launch_depression_assistant, depression_assistant
 from openai import OpenAI
 from together import Together
 from dotenv import load_dotenv
@@ -120,7 +120,7 @@ else:
             placeholder = st.chat_message("assistant").empty()
             collected_text = ""
 
-            for chunk in streaming_depression_assistant(prompt):
+            for chunk in depression_assistant(prompt, True):
                 collected_text += chunk
                 placeholder.markdown(collected_text)
 

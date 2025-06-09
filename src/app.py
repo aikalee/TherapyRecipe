@@ -1,6 +1,6 @@
 import streamlit as st
 from Rag import launch_depression_assistant, depression_assistant
-from openai import OpenAI
+# from openai import OpenAI
 from together import Together
 from dotenv import load_dotenv
 

@@ -185,7 +185,7 @@ def load_together_llm_client():
     
     return Together(api_key=os.getenv("TOGETHER_API_KEY"))
 
-def call_llm(llm_client, prompt, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free", stream_flag=False):
+def call_llm(llm_client, prompt, stream_flag=False, model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
 
     response = llm_client.chat.completions.create(
         model=model,

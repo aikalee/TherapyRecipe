@@ -184,7 +184,6 @@ def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama
                 for chunk in response:
                     if chunk.choices and chunk.choices[0].delta.content:
                         content = chunk.choices[0].delta.content
-                        print("Streaming content:", content)
                         yield content
             return stream_generator()
         else:

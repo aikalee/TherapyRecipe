@@ -119,8 +119,9 @@ else:
 
             placeholder = st.chat_message("assistant").empty()
             collected_text = ""
+            results, response = depression_assistant(prompt, True)
 
-            for chunk in depression_assistant(prompt, True):
+            for chunk in response:
                 collected_text += chunk
                 placeholder.markdown(collected_text)
 

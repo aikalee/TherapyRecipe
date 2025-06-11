@@ -7,31 +7,14 @@ from dotenv import load_dotenv
 
 import numpy as np
 
-from pydantic import BaseModel
-from typing import Optional, List, Union
 from transformers import AutoTokenizer, AutoModel
 from sentence_transformers import SentenceTransformer
 from together import Together
 
 
-
-class Metadata(BaseModel):
-    section: str
-    type: str
-    chunk_id: Optional[int]= None
-    headings: str
-    referee_id: Optional[str] = None
-    referenced_tables: Optional[List[str]] = None
-
-class Chunk(BaseModel):
-    text: str
-    metadata: Metadata
-
-
 def load_json_to_db(file_path):
     with open(file_path) as f:
-        db_raw = json.load(f)
-    db = [Chunk(**chunk) for chunk in db_raw]
+        db = json.load(f)
     return db
 class TransformerEmbedder:
     def __init__(self, model_name, device=None):
@@ -67,7 +50,7 @@ def make_embeddings(embedder, embedder_name,db):
     Make embeddings for the given database of chunks.
     """
 
-    texts = [chunk.text for chunk in db]
+    texts = [chunk['text'] for chunk in db]
     embeddings = embedder.encode(texts, convert_to_numpy=True)
     
     return embeddings
@@ -143,16 +126,16 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
     for i in range(k):
         if indices[0][i] != -1:  # Check if the index is valid
             results.append({
-                "text": db[indices[0][i]].text,
-                "section": db[indices[0][i]].metadata.section,
-                "chunk_id": db[indices[0][i]].metadata.chunk_id,
+                "text": db[indices[0][i]]['text'],
+                "section": db[indices[0][i]]['metadata']['section'],
+                "chunk_id": db[indices[0][i]]['metadata']['chunk_id'],
             })
         # if this chunk has a referee_id, it is a table already, we don't need to add it again later
-        if db[indices[0][i]].metadata.referee_id:
-            existed_tables.add(db[indices[0][i]].metadata.referee_id)
+        if db[indices[0][i]]['metadata']['referee_id']:
+            existed_tables.add(db[indices[0][i]]['metadata']['referee_id'])
             print
-        if db[indices[0][i]].metadata.referenced_tables:
-            referenced_tables.update(db[indices[0][i]].metadata.referenced_tables)
+        if db[indices[0][i]]['metadata']['referenced_tables']:
+            referenced_tables.update(db[indices[0][i]]['metadata']['referenced_tables'])
 
     #existed_tables = tables that already exist in the retrieved results
     #referenced_tables = tables that are referenced by chunks in the retrieved results
@@ -166,11 +149,11 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
     # add the referenced tables in the db to the results if their referee_id is in table_to_add
     i = 0
     for chunk in referenced_tables_db:
-        if chunk.metadata.referee_id in table_to_add:
+        if chunk['metadata']['referee_id'] in table_to_add:
             results.append({
-                "text": chunk.text,
-                "section": chunk.metadata.section,
-                "chunk_id": chunk.metadata.chunk_id,
+                "text": chunk['text'],
+                "section": chunk['metadata']['section'],
+                "chunk_id": chunk['metadata']['chunk_id'],
             })
             i += 1
         if i == len(table_to_add):

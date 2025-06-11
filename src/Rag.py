@@ -56,26 +56,58 @@ def make_embeddings(embedder, embedder_name,db):
     return embeddings
 
 
-def save_embeddings(embedder_name, db):    
+def save_embeddings(embedder_name, embeddings):    
     """
     Save embeddings to a .npy file.
     """
-    embeddings = make_embeddings(embedder_name, db)
-    
-    print(f"Saving embeddings for {embedder_name}...")
     file_path = os.path.join("data", "embeddings", f"{embedder_name.replace('/', '_')}.npy")
     np.save(file_path, embeddings)
+    print(f"Saved embeddings for {embedder_name}...")
+    
     
     
 def load_embeddings(embedder_name):
     """
     Load embeddings from a .npy file.
     """
-    print(f"Loading embeddings for {embedder_name}...")
-    file_path = os.path.join("data", "embeddings", f"{embedder_name.replace('/', '_')}.npy")
-    embeddings = np.load(file_path, allow_pickle=True)
+        # if embeddings already exist, load them, else make new embeddings
+    try:
+        file_path = os.path.join("data", "embeddings", f"{embedder_name.replace('/', '_')}.npy")
+        embeddings = np.load(file_path, allow_pickle=True)
+        print(f"Embeddings for {embedder_name} already exist. Loading them...")
+    except FileNotFoundError:
+        print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
+        embeddings = make_embeddings(embedder,embedder_name, db)
+        save_embeddings(embedder_name, embeddings)
+        
     
     return embeddings
+
+def load_embedder_with_fallbacks(embedder_name):
+    """
+    Tries loading a SentenceTransformer model with multiple fallback strategies.
+    Returns the loaded model if successful. Raises RuntimeError if all strategies fail.
+    """
+    strategies = [
+        {"trust_remote_code": False, "device": None, "description": "default"},
+        {"trust_remote_code": True,  "device": None, "description": "trust_remote_code=True"},
+    ]
+
+    for i, strategy in enumerate(strategies):
+        try:
+            print(f"[Attempt {i+1}] Loading embedder '{embedder_name}' with strategy: {strategy['description']}")
+            kwargs = {}
+            if strategy["trust_remote_code"]:
+                kwargs["trust_remote_code"] = True
+            if strategy["device"]:
+                kwargs["device"] = strategy["device"]
+            model = SentenceTransformer(embedder_name, **kwargs)
+            print(f"[Success] Loaded embedder with strategy: {strategy['description']}")
+            return model
+        except Exception as e:
+            print(f"[Failure] Strategy '{strategy['description']}' failed: {e}")
+
+    raise RuntimeError(f"All strategies failed to load embedder '{embedder_name}'.")
     
 # --------------Faiss index functions-------------------
 def build_faiss_index(embeddings):
@@ -88,20 +120,27 @@ def build_faiss_index(embeddings):
     
     return index
 
-def load_faiss_index(embedder_name):
+def load_faiss_index(embedder_name, embeddings):
     """
     Load the FAISS index from a file.
     """
-    index_file = f"{embedder_name.replace('/', '_')}_index.faiss"
     
-    # if file doesn't exist in the folder data/faiss_index, raise FileNotFoundError
-    index_file = os.path.join("data", "faiss_index", index_file)
-    
-    if not os.path.exists(index_file):
-        raise FileNotFoundError(f"FAISS index file {index_file} not found.")
-    
-    index = faiss.read_index(index_file)
-    print(f"Loaded FAISS index from {index_file}.")
+    try:
+        
+        # if file doesn't exist in the folder data/faiss_index, raise FileNotFoundError
+        index_file = os.path.join("data", "faiss_index", f"{embedder_name.replace('/', '_')}_index.faiss")
+        
+        if not os.path.exists(index_file):
+            raise FileNotFoundError(f"FAISS index file {index_file} not found.")
+        
+        print(f"FAISS index for {embedder_name} already exists. Loading it...")
+        index = faiss.read_index(index_file)
+        print(f"Loaded FAISS index from {index_file}.")
+    except FileNotFoundError:
+        print(f"FAISS index for {embedder_name} not found. Building new index...")
+        index = build_faiss_index(embeddings)
+        save_faiss_index(embedder_name, index)
+        print(f"FAISS index for {embedder_name} built and saved.")
     return index
 
 def save_faiss_index(embedder_name, index):
@@ -168,6 +207,26 @@ def load_together_llm_client():
     
     return Together(api_key=os.getenv("TOGETHER_API_KEY"))
 
+def construct_prompt(query, faiss_results):
+    # reads system prompt from a file
+    with open("src/system_prompt.txt", "r") as f:
+        system_prompt = f.read().strip()
+
+    prompt = f"""
+### System Prompt
+{system_prompt}
+
+### User Query
+{query}
+
+### Clinical Guidelines Context
+    """
+    for result in faiss_results:
+        prompt += f"- reference: {result['section']}\n- This paragraph is from section: {result['text']}\n"
+
+    return prompt
+
+
 def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
     try:
         if stream_flag:
@@ -205,25 +264,6 @@ def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama
         traceback.print_exc()
         raise
 
-def construct_prompt(query, faiss_results):
-    # reads system prompt from a file
-    with open("src/system_prompt.txt", "r") as f:
-        system_prompt = f.read().strip()
-
-    prompt = f"""
-### System Prompt
-{system_prompt}
-
-### User Query
-{query}
-
-### Clinical Guidelines Context
-    """
-    for result in faiss_results:
-        prompt += f"- reference: {result['section']}\n- This paragraph is from section: {result['text']}\n"
-
-    return prompt
-
     
 
 def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_client=None):
@@ -234,36 +274,14 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_cli
     
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
-    try:
-        embedder = SentenceTransformer(embedder_name)
-    except Exception as e1:
-        print(f"[Warning] Failed to load embedder '{embedder_name}': {e1}")
-        print("[Info] Retrying with trust_remote_code=True and device='cpu'...")
-        try:
-            embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
-        except Exception as e2:
-            print(f"[Error] Failed again with trust_remote_code=True: {e2}")
-            raise RuntimeError(f"Failed to load embedder '{embedder_name}' with both strategies.") from e2
+
+    embedder = load_embedder_with_fallbacks(embedder_name)
         
     print(f"Using embedder: {embedder_name}")
     
-    # if embeddings already exist, load them, else make new embeddings
-    try:
-        embeddings = load_embeddings(embedder_name)
-        print(f"Embeddings for {embedder_name} already exist. Loading them...")
-    except FileNotFoundError:
-        print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
-        embeddings = make_embeddings(embedder,embedder_name, db)
-        save_embeddings(embedder_name, db)
-    
-    try:
-        index = load_faiss_index(embedder_name)
-        print(f"FAISS index for {embedder_name} already exists. Loading it...")
-    except FileNotFoundError:
-        print(f"FAISS index for {embedder_name} not found. Building new index...")
-        index = build_faiss_index(embeddings)
-        save_faiss_index(embedder_name, index)
-        print(f"FAISS index for {embedder_name} built and saved.")
+    embeddings = load_embeddings(embedder_name)
+    index = load_faiss_index(embedder_name, embeddings)
+
     if designated_client is None:
         print("No LLM client provided. Loading Together LLM client...")
         llm_client = load_together_llm_client()
@@ -351,6 +369,7 @@ def write_batched_results(embedder_name, result_path):
             f2.write(f"## Response\n")
             f2.write(response)
             f2.write("\n\n---\n\n")
+            break
 
 
 if __name__ == "__main__":

@@ -186,27 +186,42 @@ def load_together_llm_client():
     return Together(api_key=os.getenv("TOGETHER_API_KEY"))
 
 def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
-
-    response = llm_client.chat.completions.create(
-        model=model_name,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-        max_tokens=500,
-        temperature=0.05,
-        stream=stream_flag,
-    )
-
-    if stream_flag:
-        for chunk in response:
-            if chunk.choices and chunk.choices[0].delta.content:
-                content = chunk.choices[0].delta.content
-                yield content
-    else:
-        return response.choices[0].message.content
+    try:
+        if stream_flag:
+            # For streaming mode, return a generator
+            def stream_generator():
+                response = llm_client.chat.completions.create(
+                    model=model_name,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=500,
+                    temperature=0.05,
+                    stream=True,
+                )
+                print("Streaming response received from API")
+                for chunk in response:
+                    if chunk.choices and chunk.choices[0].delta.content:
+                        content = chunk.choices[0].delta.content
+                        print("Streaming content:", content)
+                        yield content
+            return stream_generator()
+        else:
+            # For non-streaming mode, return content directly
+            response = llm_client.chat.completions.create(
+                model=model_name,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=500,
+                temperature=0.05,
+                stream=False,
+            )
+            content = response.choices[0].message.content
+            return content
+            
+    except Exception as e:
+        print("Error in call_llm:", str(e))
+        print("Error type:", type(e))
+        import traceback
+        traceback.print_exc()
+        raise
 
 def construct_prompt(query, faiss_results):
     # reads system prompt from a file
@@ -247,7 +262,6 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_cli
         except Exception as e2:
             print(f"[Error] Failed again with trust_remote_code=True: {e2}")
             raise RuntimeError(f"Failed to load embedder '{embedder_name}' with both strategies.") from e2
-        
         
     print(f"Using embedder: {embedder_name}")
     
@@ -297,15 +311,9 @@ def depression_assistant(query, stream_flag=False):
 
     t4 = time.perf_counter()
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
-
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
 
-    if stream_flag:
-        for chunk in response:
-            if chunk:
-                yield chunk
-    else:
-        return results, response
+    return results, response
 
 def load_queries_and_answers(query_file, answers_file):
     """
@@ -319,16 +327,7 @@ def load_queries_and_answers(query_file, answers_file):
     
     return queries, answers
 
-def main():
-    # if we want to use a different embedder, change this variable
-    # embedder_name = "all-MiniLM-L6-v2"
-    embedder_name = "jinaai/jina-embeddings-v3"
-    # embedder_name = "abhinand/MedEmbed-large-v0.1"
-    # embedder_name = "BAAI/bge-base-en-v1.5",
-    # embedder_name = "BAAI/bge-large-en-v1.5"
-    # embedder_name = "BAAI/bge-small-en-v1.5"
-    # embedder_name = "intfloat/multilingual-e5-base"
-    # embedder_name = "sentence-transformers/all-mpnet-base-v2"
+def write_batched_results(embedder_name, result_path):
     
     time0 = time.perf_counter()
     launch_depression_assistant(embedder_name)
@@ -342,21 +341,19 @@ def main():
     
     embedder_filename = embedder_name.replace('/', '_')
     
-    result_path = "data/results/week_5_generation/"
 
     with open(f"{result_path}Retrieved_Results_by_{embedder_filename}.md", "w") as f1, \
         open(f"{result_path}Response_by_{embedder_filename}.md", "w") as f2:
-        # open(f"CSV_results_by{result_path}", "w") as f3:
-            # f3.write("Query,Answer,Retrieved_results,Response\n")
 
         for i, query in enumerate(queries):
             result, response = depression_assistant(query)
 
+            # Write retrieved results
             f1.write(f"## Query {i+1}\n")
             f1.write(f"{query.strip()}\n\n")
-            f1.write("### Answer\n")
+            f1.write("## Answer\n")
             f1.write(f"{answers[i].strip()}\n\n")
-            f1.write("### Retrieved Results\n")
+            f1.write("## Retrieved Results\n")
             
             for res in result:
                 f1.write(f"\n\n#### {res['section']}\n\n")
@@ -366,34 +363,24 @@ def main():
             # Write response
             f2.write(f"## Query {i+1}\n")
             f2.write(f"{query.strip()}\n\n")
-            f2.write("### Answer\n")
+            f2.write("## Answer\n")
             f2.write(f"{answers[i].strip()}\n\n")
             
             f2.write(f"## Response\n")
-            f2.write(f"{response.strip()}\n")
+            f2.write(response)
             f2.write("\n\n---\n\n")
 
 
 if __name__ == "__main__":
-    main()
-    # ----------------------------------------
-    # embedder_name = "Qwen/Qwen3-Embedding-0.6B"
-    # embedder = TransformerEmbedder(model_name=embedder_name, device='cpu')
-    # db = load_json_to_db("data/processed/guideline_db.json")
-    # try:
-    #     embeddings = load_embeddings(embedder_name)
-    #     print(f"Embeddings for {embedder_name} already exist. Loading them...")
-    # except FileNotFoundError:
-    #     print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
-    #     embeddings = make_embeddings(embedder,embedder_name, db)
-    #     save_embeddings(embedder_name, db)
-    # ----------------------------------------
-    # embedder_name = "all-MiniLM-L6-v2"
+    embedder_name = "all-MiniLM-L6-v2"
+    # embedder_name = "jinaai/jina-embeddings-v3"
+    # embedder_name = "abhinand/MedEmbed-large-v0.1"
+    # embedder_name = "BAAI/bge-base-en-v1.5",
+    # embedder_name = "BAAI/bge-large-en-v1.5"
+    # embedder_name = "BAAI/bge-small-en-v1.5"
+    # embedder_name = "intfloat/multilingual-e5-base"
+    # embedder_name = "sentence-transformers/all-mpnet-base-v2"
     
-    # launch_depression_assistant(embedder_name)
+    result_path = "data/results/week_5_generation/"
     
-    # queries, answers = load_queries_and_answers("data/raw/queries.txt", "data/raw/answers.txt")
-
-    # for i, query in enumerate(queries):
-    #     print(depression_assistant(query))
-    #     break
+    write_batched_results(embedder_name, result_path)

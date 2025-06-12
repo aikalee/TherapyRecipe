@@ -64,6 +64,7 @@ with st.sidebar:
         
     st.subheader('Models and parameters')
     selected_model = st.sidebar.selectbox('Choose a model for generation', ["meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","Other"], key='selected_model')
+    model_name = None
     if selected_model == "Other":
         #ask to input the model name
         model_name = st.sidebar.text_input('Enter the model name')
@@ -74,8 +75,6 @@ with st.sidebar:
 
 # Show title and description.
 st.title("💬 Depression Assistant Chatbot")
-
-
 
 
         
@@ -129,7 +128,10 @@ if st.session_state.launched:
 
         placeholder = st.chat_message("assistant").empty()
         collected_text = ""
-        results, response = depression_assistant(prompt, True)
+        if selected_model =="Other" and model_name is not None:
+            prompt, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p, model_name=model_name)
+        else:
+            prompt, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p)
 
         for chunk in response:
             collected_text += chunk
@@ -137,6 +139,3 @@ if st.session_state.launched:
 
     
         st.session_state.messages.append({"role": "assistant", "content": collected_text})
-
-        # st.chat_message("assistant").markdown(response)
-        # st.session_state.messages.append({"role": "assistant", "content": response})

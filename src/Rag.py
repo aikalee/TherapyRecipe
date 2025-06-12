@@ -14,7 +14,7 @@ from sentence_transformers import SentenceTransformer
 from together import Together
 
 
-# ---------- 数据结构 ----------
+# ---------- data structure ----------
 class Metadata(BaseModel):
     section: str
     type: str
@@ -29,7 +29,7 @@ class Chunk(BaseModel):
     metadata: Metadata
 
 
-# ---------- 数据加载 ----------
+# ---------- data load----------
 def load_json_to_db(file_path):
     with open(file_path) as f:
         db_raw = json.load(f)
@@ -37,7 +37,7 @@ def load_json_to_db(file_path):
     return db
 
 
-# ---------- 可选自建 TransformerEmbedder ----------
+# ---------- optional custom TransformerEmbedder ----------
 class TransformerEmbedder:
     def __init__(self, model_name, device=None):
         self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
@@ -67,7 +67,7 @@ class TransformerEmbedder:
         return embs.numpy() if convert_to_numpy else embs
 
 
-# ---------- Embedding & 保存 ----------
+# ---------- Embedding & save ----------
 def make_embeddings(embedder, embedder_name, db):
     texts = [chunk.text for chunk in db]
     return embedder.encode(texts, convert_to_numpy=True)
@@ -103,7 +103,7 @@ def save_faiss_index(embedder_name, index):
     faiss.write_index(index, index_file)
 
 
-# ---------- 检索 ----------
+# ---------- search ----------
 def faiss_search(query, embedder, db, index, referenced_table_db, k=3):
     query_embedding = embedder.encode([query], convert_to_numpy=True)
     distances, indices = index.search(query_embedding, k)
@@ -173,7 +173,7 @@ def construct_prompt(query, faiss_results):
     return prompt
 
 
-# ===== 新增：带记忆版本 =====
+# ===== new feature: memory =====
 def construct_prompt_with_memory(query, faiss_results, chat_history=None, history_limit=3):
     with open("src/system_prompt.txt", "r") as f:
         system_prompt = f.read().strip()

@@ -3,7 +3,6 @@ import time
 import faiss
 import os
 from dotenv import load_dotenv
-import requests
 
 import numpy as np
 
@@ -155,11 +154,8 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
         if db[indices[0][i]]['metadata']['referee_id']:
             existed_tables.add(db[indices[0][i]]['metadata']['referee_id'])
             print
-        try:
-            if db[indices[0][i]]['metadata']['referenced_tables']:
-                referenced_tables.update(db[indices[0][i]]['metadata']['referenced_tables'])
-        except KeyError:
-            continue
+        if db[indices[0][i]]['metadata']['referenced_tables']:
+            referenced_tables.update(db[indices[0][i]]['metadata']['referenced_tables'])
 
     #existed_tables = tables that already exist in the retrieved results
     #referenced_tables = tables that are referenced by chunks in the retrieved results
@@ -253,27 +249,6 @@ def call_llm(llm_client, prompt, stream_flag=False, max_tokens=500, temperature=
         traceback.print_exc()
         raise
 
-def call_ollama(prompt, model="mistral", stream_flag=False, max_tokens=500, temperature=0.05, top_p=0.9):
-    url = "http://localhost:11434/api/generate"
-    payload = {
-        "model": model,
-        "prompt": prompt,
-        "temperature": temperature,
-        "top_p": top_p,
-        "max_tokens": max_tokens,
-        "stream": True
-    }
-
-    with requests.post(url, json=payload, stream=True) as response:
-        print("===========Entering Ollama stream loop===========")
-        for line in response.iter_lines():
-            if line:
-                try:
-                    chunk = line.decode("utf-8")
-                    data = json.loads(chunk)
-                    yield data["response"]
-                except Exception as e:
-                    continue
     
 
 def launch_depression_assistant(embedder_name, designated_client=None):
@@ -315,20 +290,15 @@ def depression_assistant(query, stream_flag=False,max_tokens=500, temperature=0.
     prompt = construct_prompt(query, results)
     t3 = time.perf_counter()
 
-    if llm_client == "Ollama":
-        print(f"Using Ollama with model: {model_name}")
-        response = call_ollama(prompt, model_name, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p,)
-    else:
-        response = call_llm(llm_client, prompt, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p, model_name=model_name)
+    
+    response = call_llm(llm_client, prompt, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p, model_name=model_name)
     t4 = time.perf_counter()
     
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
 
-    return results, response
+    return prompt, response
 
-    
-    
 def load_queries_and_answers(query_file, answers_file):
     """
     Load queries and answers from the provided files.

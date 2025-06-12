@@ -2,14 +2,9 @@ import streamlit as st
 from Rag import launch_depression_assistant, depression_assistant
 # from openai import OpenAI
 from together import Together
-from dotenv import load_dotenv
-
-# --- Sidebar ---
-st.sidebar.title("Settings")
 
 # you can add the embedder model to tried out more
-# but it has to be from sentence-transformers library,
-# if not, need to adapt the code to load the embedder model
+# but it has to be from sentence-transformers library, or a encoder-only transformer model
 model_options = [
     "all-MiniLM-L6-v2",
     "jinaai/jina-embeddings-v3",
@@ -19,22 +14,40 @@ model_options = [
     "BAAI/bge-small-en-v1.5",
     "BAAI/bge-large-en-v1.5",
     "BAAI/bge-base-en-v1.5",
-    "abhinand/MedEmbed-large-v0.1"
+    "abhinand/MedEmbed-large-v0.1",
+    "Qwen/Qwen3-Embedding-0.6B",
+    "emilyalsentzer/Bio_ClinicalBERT",
+    
 ]
-embedder_name = st.sidebar.selectbox(
+
+# --- Sidebar ---
+st.sidebar.title("Settings")
+with st.sidebar:
+
+    st.subheader("Embedder and LLM Settings")
+    embedder_name = st.sidebar.selectbox(
     "Select embedder model",
     model_options,
     index=0
-)
+    )
+    # API provider selection
+    api_provider = st.sidebar.selectbox(
+        "Select API Provider",
+        ["Default Free Together AI API","OpenAI", "Together AI", "NVIDIA"]
+    )
+        
+    st.subheader('Models and parameters')
+    selected_model = st.sidebar.selectbox('Choose a model for generation', ['Llama2-7B', 'Llama2-13B'], key='selected_model')
+    model_name = selected_model
+    temperature = st.sidebar.slider('temperature', min_value=0.01, max_value=1.0, value=0.05, step=0.01)
+    top_p = st.sidebar.slider('top_p', min_value=0.01, max_value=1.0, value=0.9, step=0.01)
+    max_length = st.sidebar.slider('max_length', min_value=100, max_value=1000, value=500, step=10)
+
+
+
 # Show title and description.
 st.title("💬 Depression Assistant Chatbot")
 
-
-# API provider selection
-api_provider = st.sidebar.selectbox(
-    "Select API Provider",
-    ["Default Free Together AI API","OpenAI", "Together AI", "NVIDIA"]
-)
 
 # Only show API key input if not using default free API
 if api_provider != "Default Free Together AI API":
@@ -67,7 +80,6 @@ elif api_provider == "NVIDIA":
     llm_client = None
 else:
     st.warning("No valid API key provided. Using default Free Together AI API.")
-    llm_client = None
 
         
     # --- Track launch state and embedder ---

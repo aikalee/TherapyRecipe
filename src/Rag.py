@@ -1,13 +1,11 @@
 import json
 import time
-import torch
 import faiss
 import os
 from dotenv import load_dotenv
 
 import numpy as np
 
-from transformers import AutoTokenizer, AutoModel
 from sentence_transformers import SentenceTransformer
 from together import Together
 
@@ -16,33 +14,6 @@ def load_json_to_db(file_path):
     with open(file_path) as f:
         db = json.load(f)
     return db
-class TransformerEmbedder:
-    def __init__(self, model_name, device=None):
-        self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-        self.model = AutoModel.from_pretrained(model_name, trust_remote_code=True).to(self.device)
-        self.model.eval()
-
-    def mean_pooling(self, model_output, attention_mask):
-        token_embeddings = model_output.last_hidden_state  # (batch_size, seq_len, hidden)
-        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
-        return (token_embeddings * input_mask_expanded).sum(1) / input_mask_expanded.sum(1)
-
-    def encode(self, texts, batch_size=8):
-        if isinstance(texts, str):
-            texts = [texts]
-
-        all_embeddings = []
-        for i in range(0, len(texts), batch_size):
-            batch = texts[i:i + batch_size]
-            encoded = self.tokenizer(batch, padding=True, truncation=True, return_tensors="pt").to(self.device)
-            with torch.no_grad():
-                output = self.model(**encoded)
-            embeddings = self.mean_pooling(output, encoded['attention_mask'])
-            all_embeddings.append(embeddings.cpu())
-
-        return torch.cat(all_embeddings, dim=0).numpy()
-
 
 #------Embedding and FAISS Indexing Functions------
 def make_embeddings(embedder, embedder_name,db):    
@@ -89,25 +60,35 @@ def load_embedder_with_fallbacks(embedder_name):
     Returns the loaded model if successful. Raises RuntimeError if all strategies fail.
     """
     strategies = [
-        {"trust_remote_code": False, "device": None, "description": "default"},
-        {"trust_remote_code": True,  "device": None, "description": "trust_remote_code=True"},
+        {"trust_remote_code": False, "device": "cpu", "description": "default sentence transformer", 'class': 'SentenceTransformer'},
+        {"trust_remote_code": True,  "device": None, "description": "sentence transformer with trust_remote_code=True", 'class': 'SentenceTransformer'},
+        {"description": "manual make transformer + pooling with sentenceTransformer", "class": "Manual"},
     ]
 
     for i, strategy in enumerate(strategies):
         try:
-            print(f"[Attempt {i+1}] Loading embedder '{embedder_name}' with strategy: {strategy['description']}")
-            kwargs = {}
-            if strategy["trust_remote_code"]:
-                kwargs["trust_remote_code"] = True
-            if strategy["device"]:
-                kwargs["device"] = strategy["device"]
-            model = SentenceTransformer(embedder_name, **kwargs)
+            print(f"[Attempt {i+1}] Loading embedder '{embedder_name}' with {strategy['description']}")
+            
+            if strategy["class"] == "SentenceTransformer":
+                kwargs = {}
+                if strategy.get("trust_remote_code"):
+                    kwargs["trust_remote_code"] = True
+                if strategy.get("device"):
+                    kwargs["device"] = strategy["device"]
+                model = SentenceTransformer(embedder_name, **kwargs)
+            elif strategy["class"] == "Manual":
+                word_embedding_model = models.Transformer(embedder_name)
+                pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension())
+                model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
+
             print(f"[Success] Loaded embedder with strategy: {strategy['description']}")
             return model
+        
         except Exception as e:
-            print(f"[Failure] Strategy '{strategy['description']}' failed: {e}")
+            print(f"[Failure] '{strategy['description']}' failed: {e}")
 
     raise RuntimeError(f"All strategies failed to load embedder '{embedder_name}'.")
+
     
 # --------------Faiss index functions-------------------
 def build_faiss_index(embeddings):
@@ -266,7 +247,7 @@ def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama
 
     
 
-def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_client=None):
+def launch_depression_assistant(embedder_name, designated_client=None):
     """
     Launch the depression assistant with the loaded database and embeddings.
     """
@@ -373,7 +354,10 @@ def write_batched_results(embedder_name, result_path):
 
 
 if __name__ == "__main__":
-    embedder_name = "all-MiniLM-L6-v2"
+    embedder_name = "allenai/longformer-base-4096"
+    # embedder_name = "emilyalsentzer/Bio_ClinicalBERT"
+    # embedder_name = "Qwen/Qwen3-Embedding-0.6B"
+    # embedder_name = "all-MiniLM-L6-v2"
     # embedder_name = "jinaai/jina-embeddings-v3"
     # embedder_name = "abhinand/MedEmbed-large-v0.1"
     # embedder_name = "BAAI/bge-base-en-v1.5",
@@ -381,6 +365,9 @@ if __name__ == "__main__":
     # embedder_name = "BAAI/bge-small-en-v1.5"
     # embedder_name = "intfloat/multilingual-e5-base"
     # embedder_name = "sentence-transformers/all-mpnet-base-v2"
+    # embedder_name = 'pritamdeka/S-PubMedBert-MS-MARCO',
+    # embedder_name = 'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext',
+    # embedder_name = 'all-MiniLM-L6-v2'
     
     result_path = "data/results/week_5_generation/"
     

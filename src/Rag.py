@@ -208,7 +208,9 @@ def construct_prompt(query, faiss_results):
     return prompt
 
 
-def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
+def call_llm(llm_client, prompt, stream_flag=False, max_tokens=500, temperature=0.05, top_p=0.9, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
+    print(f"Calling LLM with model: {model_name}")
+    print(f"With parameters: max_tokens={max_tokens}, temperature={temperature}, top_p={top_p}")
     try:
         if stream_flag:
             # For streaming mode, return a generator
@@ -216,8 +218,9 @@ def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama
                 response = llm_client.chat.completions.create(
                     model=model_name,
                     messages=[{"role": "user", "content": prompt}],
-                    max_tokens=500,
-                    temperature=0.05,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    top_p=top_p,
                     stream=True,
                 )
                 print("Streaming response received from API")
@@ -231,8 +234,9 @@ def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama
             response = llm_client.chat.completions.create(
                 model=model_name,
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=500,
-                temperature=0.05,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                top_p=top_p,
                 stream=False,
             )
             content = response.choices[0].message.content
@@ -272,7 +276,7 @@ def launch_depression_assistant(embedder_name, designated_client=None):
     print("---------Depression Assistant is ready to use!--------------\n\n")
     
 
-def depression_assistant(query, stream_flag=False):    
+def depression_assistant(query, stream_flag=False,max_tokens=500, temperature=0.05, top_p=0.9, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):    
     t1 = time.perf_counter()
 
     results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
@@ -285,16 +289,15 @@ def depression_assistant(query, stream_flag=False):
 
     prompt = construct_prompt(query, results)
     t3 = time.perf_counter()
-    print(f"[Time] Prompt construction took {t3 - t2:.2f} seconds.")
 
     
-    response = call_llm(llm_client, prompt, stream_flag)
-
+    response = call_llm(llm_client, prompt, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p, model_name=model_name)
     t4 = time.perf_counter()
+    
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
 
-    return results, response
+    return prompt, response
 
 def load_queries_and_answers(query_file, answers_file):
     """

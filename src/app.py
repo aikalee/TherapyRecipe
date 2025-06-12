@@ -48,8 +48,16 @@ with st.sidebar:
             st.info(f"Please add your {api_provider} API key to continue.", icon="🗝️")
     else:
         try:
-            api_key = st.secrets["TOGETHER_API_KEY"]  # Replace with actual default key
-            llm_client =Together(api_key=api_key)
+            if api_provider == "Default Free Nvidia API":
+                api_key = st.secrets["NVIDIA_API_KEY"]
+                llm_client = OpenAI(
+                    base_url = "https://integrate.api.nvidia.com/v1",
+                    api_key = api_key,
+                )
+                print("NVIDIA client initialized with default key")
+            elif api_provider == "Default Free Together AI API":
+                api_key = st.secrets["TOGETHER_API_KEY"]
+                llm_client =Together(api_key=api_key)
         except Exception as e:
             st.warning("Default API key not found. Probably running locally")
             llm_client = None
@@ -80,7 +88,7 @@ with st.sidebar:
         print("Select to run Ollama client. Please start the Ollama server locally and make sure the model is downloaded.")
         
     st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a model for generation', ["meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","deepseek-ai/deepseek-r1","meta/llama-3.3-70b-instruct","Other"], key='selected_model')
+    selected_model = st.sidebar.selectbox('Choose a model for generation', ["deepseek-ai/deepseek-r1","meta/llama-3.3-70b-instruct","meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","Other"], key='selected_model')
     model_name = None
     if selected_model == "Other":
         #ask to input the model name

@@ -3,21 +3,15 @@ from Rag import launch_depression_assistant, depression_assistant
 # from openai import OpenAI
 from together import Together
 
-st.set_page_config(
-    page_title="Depression Assistant Chatbot",
-    page_icon=":robot_face:",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 # you can add the embedder model to tried out more
 # but it has to be from sentence-transformers library, or a encoder-only transformer model
 model_options = [
-    "Qwen/Qwen3-Embedding-0.6B",
+    "all-MiniLM-L6-v2",
     "jinaai/jina-embeddings-v3",
     "paraphrase-MiniLM-L6-v2",
-    "all-MiniLM-L6-v2",
     "BAAI/bge-small-en-v1.5",
     "abhinand/MedEmbed-large-v0.1",
+    "Qwen/Qwen3-Embedding-0.6B",
     "emilyalsentzer/Bio_ClinicalBERT",
     "Other"
 ]
@@ -38,10 +32,10 @@ with st.sidebar:
     # API provider selection
     api_provider = st.sidebar.selectbox(
         "Select API Provider",
-        ["Default Free Together AI API","OpenAI", "Together AI", "NVIDIA", "Ollama"]
+        ["Default Free Together AI API","OpenAI", "Together AI", "NVIDIA"]
     )
     # Only show API key input if not using default free API
-    if api_provider != "Default Free Together AI API" and api_provider != "Ollama":
+    if api_provider != "Default Free Together AI API":
         # Dynamic API key input based on selected provider
         api_key = st.text_input(f"{api_provider} API Key", type="password")
         if not api_key:
@@ -67,8 +61,6 @@ with st.sidebar:
         st.warning("NVIDIA entry is not yet tested in this app. Please use Together AI instead.")
         # llm_client = NvidiaLLM(nvidia_api_key)
         llm_client = None
-    elif api_provider == "Ollama":
-        llm_client = "Ollama"
         
     st.subheader('Models and parameters')
     selected_model = st.sidebar.selectbox('Choose a model for generation', ["meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","Other"], key='selected_model')
@@ -137,13 +129,13 @@ if st.session_state.launched:
         placeholder = st.chat_message("assistant").empty()
         collected_text = ""
         if selected_model =="Other" and model_name is not None:
-            results, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p, model_name=model_name)
+            prompt, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p, model_name=model_name)
         else:
-            results, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p)
+            prompt, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p)
 
         for chunk in response:
             collected_text += chunk
             placeholder.markdown(collected_text)
+
     
-        #add a button, if click on this button, split the page into half, left for results, right for response
         st.session_state.messages.append({"role": "assistant", "content": collected_text})

@@ -1,65 +1,19 @@
 import json
 import time
-import torch
 import faiss
 import os
 from dotenv import load_dotenv
 
 import numpy as np
 
-from pydantic import BaseModel
-from typing import Optional, List, Union
-from transformers import AutoTokenizer, AutoModel
 from sentence_transformers import SentenceTransformer
 from together import Together
 
 
-
-class Metadata(BaseModel):
-    section: str
-    type: str
-    chunk_id: Optional[int]= None
-    headings: str
-    referee_id: Optional[str] = None
-    referenced_tables: Optional[List[str]] = None
-
-class Chunk(BaseModel):
-    text: str
-    metadata: Metadata
-
-
 def load_json_to_db(file_path):
     with open(file_path) as f:
-        db_raw = json.load(f)
-    db = [Chunk(**chunk) for chunk in db_raw]
+        db = json.load(f)
     return db
-class TransformerEmbedder:
-    def __init__(self, model_name, device=None):
-        self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-        self.model = AutoModel.from_pretrained(model_name, trust_remote_code=True).to(self.device)
-        self.model.eval()
-
-    def mean_pooling(self, model_output, attention_mask):
-        token_embeddings = model_output.last_hidden_state  # (batch_size, seq_len, hidden)
-        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
-        return (token_embeddings * input_mask_expanded).sum(1) / input_mask_expanded.sum(1)
-
-    def encode(self, texts, batch_size=8):
-        if isinstance(texts, str):
-            texts = [texts]
-
-        all_embeddings = []
-        for i in range(0, len(texts), batch_size):
-            batch = texts[i:i + batch_size]
-            encoded = self.tokenizer(batch, padding=True, truncation=True, return_tensors="pt").to(self.device)
-            with torch.no_grad():
-                output = self.model(**encoded)
-            embeddings = self.mean_pooling(output, encoded['attention_mask'])
-            all_embeddings.append(embeddings.cpu())
-
-        return torch.cat(all_embeddings, dim=0).numpy()
-
 
 #------Embedding and FAISS Indexing Functions------
 def make_embeddings(embedder, embedder_name,db):    
@@ -67,32 +21,74 @@ def make_embeddings(embedder, embedder_name,db):
     Make embeddings for the given database of chunks.
     """
 
-    texts = [chunk.text for chunk in db]
+    texts = [chunk['text'] for chunk in db]
     embeddings = embedder.encode(texts, convert_to_numpy=True)
     
     return embeddings
 
 
-def save_embeddings(embedder_name, db):    
+def save_embeddings(embedder_name, embeddings):    
     """
     Save embeddings to a .npy file.
     """
-    embeddings = make_embeddings(embedder_name, db)
-    
-    print(f"Saving embeddings for {embedder_name}...")
     file_path = os.path.join("data", "embeddings", f"{embedder_name.replace('/', '_')}.npy")
     np.save(file_path, embeddings)
+    print(f"Saved embeddings for {embedder_name}...")
+    
     
     
 def load_embeddings(embedder_name):
     """
     Load embeddings from a .npy file.
     """
-    print(f"Loading embeddings for {embedder_name}...")
-    file_path = os.path.join("data", "embeddings", f"{embedder_name.replace('/', '_')}.npy")
-    embeddings = np.load(file_path, allow_pickle=True)
+        # if embeddings already exist, load them, else make new embeddings
+    try:
+        file_path = os.path.join("data", "embeddings", f"{embedder_name.replace('/', '_')}.npy")
+        embeddings = np.load(file_path, allow_pickle=True)
+        print(f"Embeddings for {embedder_name} already exist. Loading them...")
+    except FileNotFoundError:
+        print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
+        embeddings = make_embeddings(embedder,embedder_name, db)
+        save_embeddings(embedder_name, embeddings)
+        
     
     return embeddings
+
+def load_embedder_with_fallbacks(embedder_name):
+    """
+    Tries loading a SentenceTransformer model with multiple fallback strategies.
+    Returns the loaded model if successful. Raises RuntimeError if all strategies fail.
+    """
+    strategies = [
+        {"trust_remote_code": False, "device": "cpu", "description": "default sentence transformer", 'class': 'SentenceTransformer'},
+        {"trust_remote_code": True,  "device": None, "description": "sentence transformer with trust_remote_code=True", 'class': 'SentenceTransformer'},
+        {"description": "manual make transformer + pooling with sentenceTransformer", "class": "Manual"},
+    ]
+
+    for i, strategy in enumerate(strategies):
+        try:
+            print(f"[Attempt {i+1}] Loading embedder '{embedder_name}' with {strategy['description']}")
+            
+            if strategy["class"] == "SentenceTransformer":
+                kwargs = {}
+                if strategy.get("trust_remote_code"):
+                    kwargs["trust_remote_code"] = True
+                if strategy.get("device"):
+                    kwargs["device"] = strategy["device"]
+                model = SentenceTransformer(embedder_name, **kwargs)
+            elif strategy["class"] == "Manual":
+                word_embedding_model = models.Transformer(embedder_name)
+                pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension())
+                model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
+
+            print(f"[Success] Loaded embedder with strategy: {strategy['description']}")
+            return model
+        
+        except Exception as e:
+            print(f"[Failure] '{strategy['description']}' failed: {e}")
+
+    raise RuntimeError(f"All strategies failed to load embedder '{embedder_name}'.")
+
     
 # --------------Faiss index functions-------------------
 def build_faiss_index(embeddings):
@@ -105,20 +101,27 @@ def build_faiss_index(embeddings):
     
     return index
 
-def load_faiss_index(embedder_name):
+def load_faiss_index(embedder_name, embeddings):
     """
     Load the FAISS index from a file.
     """
-    index_file = f"{embedder_name.replace('/', '_')}_index.faiss"
     
-    # if file doesn't exist in the folder data/faiss_index, raise FileNotFoundError
-    index_file = os.path.join("data", "faiss_index", index_file)
-    
-    if not os.path.exists(index_file):
-        raise FileNotFoundError(f"FAISS index file {index_file} not found.")
-    
-    index = faiss.read_index(index_file)
-    print(f"Loaded FAISS index from {index_file}.")
+    try:
+        
+        # if file doesn't exist in the folder data/faiss_index, raise FileNotFoundError
+        index_file = os.path.join("data", "faiss_index", f"{embedder_name.replace('/', '_')}_index.faiss")
+        
+        if not os.path.exists(index_file):
+            raise FileNotFoundError(f"FAISS index file {index_file} not found.")
+        
+        print(f"FAISS index for {embedder_name} already exists. Loading it...")
+        index = faiss.read_index(index_file)
+        print(f"Loaded FAISS index from {index_file}.")
+    except FileNotFoundError:
+        print(f"FAISS index for {embedder_name} not found. Building new index...")
+        index = build_faiss_index(embeddings)
+        save_faiss_index(embedder_name, index)
+        print(f"FAISS index for {embedder_name} built and saved.")
     return index
 
 def save_faiss_index(embedder_name, index):
@@ -143,16 +146,16 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
     for i in range(k):
         if indices[0][i] != -1:  # Check if the index is valid
             results.append({
-                "text": db[indices[0][i]].text,
-                "section": db[indices[0][i]].metadata.section,
-                "chunk_id": db[indices[0][i]].metadata.chunk_id,
+                "text": db[indices[0][i]]['text'],
+                "section": db[indices[0][i]]['metadata']['section'],
+                "chunk_id": db[indices[0][i]]['metadata']['chunk_id'],
             })
         # if this chunk has a referee_id, it is a table already, we don't need to add it again later
-        if db[indices[0][i]].metadata.referee_id:
-            existed_tables.add(db[indices[0][i]].metadata.referee_id)
+        if db[indices[0][i]]['metadata']['referee_id']:
+            existed_tables.add(db[indices[0][i]]['metadata']['referee_id'])
             print
-        if db[indices[0][i]].metadata.referenced_tables:
-            referenced_tables.update(db[indices[0][i]].metadata.referenced_tables)
+        if db[indices[0][i]]['metadata']['referenced_tables']:
+            referenced_tables.update(db[indices[0][i]]['metadata']['referenced_tables'])
 
     #existed_tables = tables that already exist in the retrieved results
     #referenced_tables = tables that are referenced by chunks in the retrieved results
@@ -166,11 +169,11 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
     # add the referenced tables in the db to the results if their referee_id is in table_to_add
     i = 0
     for chunk in referenced_tables_db:
-        if chunk.metadata.referee_id in table_to_add:
+        if chunk['metadata']['referee_id'] in table_to_add:
             results.append({
-                "text": chunk.text,
-                "section": chunk.metadata.section,
-                "chunk_id": chunk.metadata.chunk_id,
+                "text": chunk['text'],
+                "section": chunk['metadata']['section'],
+                "chunk_id": chunk['metadata']['chunk_id'],
             })
             i += 1
         if i == len(table_to_add):
@@ -184,29 +187,6 @@ def load_together_llm_client():
     load_dotenv()  # Load environment variables from .env file
     
     return Together(api_key=os.getenv("TOGETHER_API_KEY"))
-
-def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
-
-    response = llm_client.chat.completions.create(
-        model=model_name,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-        max_tokens=500,
-        temperature=0.05,
-        stream=stream_flag,
-    )
-
-    if stream_flag:
-        for chunk in response:
-            if chunk.choices and chunk.choices[0].delta.content:
-                content = chunk.choices[0].delta.content
-                yield content
-    else:
-        return response.choices[0].message.content
 
 def construct_prompt(query, faiss_results):
     # reads system prompt from a file
@@ -227,9 +207,47 @@ def construct_prompt(query, faiss_results):
 
     return prompt
 
+
+def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"):
+    try:
+        if stream_flag:
+            # For streaming mode, return a generator
+            def stream_generator():
+                response = llm_client.chat.completions.create(
+                    model=model_name,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=500,
+                    temperature=0.05,
+                    stream=True,
+                )
+                print("Streaming response received from API")
+                for chunk in response:
+                    if chunk.choices and chunk.choices[0].delta.content:
+                        content = chunk.choices[0].delta.content
+                        yield content
+            return stream_generator()
+        else:
+            # For non-streaming mode, return content directly
+            response = llm_client.chat.completions.create(
+                model=model_name,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=500,
+                temperature=0.05,
+                stream=False,
+            )
+            content = response.choices[0].message.content
+            return content
+            
+    except Exception as e:
+        print("Error in call_llm:", str(e))
+        print("Error type:", type(e))
+        import traceback
+        traceback.print_exc()
+        raise
+
     
 
-def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_client=None):
+def launch_depression_assistant(embedder_name, designated_client=None):
     """
     Launch the depression assistant with the loaded database and embeddings.
     """
@@ -237,37 +255,14 @@ def launch_depression_assistant(embedder_name="all-MiniLM-L6-v2", designated_cli
     
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
-    try:
-        embedder = SentenceTransformer(embedder_name)
-    except Exception as e1:
-        print(f"[Warning] Failed to load embedder '{embedder_name}': {e1}")
-        print("[Info] Retrying with trust_remote_code=True and device='cpu'...")
-        try:
-            embedder = SentenceTransformer(embedder_name, trust_remote_code=True, device='cpu')
-        except Exception as e2:
-            print(f"[Error] Failed again with trust_remote_code=True: {e2}")
-            raise RuntimeError(f"Failed to load embedder '{embedder_name}' with both strategies.") from e2
-        
+
+    embedder = load_embedder_with_fallbacks(embedder_name)
         
     print(f"Using embedder: {embedder_name}")
     
-    # if embeddings already exist, load them, else make new embeddings
-    try:
-        embeddings = load_embeddings(embedder_name)
-        print(f"Embeddings for {embedder_name} already exist. Loading them...")
-    except FileNotFoundError:
-        print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
-        embeddings = make_embeddings(embedder,embedder_name, db)
-        save_embeddings(embedder_name, db)
-    
-    try:
-        index = load_faiss_index(embedder_name)
-        print(f"FAISS index for {embedder_name} already exists. Loading it...")
-    except FileNotFoundError:
-        print(f"FAISS index for {embedder_name} not found. Building new index...")
-        index = build_faiss_index(embeddings)
-        save_faiss_index(embedder_name, index)
-        print(f"FAISS index for {embedder_name} built and saved.")
+    embeddings = load_embeddings(embedder_name)
+    index = load_faiss_index(embedder_name, embeddings)
+
     if designated_client is None:
         print("No LLM client provided. Loading Together LLM client...")
         llm_client = load_together_llm_client()
@@ -297,15 +292,9 @@ def depression_assistant(query, stream_flag=False):
 
     t4 = time.perf_counter()
     print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
-
     print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
 
-    if stream_flag:
-        for chunk in response:
-            if chunk:
-                yield chunk
-    else:
-        return results, response
+    return results, response
 
 def load_queries_and_answers(query_file, answers_file):
     """
@@ -319,16 +308,7 @@ def load_queries_and_answers(query_file, answers_file):
     
     return queries, answers
 
-def main():
-    # if we want to use a different embedder, change this variable
-    # embedder_name = "all-MiniLM-L6-v2"
-    embedder_name = "jinaai/jina-embeddings-v3"
-    # embedder_name = "abhinand/MedEmbed-large-v0.1"
-    # embedder_name = "BAAI/bge-base-en-v1.5",
-    # embedder_name = "BAAI/bge-large-en-v1.5"
-    # embedder_name = "BAAI/bge-small-en-v1.5"
-    # embedder_name = "intfloat/multilingual-e5-base"
-    # embedder_name = "sentence-transformers/all-mpnet-base-v2"
+def write_batched_results(embedder_name, result_path):
     
     time0 = time.perf_counter()
     launch_depression_assistant(embedder_name)
@@ -342,21 +322,19 @@ def main():
     
     embedder_filename = embedder_name.replace('/', '_')
     
-    result_path = "data/results/week_5_generation/"
 
     with open(f"{result_path}Retrieved_Results_by_{embedder_filename}.md", "w") as f1, \
         open(f"{result_path}Response_by_{embedder_filename}.md", "w") as f2:
-        # open(f"CSV_results_by{result_path}", "w") as f3:
-            # f3.write("Query,Answer,Retrieved_results,Response\n")
 
         for i, query in enumerate(queries):
             result, response = depression_assistant(query)
 
+            # Write retrieved results
             f1.write(f"## Query {i+1}\n")
             f1.write(f"{query.strip()}\n\n")
-            f1.write("### Answer\n")
+            f1.write("## Answer\n")
             f1.write(f"{answers[i].strip()}\n\n")
-            f1.write("### Retrieved Results\n")
+            f1.write("## Retrieved Results\n")
             
             for res in result:
                 f1.write(f"\n\n#### {res['section']}\n\n")
@@ -366,34 +344,31 @@ def main():
             # Write response
             f2.write(f"## Query {i+1}\n")
             f2.write(f"{query.strip()}\n\n")
-            f2.write("### Answer\n")
+            f2.write("## Answer\n")
             f2.write(f"{answers[i].strip()}\n\n")
             
             f2.write(f"## Response\n")
-            f2.write(f"{response.strip()}\n")
+            f2.write(response)
             f2.write("\n\n---\n\n")
+            break
 
 
 if __name__ == "__main__":
-    main()
-    # ----------------------------------------
+    embedder_name = "allenai/longformer-base-4096"
+    # embedder_name = "emilyalsentzer/Bio_ClinicalBERT"
     # embedder_name = "Qwen/Qwen3-Embedding-0.6B"
-    # embedder = TransformerEmbedder(model_name=embedder_name, device='cpu')
-    # db = load_json_to_db("data/processed/guideline_db.json")
-    # try:
-    #     embeddings = load_embeddings(embedder_name)
-    #     print(f"Embeddings for {embedder_name} already exist. Loading them...")
-    # except FileNotFoundError:
-    #     print(f"Embeddings for {embedder_name} not found. Making new embeddings...")
-    #     embeddings = make_embeddings(embedder,embedder_name, db)
-    #     save_embeddings(embedder_name, db)
-    # ----------------------------------------
     # embedder_name = "all-MiniLM-L6-v2"
+    # embedder_name = "jinaai/jina-embeddings-v3"
+    # embedder_name = "abhinand/MedEmbed-large-v0.1"
+    # embedder_name = "BAAI/bge-base-en-v1.5",
+    # embedder_name = "BAAI/bge-large-en-v1.5"
+    # embedder_name = "BAAI/bge-small-en-v1.5"
+    # embedder_name = "intfloat/multilingual-e5-base"
+    # embedder_name = "sentence-transformers/all-mpnet-base-v2"
+    # embedder_name = 'pritamdeka/S-PubMedBert-MS-MARCO',
+    # embedder_name = 'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext',
+    # embedder_name = 'all-MiniLM-L6-v2'
     
-    # launch_depression_assistant(embedder_name)
+    result_path = "data/results/week_5_generation/"
     
-    # queries, answers = load_queries_and_answers("data/raw/queries.txt", "data/raw/answers.txt")
-
-    # for i, query in enumerate(queries):
-    #     print(depression_assistant(query))
-    #     break
+    write_batched_results(embedder_name, result_path)

@@ -142,7 +142,7 @@ def call_llm(llm_client, prompt, stream_flag=False, model_name="meta-llama/Llama
     response = llm_client.chat.completions.create(
         model=model_name,
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=2000,
+        max_tokens=3000,
         temperature=0.05,
         stream=stream_flag,
     )
@@ -174,7 +174,7 @@ def construct_prompt(query, faiss_results):
 
 
 # ===== new feature: memory =====
-def construct_prompt_with_memory(query, faiss_results, chat_history=None, history_limit=3):
+def construct_prompt_with_memory(query, faiss_results, chat_history=None, history_limit=4):
     with open("src/system_prompt.txt", "r") as f:
         system_prompt = f.read().strip()
 

@@ -71,17 +71,17 @@ if st.session_state.launched:
         st.session_state.assistant_launched = True
         st.session_state.messages.append({"role": "assistant", "content": "How may I assist you today?"})
 
-    # 显示历史
+    # show histories
     for m in st.session_state.messages:
         with st.chat_message(m["role"]):
             st.markdown(m["content"])
 
-    # 用户输入
+    # user input
     if user_input := st.chat_input("Ask me questions about the CANMAT depression guideline!"):
         st.chat_message("user").markdown(user_input)
         st.session_state.messages.append({"role": "user", "content": user_input})
 
-        # ===== 取最近 4 轮历史 =====
+        # ===== latest 4 histories =====
         history = st.session_state.messages[:-1][-4:]
 
         placeholder = st.chat_message("assistant").empty()

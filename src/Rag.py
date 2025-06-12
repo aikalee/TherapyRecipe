@@ -315,8 +315,8 @@ def depression_assistant(query, stream_flag=False,max_tokens=500, temperature=0.
     prompt = construct_prompt(query, results)
     t3 = time.perf_counter()
 
-    if llm_client == "Ollama":
-        print(f"Using Ollama with model: {model_name}")
+    if llm_client == "Run Ollama Locally":
+        print(f"Running Ollama Locally with model: {model_name}, Make sure you have enough memory to run the model.")
         response = call_ollama(prompt, model_name, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p,)
     else:
         response = call_llm(llm_client, prompt, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p, model_name=model_name)

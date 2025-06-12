@@ -1,6 +1,6 @@
 import streamlit as st
 from Rag import launch_depression_assistant, depression_assistant
-# from openai import OpenAI
+from openai import OpenAI
 from together import Together
 
 st.set_page_config(
@@ -38,10 +38,10 @@ with st.sidebar:
     # API provider selection
     api_provider = st.sidebar.selectbox(
         "Select API Provider",
-        ["Default Free Together AI API","OpenAI", "Together AI", "NVIDIA", "Ollama"]
+        ["Default Free Nvidia API","Default Free Together AI API","OpenAI", "Together AI", "NVIDIA", "Run Ollama Locally"]
     )
     # Only show API key input if not using default free API
-    if api_provider != "Default Free Together AI API" and api_provider != "Ollama":
+    if api_provider not in ["Default Free Nvidia API","Default Free Together AI API", "Run Ollama Locally"]:
         # Dynamic API key input based on selected provider
         api_key = st.text_input(f"{api_provider} API Key", type="password")
         if not api_key:
@@ -61,21 +61,31 @@ with st.sidebar:
     if api_provider == "OpenAI":
         if openai_api_key:
             llm_client = OpenAI(api_key=openai_api_key)
+            print("OpenAI client initialized")
     elif api_provider == "Together AI":
         llm_client = Together(api_key=together_api_key)
+        print("Together AI client initialized")
     elif api_provider == "NVIDIA":
-        st.warning("NVIDIA entry is not yet tested in this app. Please use Together AI instead.")
-        # llm_client = NvidiaLLM(nvidia_api_key)
-        llm_client = None
-    elif api_provider == "Ollama":
-        llm_client = "Ollama"
+        if nvidia_api_key:
+            llm_client = OpenAI(
+                base_url = "https://integrate.api.nvidia.com/v1",
+                api_key = nvidia_api_key,
+            )
+            print("NVIDIA client initialized")
+        else:
+            st.warning("NVIDIA API key is required to use NVIDIA models.")
+            llm_client = None
+    elif api_provider == "Run Ollama Locally":
+        llm_client = "Run Ollama Locally"
+        print("Select to run Ollama client. Please start the Ollama server locally and make sure the model is downloaded.")
         
     st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a model for generation', ["meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","Other"], key='selected_model')
+    selected_model = st.sidebar.selectbox('Choose a model for generation', ["meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","deepseek-ai/deepseek-r1","meta/llama-3.3-70b-instruct","Other"], key='selected_model')
     model_name = None
     if selected_model == "Other":
         #ask to input the model name
         model_name = st.sidebar.text_input('Enter the model name')
+    print(f"Selected model: {selected_model}, Model name: {model_name}")
     temperature = st.sidebar.slider('temperature', min_value=0.01, max_value=1.0, value=0.05, step=0.01)
     top_p = st.sidebar.slider('top_p', min_value=0.01, max_value=1.0, value=0.9, step=0.01)
     max_length = st.sidebar.slider('max_length', min_value=100, max_value=1000, value=500, step=10)
@@ -139,7 +149,7 @@ if st.session_state.launched:
         if selected_model =="Other" and model_name is not None:
             results, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p, model_name=model_name)
         else:
-            results, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p)
+            results, response = depression_assistant(prompt, True, max_tokens=max_length, temperature=temperature, top_p=top_p, model_name=selected_model)
 
         for chunk in response:
             collected_text += chunk

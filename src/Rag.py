@@ -60,6 +60,7 @@ def load_embedder_with_fallbacks(embedder_name):
     Tries loading a SentenceTransformer model with multiple fallback strategies.
     Returns the loaded model if successful. Raises RuntimeError if all strategies fail.
     """
+    print(f"=========Entering load_embedder_with_fallbacks to Load {embedder_name}...=========")
     strategies = [
         {"trust_remote_code": False, "device": "cpu", "description": "default sentence transformer", 'class': 'SentenceTransformer'},
         {"trust_remote_code": True,  "device": None, "description": "sentence transformer with trust_remote_code=True", 'class': 'SentenceTransformer'},
@@ -82,17 +83,17 @@ def load_embedder_with_fallbacks(embedder_name):
                 pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension())
                 model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
 
-            print(f"[Success] Loaded embedder with strategy: {strategy['description']}")
+            print(f"=========[Success] Loaded embedder with strategy: {strategy['description'] } and Exit=========")
             return model
         
         except Exception as e:
-            print(f"[Failure] '{strategy['description']}' failed: {e}")
+            print(f"=========[Failure] '{strategy['description']}' failed: {e}=========")
 
-    raise RuntimeError(f"All strategies failed to load embedder '{embedder_name}'.")
+    raise RuntimeError(f"=========All strategies failed to load embedder '{embedder_name}========='.")
 
     
 # --------------Faiss index functions-------------------
-def build_faiss_index(embeddings):
+def build_faiss_cosine_similarity_index(embeddings):
     """
     Build a FAISS index using cosine similarity (via normalized inner product).
     """
@@ -107,7 +108,7 @@ def build_faiss_index(embeddings):
     
     return index
 
-def load_faiss_index(embedder_name, embeddings):
+def load_faiss_index(embedder_name):
     """
     Load the FAISS index from a file.
     """
@@ -125,7 +126,8 @@ def load_faiss_index(embedder_name, embeddings):
         print(f"Loaded FAISS index from {index_file}.")
     except FileNotFoundError:
         print(f"FAISS index for {embedder_name} not found. Building new index...")
-        index = build_faiss_index(embeddings)
+        embeddings = load_embeddings(embedder_name)
+        index = build_faiss_cosine_similarity_index(embeddings)
         save_faiss_index(embedder_name, index)
         print(f"FAISS index for {embedder_name} built and saved.")
     return index
@@ -303,54 +305,48 @@ def call_ollama(prompt, model="mistral", stream_flag=False, max_tokens=500, temp
 
 def launch_depression_assistant(embedder_name, designated_client=None):
     """
-    Launch the depression assistant with the loaded database and embeddings.
+    Launch the depression assistant: 1.loaded database and faiss index, 2. load embedding model, 3. load llm client.
     """
+    
     global db, referenced_tables_db, embedder, index, llm_client
     
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
 
     embedder = load_embedder_with_fallbacks(embedder_name)
-        
-    print(f"Using embedder: {embedder_name}")
     
-    embeddings = load_embeddings(embedder_name)
-    index = load_faiss_index(embedder_name, embeddings)
+    index = load_faiss_index(embedder_name)
 
     if designated_client is None:
         print("No LLM client provided. Loading Together LLM client...")
         try:
             llm_client = load_together_llm_client()
         except Exception as e:
-            print("Failed to load Together LLM client. This might be related to user access. Please manually configure your LLM client API key.")
+            print("------------Failed to load Together LLM client. This might be related to user access. Please manually configure your LLM client API key.------------")
     else:
-        print("Using provided LLM client.")
+        print("------------Using provided LLM client.------------")
         llm_client = designated_client
     print("---------Depression Assistant is ready to use!--------------\n\n")
     
 
 def depression_assistant(query, model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free", max_tokens=500, temperature=0.05, top_p=0.9, stream_flag=False, chat_history=None):   
+    print(f"=========Entering depression_assistant with query: {query}=========")
+    
     t1 = time.perf_counter()
-
     results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
     t2 = time.perf_counter()
     print(f"[Time] FAISS search done in {t2 - t1:.2f} seconds.")
     
-    #rerank the results to restore context logic order
+    # rerank the results to restore context logic order
     # don't think it works well so commenting it out for now
     # results = sorted(results, key=lambda x: x['chunk_id'] if 'chunk_id' in x else 0)
 
     prompt = construct_prompt_with_memory(query, results, chat_history=chat_history)
-    t3 = time.perf_counter()
 
     if llm_client == "Run Ollama Locally":
         print(f"Running Ollama Locally with model: {model_name}, Make sure you have enough memory to run the model.")
         response = call_ollama(prompt, model_name, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p,)
     else:
         response = call_llm(llm_client, prompt, stream_flag, max_tokens=max_tokens, temperature=temperature, top_p=top_p, model_name=model_name)
-    t4 = time.perf_counter()
-    
-    print(f"[Time] LLM response took {t4 - t3:.2f} seconds.")
-    print(f"[Total time] {t4 - t1:.2f} seconds for this query.\n\n")
 
     return results, response

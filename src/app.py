@@ -2,6 +2,7 @@ import streamlit as st
 from Rag import launch_depression_assistant, depression_assistant
 from openai import OpenAI
 from together import Together
+import time
 
 st.set_page_config(
     page_title="Depression Assistant Chatbot",
@@ -113,6 +114,7 @@ if not st.session_state.launched:
     st.write("Please click the button below to launch the assistant. You'll have to reload the page to change the embedder model or API provider.")
     st.write("Note: The first time you launch the assistant, it may take a few seconds to load the model and data. Subsequent interactions will be faster.")
     st.write("**If you want to run the assistant locally with Ollama**, please select the 'Run Ollama Locally', and Select 'Other' to enter the model you want to use. Make sure you have the Ollama server running the model downloaded.")
+    st.write("You can get a free API key from [Together AI](https://www.together.ai/), or [NVIDIA](https://build.nvidia.com/) to use the free resources. But there are rate limits on the free recourse.")
 
     if st.button("Launch Assistant"):
         st.session_state.launched = True
@@ -143,6 +145,7 @@ if st.session_state.launched:
         placeholder = st.chat_message("assistant").empty()
         collected = ""
         
+        t0 = time.perf_counter
         if selected_model =="Other" and model_name is not None:
             results, response = depression_assistant(user_input, model_name=model_name, max_tokens=max_length, temperature=temperature, top_p=top_p, stream_flag=True, chat_history=history)
         else:
@@ -151,5 +154,8 @@ if st.session_state.launched:
         for chunk in response:
             collected += chunk
             placeholder.markdown(collected)
-
+        t1 = time.perf_counter()
+        print(f"[Time] Retriver + Generator takes: {t1 - t0:.2f} seconds in total.")
+        print(f"============== Finish R-A-Generation for Current Query {user_input} ==============")
+        
         st.session_state.messages.append({"role": "assistant", "content": collected})

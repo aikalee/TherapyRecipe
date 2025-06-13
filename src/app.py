@@ -81,7 +81,7 @@ with st.sidebar:
         print("Select to run Ollama client. Please start the Ollama server locally and make sure the model is downloaded.")
         
     st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a model for generation', ["deepseek-ai/deepseek-r1","meta/llama-3.3-70b-instruct","meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","Other"], key='selected_model')
+    selected_model = st.sidebar.selectbox('Choose a model for generation', ["meta-llama/Llama-3.3-70B-Instruct-Turbo-Free","deepseek-ai/deepseek-r1","meta/llama-3.3-70b-instruct","Other"], key='selected_model')
     model_name = None
     if selected_model == "Other":
         #ask to input the model name
@@ -105,14 +105,14 @@ if "assistant_launched" not in st.session_state:
 
 # --- Launch button ---
 if not st.session_state.launched:
-    st.write("This is a simple depression assistant bot. You can ask questions related to depression and get responses based on clinical guidelines.")
-    st.write(
-    "This is a simple chatbot that uses **RAG (Retrieval-Augmented Generation)** to answer questions related to depression. "
-    "It uses a combination of a retrieval model to find relevant documents and a language model to generate responses based on those documents."
+    st.write("This is a simple depression assistant bot that uses **RAG (Retrieval-Augmented Generation)** to answer questions related to depression.. You can ask questions related to depression and get responses based on [CANMAT clinical guidelines](https://pmc.ncbi.nlm.nih.gov/articles/PMC11351064/).")
+    st.write("It uses a combination of a Embedding model to find relevant documents(Retreiver), and a large language model (LLM) to generate responses based on those documents."
     )
-    st.write("You can choose different embedder models from the sidebar to see how they affect the responses.")
-    st.write("You can also choose different API providers from the side bar to use different models and see how they affect the responses.")
+    st.write("You can choose different **Embedder(embedding model)** at the sidebar to see how they affect the responses.")
+    st.write("You can also choose different **LLM from different API providers and configure their paramters** at the side bar to see how they affect the responses.")
     st.write("Please click the button below to launch the assistant. You'll have to reload the page to change the embedder model or API provider.")
+    st.write("Note: The first time you launch the assistant, it may take a few seconds to load the model and data. Subsequent interactions will be faster.")
+    st.write("**If you want to run the assistant locally with Ollama**, please select the 'Run Ollama Locally', and Select 'Other' to enter the model you want to use. Make sure you have the Ollama server running the model downloaded.")
 
     if st.button("Launch Assistant"):
         st.session_state.launched = True
@@ -126,7 +126,7 @@ if st.session_state.launched:
 
     # Initialize chat history
     if "messages" not in st.session_state.keys():
-        st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
+        st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today? This is a sample question that you can ask: *'My patient has a major depressive episode with somatic symptoms of pain, what would be the first choice medication for them?'* "}]
     # Display chat messages from history on app rerun
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):

@@ -94,11 +94,16 @@ def load_embedder_with_fallbacks(embedder_name):
 # --------------Faiss index functions-------------------
 def build_faiss_index(embeddings):
     """
-    Build a FAISS index for the given embeddings.
-    """    
-    print("Building FAISS index...")
-    index = faiss.IndexFlatL2(embeddings.shape[1])  # L2 distance
-    index.add(embeddings)  # Add embeddings to the index
+    Build a FAISS index using cosine similarity (via normalized inner product).
+    """
+    print("Building FAISS index (cosine similarity)...")
+    
+    # Step 1: Normalize embeddings to unit vectors (L2 norm = 1)
+    faiss.normalize_L2(embeddings)
+    
+    # Step 2: Use inner product index (dot product == cosine after normalization)
+    index = faiss.IndexFlatIP(embeddings.shape[1])
+    index.add(embeddings)
     
     return index
 

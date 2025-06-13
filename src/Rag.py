@@ -4,12 +4,13 @@ import faiss
 import os
 from dotenv import load_dotenv
 import requests
-
+import torch
 import numpy as np
 
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, models
 from together import Together
 
+global db, referenced_tables_db, embedder, index, llm_client
 
 def load_json_to_db(file_path):
     with open(file_path) as f:
@@ -60,10 +61,17 @@ def load_embedder_with_fallbacks(embedder_name):
     Tries loading a SentenceTransformer model with multiple fallback strategies.
     Returns the loaded model if successful. Raises RuntimeError if all strategies fail.
     """
-    print(f"=========Entering load_embedder_with_fallbacks to Load {embedder_name}...=========")
+    print(f"=========Entering load_embedder_with_fallbacks()=========")
+    def get_best_device():
+        if torch.cuda.is_available():
+            return torch.device("cuda")  # NVIDIA GPU
+        else:
+            return torch.device("cpu")
+    device = get_best_device()
+    
     strategies = [
-        {"trust_remote_code": False, "device": "cpu", "description": "default sentence transformer", 'class': 'SentenceTransformer'},
-        {"trust_remote_code": True,  "device": None, "description": "sentence transformer with trust_remote_code=True", 'class': 'SentenceTransformer'},
+        {"trust_remote_code": False, "device": device, "description": "default sentence transformer", 'class': 'SentenceTransformer'},
+        {"trust_remote_code": True,  "device": device, "description": "sentence transformer with trust_remote_code=True", 'class': 'SentenceTransformer'},
         {"description": "manual make transformer + pooling with sentenceTransformer", "class": "Manual"},
     ]
 
@@ -77,6 +85,7 @@ def load_embedder_with_fallbacks(embedder_name):
                     kwargs["trust_remote_code"] = True
                 if strategy.get("device"):
                     kwargs["device"] = strategy["device"]
+                    print(f"Using device: {strategy['device']}")
                 model = SentenceTransformer(embedder_name, **kwargs)
             elif strategy["class"] == "Manual":
                 word_embedding_model = models.Transformer(embedder_name)
@@ -146,6 +155,19 @@ def save_faiss_index(embedder_name, index):
 # ---------------------------------
 
 def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
+    """_summary_
+
+    Args:
+        query (_str_): user query to search in the database
+        embedder (_SentenceTransformer_): loaded in launch_depression_assistant(), used to encode the query
+        db (_dict_): guideline database, a list of chunks with metadata, load from json file
+        index (_faissIndex_): build with faiss from the embeddings of the db, used to search for the query
+        referenced_table_db (_dict_): a list of chunks that are tables, included already but used to add the referenced tables to the results
+        k (int, optional): number of documents searched. Defaults to 3.
+
+    Returns:
+        list of _dict_: top k chunks from the database that are most relevant to the query, each chunk is a dict with keys: text, section, chunk_id
+    """
     query_embedding = embedder.encode([query], convert_to_numpy=True)
     distances, indices = index.search(query_embedding, k)
     results = []
@@ -157,6 +179,8 @@ def faiss_search(query, embedder, db, index,referenced_table_db, k=3):
                 "text": db[indices[0][i]]['text'],
                 "section": db[indices[0][i]]['metadata']['section'],
                 "chunk_id": db[indices[0][i]]['metadata']['chunk_id'],
+                # return also the similarity score
+                "similarity": float(distances[0][i]),
             })
         # if this chunk has a referee_id, it is a table already, we don't need to add it again later
         if db[indices[0][i]]['metadata']['referee_id']:
@@ -313,10 +337,17 @@ def launch_depression_assistant(embedder_name, designated_client=None):
     db = load_json_to_db("data/processed/guideline_db.json")
     referenced_tables_db = load_json_to_db("data/processed/referenced_table_chunks.json")
 
+    t0 = time.perf_counter()
     embedder = load_embedder_with_fallbacks(embedder_name)
+    t1 = time.perf_counter()
+    print(f"[Time] Embedding model loaded in {t1 - t0:.2f} seconds.")
+    
     
     index = load_faiss_index(embedder_name)
+    t2 = time.perf_counter()
+    print(f"[Time] FAISS index loaded in {t2 - t1:.2f} seconds.")
 
+    
     if designated_client is None:
         print("No LLM client provided. Loading Together LLM client...")
         try:
@@ -326,6 +357,8 @@ def launch_depression_assistant(embedder_name, designated_client=None):
     else:
         print("------------Using provided LLM client.------------")
         llm_client = designated_client
+    t3 = time.perf_counter()
+    print(f"[Time] LLM client initiated in {t3 - t2:.2f} seconds.")
     print("---------Depression Assistant is ready to use!--------------\n\n")
     
 
@@ -336,10 +369,6 @@ def depression_assistant(query, model_name="meta-llama/Llama-3.3-70B-Instruct-Tu
     results = faiss_search(query, embedder, db, index, referenced_tables_db, k=3)
     t2 = time.perf_counter()
     print(f"[Time] FAISS search done in {t2 - t1:.2f} seconds.")
-    
-    # rerank the results to restore context logic order
-    # don't think it works well so commenting it out for now
-    # results = sorted(results, key=lambda x: x['chunk_id'] if 'chunk_id' in x else 0)
 
     prompt = construct_prompt_with_memory(query, results, chat_history=chat_history)
 

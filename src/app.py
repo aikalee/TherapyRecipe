@@ -12,10 +12,10 @@ st.set_page_config(
 # you can add the embedder model to tried out more
 # but it has to be from sentence-transformers library, or a encoder-only transformer model
 model_options = [
+    "all-MiniLM-L6-v2",
     "Qwen/Qwen3-Embedding-0.6B",
     "jinaai/jina-embeddings-v3",
     "paraphrase-MiniLM-L6-v2",
-    "all-MiniLM-L6-v2",
     "BAAI/bge-small-en-v1.5",
     "abhinand/MedEmbed-large-v0.1",
     "emilyalsentzer/Bio_ClinicalBERT",

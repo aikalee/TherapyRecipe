@@ -41,14 +41,14 @@ with st.sidebar:
         ["Default Free Together AI API","OpenAI", "Together AI", "NVIDIA", "Run Ollama Locally"]
     )
     # Only show API key input if not using default free API
-    if api_provider != "Default Free Together AI API" and api_provider!= "Run Ollama Locally"]:
+    if api_provider != "Default Free Together AI API" and api_provider!= "Run Ollama Locally":
         # Dynamic API key input based on selected provider
         api_key = st.text_input(f"{api_provider} API Key", type="password")
         if not api_key:
             st.info(f"Please add your {api_provider} API key to continue.", icon="🗝️")
     else:
         try:
-            if if api_provider == "Default Free Together AI API":
+            if api_provider == "Default Free Together AI API":
                 api_key = st.secrets["TOGETHER_API_KEY"]
                 llm_client =Together(api_key=api_key)
         except Exception as e:

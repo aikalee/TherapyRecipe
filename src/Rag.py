@@ -192,17 +192,6 @@ def load_together_llm_client():
     
     return Together(api_key=os.getenv("TOGETHER_API_KEY"))
 
-def load_nvidia_llm_client():
-    """
-    Load the Free NVIDIA LLM client with the provided API key.
-    """
-    load_dotenv()  # Load environment variables from .env file
-    
-    return OpenAI(
-        base_url="https://integrate.api.nvidia.com/v1",
-        api_key=os.getenv("NVIDIA_API_KEY"),
-    )
-
 # ---------- Prompt ----------
 def construct_prompt(query, faiss_results):
     with open("src/system_prompt.txt", "r") as f:
@@ -328,11 +317,7 @@ def launch_depression_assistant(embedder_name, designated_client=None):
         try:
             llm_client = load_together_llm_client()
         except Exception as e:
-            print("Failed to load Together LLM client. Falling back to NVIDIA LLM client.")
-            try:
-                llm_client = load_nvidia_llm_client()
-            except Exception as e:
-                print("Failed to load NVIDIA LLM client with API stored locally. Please manually configure your LLM client.")
+            print("Failed to load Together LLM client. This might be related to user access. Please manually configure your LLM client API key.")
     else:
         print("Using provided LLM client.")
         llm_client = designated_client

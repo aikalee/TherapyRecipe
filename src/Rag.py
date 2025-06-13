@@ -10,7 +10,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer, models
 from together import Together
 
-global db, referenced_tables_db, embedder, index, llm_client
+db, referenced_tables_db, embedder, index, llm_client
 
 def load_json_to_db(file_path):
     with open(file_path) as f:

@@ -7,12 +7,13 @@ import re
 def get_table_metadata(table):
 
     url = "https://pmc.ncbi.nlm.nih.gov/articles/PMC11351064/#"
-    section = table.find_parent('section')
+    table_section = table.find_parent('section')
+    section = table_section.find_parent('section').find_parent('section')
 
-    section_id = section.find_parent('section').find_parent('section').get("id")
+    section_id = section.get("id")
     section_url = url + section_id
 
-    section_heading = section.find_parent('section').find_parent('section').select_one(f"[data-anchor-id={section_id}]").get_text()
+    section_heading = section.select_one(f"[data-anchor-id={section_id}]").get_text()
     section_subheading = section.find_parent('section').select_one(".pmc_sec_title").get_text()
     headings = section_heading + " > " + section_subheading
 

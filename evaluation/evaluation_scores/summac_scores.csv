@@ -1,0 +1,135 @@
+Query,Score
+What is electroconvulsive therapy (ECT) and when is it used?,0.9898231625556946
+How many sessions are typically required for an acute course of ECT?,0.9980212450027466
+What ECT protocol has the fewest cognitive side effects?,0.9962021708488464
+Can patients continue medications during ECT?,0.9963675737380981
+What is a key disadvantage of ECT despite its efficacy?,0.9974834322929382
+What rTMS protocol has the strongest evidence base?,0.9764530062675476
+What are the benefits of iTBS over traditional rTMS?,0.9903106093406677
+When is rTMS recommended over ECT?,0.9340049028396606
+What is tDCS and for which patients is it suitable?,0.9924701452255249
+What surgical neuromodulation treatment is approved for TRD?,0.9747353196144104
+What are common side effects of VNS?,0.8911606073379517
+Is deep brain stimulation (DBS) effective for MDD?,0.9914051294326782
+What makes MST different from ECT?,0.9865062832832336
+In what cases is ECT used as a first-line treatment?,0.9858924746513367
+What factors can contribute to a poor response to antidepressant treatment in major depressive disorder?,0.9730114340782166
+How does CANMAT define treatment-resistant depression versus difficult-to-treat depression?,0.9956037998199463
+What should be done when a patient with MDD does not respond to their initial antidepressant?,0.9700866341590881
+When is it appropriate to switch antidepressants instead of using an adjunctive medication?,0.9934142827987671
+What are the advantages and disadvantages of adjunctive medications in MDD treatment?,0.994976818561554
+Which adjunctive medications are considered first-line for difficult-to-treat depression according to CANMAT?,0.9913275837898254
+What is the CANMAT recommendation on the use of glutamate modulators such as ketamine for depression?,0.968894362449646
+What switching strategies does CANMAT recommend for antidepressants when discontinuation symptoms are a concern?,0.9998642206192017
+What is the role of psychotherapy when antidepressant treatment has failed?,0.9789028167724609
+Is psychedelic-assisted psychotherapy recommended by CANMAT for treatment-resistant depression?,0.9972220659255981
+My patient is in remission from depression. What should I do to maintain remission?,0.9963833093643188
+What is recommended to prevent recurrence in patients who have achieved remission from depression?,0.9920400381088257
+Which patients need antidepressant treatment for more than one year?,0.9944711923599243
+What are the risk factors for recurrence of depressive episodes?,0.9964016675949097
+How should I discontinue antidepressants to minimize withdrawal symptoms?,0.9872487187385559
+What is the difference between discontinuation symptoms and depressive relapse?,0.9882444143295288
+Which antidepressants have the highest risk of discontinuation symptoms?,0.9814321994781494
+Which antidepressants have the lowest risk of discontinuation symptoms?,0.9868626594543457
+Is hyperbolic tapering a recommended approach for stopping antidepressants?,0.9924006462097168
+What psychological strategies can help during antidepressant tapering?,0.9964635968208313
+What is Measurement-Based Care (MBC) in the treatment of depression?,0.9940962791442871
+How does MBC improve treatment outcomes in MDD?,0.9947444200515747
+What types of scales are preferred in busy clinical settings for MBC?,0.9566365480422974
+Can MBC be useful in assessing suicidal ideation?,0.9980018734931946
+What is considered early improvement when using symptom scales in MDD?,0.9081884622573853
+What are the definitions of response and remission using measurement-based care?,0.989083468914032
+When should clinicians consider changing treatment based on MBC results?,0.9261078238487244
+How often should MBC scales be administered during acute treatment phases?,0.9528997540473938
+What lab tests are recommended for patients on lithium?,0.9901782274246216
+What metabolic parameters should be monitored in patients on medications associated with weight gain?,0.9744873046875
+What are Digital Health Interventions (DHIs)?,0.9908851981163025
+What is the first-line use of guided iCBT DHIs according to CANMAT?,0.9997950196266174
+Are chatbots recommended for treating MDD?,0.9939464926719666
+When are self-directed DHIs recommended for MDD?,0.9961994290351868
+What are some risks associated with using DHIs?,0.9978494644165039
+How can clinicians evaluate the efficacy of a DHI?,0.9980779886245728
+What factors impact access to DHIs?,0.9936274290084839
+What is the difference between guided and unguided DHIs?,0.9971520900726318
+What should clinicians look for in a DHI's privacy and security policy?,0.986724317073822
+Why is digital literacy important for clinicians using DHIs?,0.9927564263343811
+"For a patient with moderate severity MDD and low safety risk, is pharmacotherapy or psychotherapy preferred?",0.9967604279518127
+What is the optimal number of psychotherapy sessions for most patients according to CANMAT?,0.9574978351593018
+When is it recommended to combine pharmacotherapy with psychotherapy in MDD treatment?,0.9971267580986023
+Which psychotherapies are first-line treatments for MDD?,0.9973732233047485
+What factors influence the selection of an initial psychotherapy?,0.9885162115097046
+Can cultural and religious factors be integrated into evidence-based psychotherapies?,0.9794925451278687
+What CAM treatment is recommended as first-line for mild MDD?,0.998085618019104
+Is acupuncture recommended for moderate or severe MDD?,0.9921303391456604
+Is pharmacogenetic testing recommended routinely when selecting antidepressants?,0.9865469932556152
+What should clinicians monitor for in the first 4 weeks of starting antidepressant treatment?,0.9950554370880127
+"For a patient with MDD and a recent suicide attempt, what psychological treatment has the strongest evidence to reduce suicide attempts?",0.9937833547592163
+When is electroconvulsive therapy (ECT) considered a first-line treatment for MDD?,0.9842963814735413
+What is the recommended frequency of psychotherapy sessions for optimal outcomes?,0.9755123257637024
+Which first-line antidepressants have superior efficacy and acceptability according to the CANMAT guidelines?,0.9993058443069458
+Which antidepressant is associated with QTc prolongation and may require ECG monitoring?,0.9940008521080017
+Which antidepressants are associated with a lower risk of sexual dysfunction?,0.9979667663574219
+What is the CANMAT recommendation for managing MDD in patients over age 65?,0.7659701108932495
+What dietary precautions are necessary when prescribing MAOIs?,0.9970691800117493
+Can metacognitive therapy (MCT) be considered for treating MDD?,0.9988911747932434
+What is the CANMAT position on routine use of EEG or biomarkers to guide antidepressant treatment?,0.9779534339904785
+Which CAM interventions have been downgraded due to recent evidence?,0.9810040593147278
+What is the CANMAT recommendation on using psychotherapy in patients with MDD and comorbid personality disorder?,0.9948615431785583
+Which medication combination was approved in the US for MDD but is not available in Canada?,0.9994564652442932
+How should antidepressants be selected for patients with mixed features of MDD?,0.9924432635307312
+Are generic antidepressants recommended over brand-name versions?,0.978469967842102
+What are the two phases of MDD treatment according to CANMAT?,0.9997758269309998
+What is the main goal of the acute treatment phase in MDD?,0.9957477450370789
+Why is achieving symptom remission emphasized in acute MDD treatment?,0.9725520014762878
+What should be the focus of treatment for patients with persistent depressive symptoms (DTD)?,0.9965575933456421
+What are the potentially modifiable risk factors for suicide in patients with MDD?,0.9127318263053894
+What are the components of a suicide safety plan for patients with MDD?,0.9318735003471375
+How does patient preference influence MDD treatment?,0.9981474876403809
+How should clinicians address treatment costs and access in MDD care planning?,0.9995623230934143
+Which lifestyle intervention is considered first-line treatment for mild depression?,0.9912211894989014
+Is light therapy recommended for nonseasonal depression?,0.9986050724983215
+What dietary recommendation is supported for MDD management?,0.9989066123962402
+Are probiotics recommended for depression treatment?,0.9974498152732849
+What are the most common static risk factors for major depressive disorder?,0.9824983477592468
+"What are some dynamic, potentially modifiable risk factors for major depressive disorder?",0.9893652200698853
+Which groups should be prioritized for depression screening?,0.9947951436042786
+What depression screening tools are recommended in primary care?,0.9933227896690369
+Is a positive depression screening diagnostic of major depressive disorder?,0.9945569038391113
+What components are included in a comprehensive diagnostic assessment for MDD?,0.9992095232009888
+What medical tests may be useful in the diagnostic workup for MDD?,0.9754054546356201
+When should an ECG be considered in patients with MDD?,0.994797945022583
+What are examples of DSM-5-TR specifiers for major depressive episodes?,0.9766896963119507
+How can access to mental health care be improved for equity-deserving groups?,0.9939342141151428
+My patient is interested in lifestyle interventions for a major depressive episode of mild severity that does not have a seasonal pattern. What is the first line recommendation?,0.9921269416809082
+"My patient has a major depressive episode with seasonal pattern and would like to try lifestyle interventions first. Other than exercise, what is a first line option for them?",0.9953558444976807
+"My patient has a major depressive episode with somatic symptoms of pain, what would be the first choice medication for them?",0.997055172920227
+"My patient has a major depressive episode with somatic symptoms of fatigue, what would be the first choice medication for them?",0.990646243095398
+My patient with a major depressive episode of mild severity would like to try psychotherapy. What are the first-line options?,0.9960736036300659
+My patient with a major depressive episode of mild severity is interested in complementary and alternative medicine options. What would be the most appropriate option to present?,0.996422290802002
+"My patient is presenting with a mild severity major depressive episode. All other things being equal and accessible, what does CANMAT recommend for treatment?",0.9982940554618835
+My patient's depression has not responded to the medication dose I started them on a four weeks ago.  What should I do next?,0.9717960953712463
+"My patient's depression has not responded to the SSRI medication I started them on, even after I optimized and increased the dose up to where they could still tolerate the side effects. I haven't tried anything else yet. What should I do now?",0.9792241454124451
+"My patient's depression has not responded to the SSRI medication I started them on, even after I optimized and increased the dose up to where they could still tolerate the side effects. They are not interested in psychotherapy. What should I do now?",0.9724006652832031
+"My patient's depression achieved a partial response to the SSRI medication I started them on, but the improvements have been less than hoped. They are not experiencing any side effects from the SSRI. What should I do?",0.9789099097251892
+"My patient's severe major depressive episode did not respond to an SSRI, and did not respond to SNRI after switching to it. I tried adding adjunctive pharmacotherapy as well but it did not work. What should I do now?",0.9928745031356812
+"I am about to start my patient on an antidepressant, but I am worried about their likelihood to adhere to medications, and they have abruptly stopped in the past. What medications have the highest risk of antidepressant discontinuation syndrome? ",0.9844818115234375
+"I am about to start my patient on an antidepressant, but I am worried about their likelihood to adhere to medications, and they have abruptly stopped in the past. What medications available in Canada have the lowest risk of antidepressant discontinuation syndrome? ",0.996911346912384
+My patient who I have been treating on antidepressant medication is no longer feeling any of their depressive symptoms. How long should they be on maintenance treatment for?,0.9969295859336853
+"My patient has had recurrent depressive episodes, and has now once again had their symptoms relieved by the medications I've prescribed. They want longer-lasting benefits and want help with preventing recurrent episodes in the future. What should can I offer them?",0.9952341914176941
+I am about to start my patient on citalopram. Is there any monitoring or investigations I should order for them based on the guidelines?,0.9775365591049194
+"My patient with a moderate severity major depressive episode would like to start a first-line SSRI, but wants to minimize their chances of sexual side effects. What is the best option for them?",0.9999737739562988
+"My patient with a moderate severity major depressive episode would like to start a first-line SNRI, but wants to minimize their chances of sexual side effects. What is the best option for them?",0.9990853071212769
+"My patient with a moderate severity major depressive episode has tried an SSRI, without good effect, and now wants to try an SNRI. Their top priority is efficacy, and they are not concerned about any specific side effects. What's the best option for them?",0.9936143755912781
+When were the latest CANMAT depression guidelines released?,0.6813116669654846
+What type of patient can this app help me treat?,0.9564060568809509
+What evidence are the CANMAT depression guidelines based on?,0.9832804203033447
+What evidence are the recommendation in this app based on?,0.9100672006607056
+Whar do the levels of evidence correspond to? ,0.9692737460136414
+What are r isk factors for depression?,0.9861617088317871
+Should a patient on an antidepressant also see a therapist?,0.9768471121788025
+I have a patient who often struggles with constipation Would paroxetine be  a good antidepressant to try first?,0.9902791380882263
+"My patient wants to use an AI app for thier depression, is this safe? ",0.9872205853462219
+How do I know if an antidepressant is working?,0.963260293006897
+"When a patient is better, how long should they continue their antidepressant for?",0.9936591982841492
+"My patient has not responded to escitalopram at 10 mg, what should I do next? ",0.9833920001983643
+I am considering referring my patient to ECT for their depression. Would I need to stop their medications?,0.977226972579956

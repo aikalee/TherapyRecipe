@@ -1,11 +1,9 @@
-Rag.py is the backend code
+- `Rag.py` is the Core RAG pipeline, backend
 
-app.py is the frontend code
+- `app.py` is the frontend code implemented with streamlit
 
-data_processing.py is to process the text data to chuncked data for the rag system
+- `data_processing.py` contains code to process the original guideline knowledge base for the rag system
 
-system_prompt.txt is the system prompt we give to the LLM
+- `system_prompt.txt` is the system prompt we give to the LLM
 
-auto_evaluation folder contains the code to auto evaluate the results of the rag system.
-
-ipynb contains folder contains the code to process images and the results from running other embedders and llms for comparison
+- `run_batched_queries/` contains code to run multiple queries using the system and write results to a markdown file

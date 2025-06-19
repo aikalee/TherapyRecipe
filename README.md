@@ -34,6 +34,7 @@ A Retrieval-Augmented Generation (RAG) chatbot specialized in answering question
     ├── Rag.py            # Core RAG pipeline
     ├── app.py            # Streamlit frontend
     ├── data_processing/  # Document preprocessing
+    └── run_batched_queries/ # Execution multiple queries and write to a markdown file
 ```
 
 ## Installation
@@ -56,9 +57,8 @@ A Retrieval-Augmented Generation (RAG) chatbot specialized in answering question
    ```
 
 ## CLI Batch Processing
-```python
-from src.Rag import write_batched_results
-write_batched_results("BAAI/bge-small-en-v1.5", "evaluation/results/")
+```bash
+python src/run_batched_queries/write_result_to_file.py embedding_model_name output_path
 ```
 
 ## Usage

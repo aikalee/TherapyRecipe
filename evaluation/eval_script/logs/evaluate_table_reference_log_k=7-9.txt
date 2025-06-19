@@ -1,0 +1,3119 @@
+===============emilyalsentzer/Bio_ClinicalBERT===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'emilyalsentzer/Bio_ClinicalBERT' with default sentence transformer
+Using device: cpu
+No sentence-transformers model found with name emilyalsentzer/Bio_ClinicalBERT. Creating a new one with mean pooling.
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.22 seconds.
+FAISS index for emilyalsentzer/Bio_ClinicalBERT already exists. Loading it...
+Loaded FAISS index from data/faiss_index/emilyalsentzer_Bio_ClinicalBERT_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a', 'table_3_4']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_1_1', 'table_1_2', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_3_1', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'box_6_1', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2'}
+Tables to add: ['table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 5
+Accuracy for emilyalsentzer/Bio_ClinicalBERT with k=7: 0.25
+
+
+
+existed tables: set()
+Tables to add: ['table_3_7', 'table_2_4', 'table_a', 'table_3_4']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_2_4', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_1_1', 'table_1_2', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'box_6_1', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2'}
+Tables to add: ['table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 5
+Accuracy for emilyalsentzer/Bio_ClinicalBERT with k=8: 0.25
+
+
+
+existed tables: set()
+Tables to add: ['table_3_7', 'table_2_4', 'table_a', 'table_3_4']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_2_4', 'table_6_1', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_1_1', 'table_1_2', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_1_2', 'table_5_2', 'table_1_1', 'table_3_1', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'box_6_1', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['box_6_1', 'table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2'}
+Tables to add: ['table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_6_1', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 5
+Accuracy for emilyalsentzer/Bio_ClinicalBERT with k=9: 0.25
+
+
+
+===============Qwen/Qwen3-Embedding-0.6B===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'Qwen/Qwen3-Embedding-0.6B' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 4.63 seconds.
+FAISS index for Qwen/Qwen3-Embedding-0.6B already exists. Loading it...
+Loaded FAISS index from data/faiss_index/Qwen_Qwen3-Embedding-0.6B_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_2', 'table_3_1', 'table_a', 'table_3_6']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1', 'table_2_1'}
+Tables to add: ['table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2'}
+Tables to add: ['table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1'}
+Tables to add: ['figure_7_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_6'}
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'table_3_4', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4', 'table_3_6'}
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_7_2', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 18
+Accuracy for Qwen/Qwen3-Embedding-0.6B with k=7: 0.90
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_2', 'table_3_1', 'table_a', 'table_3_6']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_6_1', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1', 'table_2_1'}
+Tables to add: ['table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1'}
+Tables to add: ['figure_7_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_6'}
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'table_3_4', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4', 'table_3_6'}
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_7_2', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 18
+Accuracy for Qwen/Qwen3-Embedding-0.6B with k=8: 0.90
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'figure_7_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_2', 'table_3_1', 'table_a', 'table_3_6']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_6_1', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1', 'table_2_1'}
+Tables to add: ['table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1'}
+Tables to add: ['figure_7_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_6'}
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'table_3_4', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4', 'table_3_6'}
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_7_2', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 18
+Accuracy for Qwen/Qwen3-Embedding-0.6B with k=9: 0.90
+
+
+
+===============all-MiniLM-L6-v2===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'all-MiniLM-L6-v2' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.35 seconds.
+FAISS index for all-MiniLM-L6-v2 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/all-MiniLM-L6-v2_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4'}
+Tables to add: ['table_a', 'table_3_7']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4'}
+Tables to add: ['table_a', 'table_3_7']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_2', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_4'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_7_2', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_7_2', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_3', 'table_6_1', 'table_a', 'box_6_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_2', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_5_1', 'table_3_5'}
+Tables to add: ['table_b', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'figure_7_1', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['figure_7_1', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4'}
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 12
+Accuracy for all-MiniLM-L6-v2 with k=7: 0.60
+
+
+
+existed tables: {'table_2_4'}
+Tables to add: ['table_a', 'table_3_7']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4'}
+Tables to add: ['table_a', 'table_3_7']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_2', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4'}
+Tables to add: ['table_a', 'table_3_6']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_4'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_7_2', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_7_2', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_2', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_5_1', 'table_3_5', 'table_3_4'}
+Tables to add: ['table_b', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'figure_7_1', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['figure_7_1', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4'}
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 12
+Accuracy for all-MiniLM-L6-v2 with k=8: 0.60
+
+
+
+existed tables: {'table_2_4'}
+Tables to add: ['table_6_2', 'table_a', 'table_3_7']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4'}
+Tables to add: ['table_a', 'table_3_7']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4', 'box_3_1'}
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_2', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_7_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_3_7', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4'}
+Tables to add: ['table_a', 'table_3_6']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_4'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_4'}
+Tables to add: ['table_7_2', 'table_a', 'table_3_6']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_7_2', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_7_2', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2'}
+Tables to add: ['table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_5_1', 'table_3_5', 'table_3_4'}
+Tables to add: ['table_b', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'table_3_3', 'table_3_5', 'figure_7_1', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['figure_7_1', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_4'}
+Tables to add: ['table_3_7', 'table_7_2', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 12
+Accuracy for all-MiniLM-L6-v2 with k=9: 0.60
+
+
+
+===============jinaai/jina-embeddings-v3===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'jinaai/jina-embeddings-v3' with default sentence transformer
+Using device: cpu
+=========[Failure] 'default sentence transformer' failed: No module named 'custom_st'=========
+[Attempt 2] Loading embedder 'jinaai/jina-embeddings-v3' with sentence transformer with trust_remote_code=True
+Using device: cpu
+=========[Success] Loaded embedder with strategy: sentence transformer with trust_remote_code=True and Exit=========
+[Time] Embedding model loaded in 9.29 seconds.
+FAISS index for jinaai/jina-embeddings-v3 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/jinaai_jina-embeddings-v3_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_6'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_6_3', 'table_6_2'}
+Tables to add: ['table_7_1', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_7_2', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a', 'table_3_2', 'table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_1', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_2', 'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_7_1', 'table_3_5', 'box_6_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1', 'table_6_3'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_5', 'table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'box_7_1', 'table_3_5', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 16
+Accuracy for jinaai/jina-embeddings-v3 with k=7: 0.80
+
+
+
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_6'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_6_3', 'table_6_2'}
+Tables to add: ['table_7_1', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_7_2', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a', 'table_3_2', 'table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_7_1', 'table_6_1', 'table_3_5', 'box_6_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1', 'table_6_3'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_5', 'table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'box_7_1', 'table_3_5', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 18
+Accuracy for jinaai/jina-embeddings-v3 with k=8: 0.90
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_6'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_6_3', 'table_6_2'}
+Tables to add: ['table_7_1', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_7_2', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_2', 'table_1_1', 'table_3_1', 'table_3_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_7_2', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_7_2', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_7_1', 'table_6_1', 'table_3_5', 'box_6_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_6_3', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1', 'table_6_3'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_5'}
+Tables to add: ['table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_5', 'table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'box_7_1', 'table_3_5', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 18
+Accuracy for jinaai/jina-embeddings-v3 with k=9: 0.90
+
+
+
+===============abhinand/MedEmbed-large-v0.1===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'abhinand/MedEmbed-large-v0.1' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 3.03 seconds.
+FAISS index for abhinand/MedEmbed-large-v0.1 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/abhinand_MedEmbed-large-v0.1_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_7', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_7', 'table_3_5', 'table_a', 'box_7_1']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_6_1'}
+Tables to add: ['table_6_1', 'table_6_3', 'table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2'}
+Tables to add: ['table_5_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'table_3_5'}
+Tables to add: ['table_3_7', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 15
+Accuracy for abhinand/MedEmbed-large-v0.1 with k=7: 0.75
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_7', 'table_3_5', 'table_a', 'box_7_1']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_7', 'table_3_5', 'table_a', 'box_7_1']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_b'}
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_6_1'}
+Tables to add: ['table_6_1', 'table_6_3', 'table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['box_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2'}
+Tables to add: ['table_5_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'table_3_5'}
+Tables to add: ['table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 15
+Accuracy for abhinand/MedEmbed-large-v0.1 with k=8: 0.75
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['box_7_1', 'table_3_3', 'table_3_7', 'table_3_5', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_b'}
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_6_1'}
+Tables to add: ['table_6_1', 'table_6_3', 'table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['box_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2'}
+Tables to add: ['table_5_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_3_5'}
+Tables to add: ['table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 16
+Accuracy for abhinand/MedEmbed-large-v0.1 with k=9: 0.80
+
+
+
+===============BAAI/bge-base-en-v1.5===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'BAAI/bge-base-en-v1.5' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 1.93 seconds.
+FAISS index for BAAI/bge-base-en-v1.5 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/BAAI_bge-base-en-v1.5_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1'}
+Tables to add: ['table_3_7', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3', 'table_3_4'}
+Tables to add: ['table_a', 'table_3_6']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_2', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'figure_7_1'}
+Tables to add: ['table_5_1', 'table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_6_1', 'table_3_1'}
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'figure_7_1'}
+Tables to add: ['table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 15
+Accuracy for BAAI/bge-base-en-v1.5 with k=7: 0.75
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3', 'table_3_4'}
+Tables to add: ['table_a', 'table_3_6']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['table_6_1', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2', 'figure_7_1'}
+Tables to add: ['table_5_1', 'table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_6_1', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_6']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'figure_7_1'}
+Tables to add: ['table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 15
+Accuracy for BAAI/bge-base-en-v1.5 with k=8: 0.75
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1', 'table_6_3', 'table_3_4'}
+Tables to add: ['table_a', 'table_3_6']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_3_6', 'table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['box_7_1', 'table_3_5', 'table_a', 'table_3_4']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_6_1', 'table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2', 'figure_7_1', 'table_3_5'}
+Tables to add: ['table_5_1', 'table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_6_1', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_6']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'figure_7_1'}
+Tables to add: ['table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 17
+Accuracy for BAAI/bge-base-en-v1.5 with k=9: 0.85
+
+
+
+===============BAAI/bge-large-en-v1.5===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'BAAI/bge-large-en-v1.5' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.61 seconds.
+FAISS index for BAAI/bge-large-en-v1.5 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/BAAI_bge-large-en-v1.5_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'table_6_1', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2', 'table_5_1'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_7', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'figure_7_1', 'table_3_5'}
+Tables to add: ['table_3_7', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 15
+Accuracy for BAAI/bge-large-en-v1.5 with k=7: 0.75
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a', 'table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'table_6_1', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2', 'table_5_1'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_3', 'figure_7_1', 'table_3_5'}
+Tables to add: ['table_3_7', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 15
+Accuracy for BAAI/bge-large-en-v1.5 with k=8: 0.75
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_7_2', 'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a', 'table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_6_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'table_6_1', 'box_6_1'}
+Tables to add: ['box_7_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'table_7_2', 'table_5_1'}
+Tables to add: ['table_a', 'table_2_3']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'figure_7_1', 'table_3_1'}
+Tables to add: ['table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_3', 'figure_7_1', 'table_3_5'}
+Tables to add: ['table_3_7', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 16
+Accuracy for BAAI/bge-large-en-v1.5 with k=9: 0.80
+
+
+
+===============BAAI/bge-small-en-v1.5===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'BAAI/bge-small-en-v1.5' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.75 seconds.
+FAISS index for BAAI/bge-small-en-v1.5 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/BAAI_bge-small-en-v1.5_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_4', 'table_3_6', 'box_3_1'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_7_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1', 'table_6_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a', 'table_2_3']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_5', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_5', 'table_3_1', 'table_3_4'}
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 17
+Accuracy for BAAI/bge-small-en-v1.5 with k=7: 0.85
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_4', 'table_3_6', 'box_3_1'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_7_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'figure_7_1', 'table_6_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_6_1', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_6_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a', 'table_2_3']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_5', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_5', 'table_3_1', 'table_3_4'}
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 17
+Accuracy for BAAI/bge-small-en-v1.5 with k=8: 0.85
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1', 'box_3_1', 'figure_7_1', 'table_3_6'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_6', 'box_3_1', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_3_2', 'table_7_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_6_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'table_a', 'table_3_6']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_6_3', 'box_6_1'}
+Tables to add: ['table_6_1', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_6_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1', 'figure_7_1', 'table_3_4'}
+Tables to add: ['table_a', 'table_2_3']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_5', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1', 'table_3_5', 'table_3_1', 'table_3_4'}
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1', 'table_3_5'}
+Tables to add: ['table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 19
+Accuracy for BAAI/bge-small-en-v1.5 with k=9: 0.95
+
+
+
+===============intfloat/multilingual-e5-base===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'intfloat/multilingual-e5-base' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.82 seconds.
+FAISS index for intfloat/multilingual-e5-base already exists. Loading it...
+Loaded FAISS index from data/faiss_index/intfloat_multilingual-e5-base_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_7', 'table_4_3', 'table_3_1'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_6'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_6'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_4_3', 'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_7_1'}
+Tables to add: ['table_7_2', 'figure_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3'}
+Tables to add: ['box_6_1']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_6_1', 'table_a', 'box_7_1']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_2', 'table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_4_3', 'table_3_7', 'table_3_5', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_4_3', 'table_3_7', 'table_3_5', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 12
+Accuracy for intfloat/multilingual-e5-base with k=7: 0.60
+
+
+
+existed tables: {'table_2_4', 'table_3_7', 'table_4_3', 'table_3_1'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_6'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_6'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_4_3', 'table_3_7', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'table_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['figure_7_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_1'}
+Tables to add: ['table_7_2', 'figure_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: []
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_6_1', 'table_a', 'box_7_1']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_2', 'table_6_1', 'table_a', 'table_5_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_4_3', 'table_3_7', 'table_3_5', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_4_3', 'table_3_7', 'table_3_5', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 13
+Accuracy for intfloat/multilingual-e5-base with k=8: 0.65
+
+
+
+existed tables: {'table_2_4', 'table_3_7', 'table_4_3', 'table_3_1'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_6'}
+Tables to add: ['table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_6'}
+Tables to add: ['table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_4_3', 'table_3_7', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7'}
+Tables to add: ['table_1_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'table_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'figure_7_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_1'}
+Tables to add: ['table_7_2', 'figure_7_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['figure_7_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_6_1', 'table_3_5', 'table_a', 'box_7_1']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_2', 'table_a', 'table_5_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_5_1'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: {'table_4_3', 'table_3_7', 'table_3_5', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_1', 'table_4_3', 'table_3_7', 'table_3_5', 'table_3_1', 'table_3_6'}
+Tables to add: ['table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 14
+Accuracy for intfloat/multilingual-e5-base with k=9: 0.70
+
+
+
+===============sentence-transformers/all-mpnet-base-v2===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'sentence-transformers/all-mpnet-base-v2' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.23 seconds.
+FAISS index for sentence-transformers/all-mpnet-base-v2 already exists. Loading it...
+Loaded FAISS index from data/faiss_index/sentence-transformers_all-mpnet-base-v2_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: []
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_5', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_2', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_2', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_5_1', 'table_3_4'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_b', 'table_3_5', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'box_7_1', 'table_3_5', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 17
+Accuracy for sentence-transformers/all-mpnet-base-v2 with k=7: 0.85
+
+
+
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_6_1', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_5', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_2', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_5_1', 'table_3_4'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_b', 'table_3_5', 'table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'box_7_1', 'table_3_5', 'table_3_4', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 18
+Accuracy for sentence-transformers/all-mpnet-base-v2 with k=8: 0.90
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_7'}
+Tables to add: ['table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_3_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_2', 'table_6_1', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a', 'table_3_1']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_2', 'table_3_5', 'table_a', 'box_7_1']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'figure_7_1'}
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['table_3_4', 'table_a']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3', 'box_6_1'}
+Tables to add: ['box_7_1', 'table_3_5', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_2', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_7_2', 'table_5_1', 'table_3_3', 'table_3_4'}
+Tables to add: ['table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_7_2', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_b', 'table_3_5', 'table_a', 'table_3_4']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_7_2', 'box_7_1', 'table_3_5', 'table_3_4', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 18
+Accuracy for sentence-transformers/all-mpnet-base-v2 with k=9: 0.90
+
+
+
+===============pritamdeka/S-PubMedBert-MS-MARCO===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'pritamdeka/S-PubMedBert-MS-MARCO' with default sentence transformer
+Using device: cpu
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 2.38 seconds.
+FAISS index for pritamdeka/S-PubMedBert-MS-MARCO already exists. Loading it...
+Loaded FAISS index from data/faiss_index/pritamdeka_S-PubMedBert-MS-MARCO_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: {'table_2_4', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_7']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_7']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_4'}
+Tables to add: ['table_3_3', 'table_6_3', 'table_3_5', 'box_6_1', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_7', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'box_6_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_1', 'box_6_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3'}
+Tables to add: ['table_3_5', 'box_6_1', 'table_a', 'table_3_4']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['table_3_5', 'box_6_1', 'table_a', 'table_3_4']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_5_1', 'table_7_2', 'table_3_3', 'table_3_5', 'table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_a', 'table_3_6']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 13
+Accuracy for pritamdeka/S-PubMedBert-MS-MARCO with k=7: 0.65
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_7']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1', 'table_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'box_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_6_3', 'table_3_5', 'box_6_1', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_7', 'table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_1', 'table_3_1', 'table_1_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_3_3', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['box_6_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'box_6_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_1', 'box_6_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3'}
+Tables to add: ['table_3_5', 'box_6_1', 'table_a', 'table_3_4']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['table_3_3', 'table_3_5', 'box_6_1', 'table_a', 'table_3_4']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_5_1', 'table_7_2', 'table_3_3', 'table_3_5', 'table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_6_3', 'box_6_1', 'table_a', 'table_3_6']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 13
+Accuracy for pritamdeka/S-PubMedBert-MS-MARCO with k=8: 0.65
+
+
+
+existed tables: {'table_2_4', 'table_3_1', 'table_3_7'}
+Tables to add: ['table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_2_4', 'table_3_1'}
+Tables to add: ['table_a', 'table_3_7']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1', 'table_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_a']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'box_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_6_3', 'table_3_5', 'box_6_1', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: {'table_3_1'}
+Tables to add: ['table_3_3', 'table_3_2', 'table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_7', 'table_3_1'}
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_1_2', 'table_1_1', 'table_3_1', 'table_3_2', 'table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_3_3', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'figure_7_1'}
+Tables to add: ['box_6_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'figure_7_1'}
+Tables to add: ['table_7_1', 'box_6_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'box_3_1'}
+Tables to add: ['table_7_1', 'box_6_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: {'table_6_3'}
+Tables to add: ['table_3_5', 'box_6_1', 'table_a', 'table_3_4']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['box_7_1', 'table_3_3', 'table_3_5', 'box_6_1', 'table_a', 'table_3_4']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_1'}
+Tables to add: ['table_6_3', 'table_6_2', 'box_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_2', 'table_6_1'}
+Tables to add: ['box_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_6_3'}
+Tables to add: ['table_5_1', 'table_7_2', 'table_3_3', 'table_3_5', 'table_a', 'table_3_4']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'table_3_1', 'box_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_3_5', 'table_a', 'table_3_4']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1', 'table_3_4'}
+Tables to add: ['table_3_3', 'table_3_5', 'table_6_3', 'box_6_1', 'table_a', 'table_3_6']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: {'box_3_1'}
+Tables to add: ['table_3_3', 'table_3_7', 'table_a', 'table_3_6']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 14
+Accuracy for pritamdeka/S-PubMedBert-MS-MARCO with k=9: 0.70
+
+
+
+===============microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext===============
+=========Entering load_embedder_with_fallbacks()=========
+[Attempt 1] Loading embedder 'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext' with default sentence transformer
+Using device: cpu
+No sentence-transformers model found with name microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext. Creating a new one with mean pooling.
+=========[Success] Loaded embedder with strategy: default sentence transformer and Exit=========
+[Time] Embedding model loaded in 3.15 seconds.
+FAISS index for microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext already exists. Loading it...
+Loaded FAISS index from data/faiss_index/microsoft_BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext_index.faiss.
+[Time] FAISS index loaded in 0.00 seconds.
+No LLM client provided. Loading Together LLM client...
+[Time] LLM client initiated in 0.00 seconds.
+---------Depression Assistant is ready to use!--------------
+
+
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 6
+Accuracy for microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext with k=7: 0.30
+
+
+
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+
+
+
+Correct count: 6
+Accuracy for microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext with k=8: 0.30
+
+
+
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--2. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a']
+--3. True Source: From Table 2.4 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_6_1', 'table_a', 'table_3_6']
+--4. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_a', 'table_3_6']
+--5. True Source: From Table 3.6 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_a']
+--6. True Source: From Table 3.2 in CANMAT 2023 depression guidelines,--
+existed tables: set()
+Tables to add: ['table_a']
+--7. True Source: From Table 3.7 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--8. True Source: From Table 3.1 in CANMAT 2023 depresion guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--9. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--10. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--11. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--12. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--13. True Source: From Figure 7.1 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_3', 'table_a', 'box_6_1']
+--14. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--15. True Source: Table 6.3 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--16. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_2_4', 'table_6_1', 'table_a']
+--17. True Source: Table 6.1 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--18. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_a']
+--19. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_6_1', 'table_a']
+--20. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+existed tables: set()
+Tables to add: ['table_3_5', 'table_a', 'box_7_1']
+--21. True Source: Table 3.5 in CANMAT 2023 depression guidelines--
+✅✅✅ Correct! Found the Table! ✅✅✅
+
+
+
+Correct count: 8
+Accuracy for microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext with k=9: 0.40
